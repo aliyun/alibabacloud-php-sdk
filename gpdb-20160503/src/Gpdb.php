@@ -85,6 +85,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelOperatorApiKeyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelOperatorApiKeyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelOperatorServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelOperatorServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceShrinkRequest;
@@ -160,6 +162,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelOperatorApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelOperatorApiKeyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelOperatorServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelOperatorServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
@@ -1348,13 +1354,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Provides an AI chat service by combining knowledge bases and large language models.
+     * Provides intelligent Q&A services by combining knowledge bases and large language models.
      *
      * @remarks
-     * This API allows you to interact with large language models through specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize the request, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided, and you can customize the system prompt.
+     * This API allows you to interact with large language models through specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided, and you can customize system prompts.
      * - **DBInstanceId**: Required. The ID of the database instance.
-     * - **KnowledgeParams**: Optional. The knowledge retrieval parameters, such as the retrieval content and merge strategy.
-     * - **ModelParams**: Required. The model inference parameters, such as the message list and the model name.
+     * - **KnowledgeParams**: Optional. The parameters related to knowledge retrieval, such as retrieval content and merge strategies.
+     * - **ModelParams**: Required. The parameters related to model inference, such as the message list and the model name.
      * - **PromptTemplate**: Optional. The custom system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseRequest
@@ -1428,13 +1434,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Provides an AI chat service by combining knowledge bases and large language models.
+     * Provides intelligent Q&A services by combining knowledge bases and large language models.
      *
      * @remarks
-     * This API allows you to interact with large language models through specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize the request, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided, and you can customize the system prompt.
+     * This API allows you to interact with large language models through specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided, and you can customize system prompts.
      * - **DBInstanceId**: Required. The ID of the database instance.
-     * - **KnowledgeParams**: Optional. The knowledge retrieval parameters, such as the retrieval content and merge strategy.
-     * - **ModelParams**: Required. The model inference parameters, such as the message list and the model name.
+     * - **KnowledgeParams**: Optional. The parameters related to knowledge retrieval, such as retrieval content and merge strategies.
+     * - **ModelParams**: Required. The parameters related to model inference, such as the message list and the model name.
      * - **PromptTemplate**: Optional. The custom system prompt template.
      *
      * @param Request - ChatWithKnowledgeBaseRequest
@@ -1456,11 +1462,11 @@ class Gpdb extends OpenApiClient
      * Provides AI chat services by combining knowledge bases and large language models. This streaming API can be invoked by using Server-Sent Events (SSE) or the Java asynchronous SDK.
      *
      * @remarks
-     * This API allows users to interact with large language models through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. In addition, it provides a default system prompt template and allows users to customize system prompts.
-     * - DBInstanceId: Required. Specifies the database instance ID.
-     * - KnowledgeParams: Optional. Contains knowledge retrieval parameters, such as retrieval content and merge strategies.
-     * - ModelParams: Required. Contains model inference parameters, such as the message list and the model name.
-     * - PromptTemplate: Optional. Used to customize the system prompt template.
+     * This API allows you to interact with large language models through specified knowledge base collections to obtain answers based on the knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. Additionally, this API provides a default system prompt template and allows you to customize system prompts.
+     * - DBInstanceId: required. Specifies the ID of the database instance.
+     * - KnowledgeParams: optional. Contains parameters related to knowledge retrieval, such as retrieval content and merge strategies.
+     * - ModelParams: required. Contains parameters related to model inference, such as the message list and the model name.
+     * - PromptTemplate: optional. Used to customize the system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1549,11 +1555,11 @@ class Gpdb extends OpenApiClient
      * Provides AI chat services by combining knowledge bases and large language models. This streaming API can be invoked by using Server-Sent Events (SSE) or the Java asynchronous SDK.
      *
      * @remarks
-     * This API allows users to interact with large language models through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. In addition, it provides a default system prompt template and allows users to customize system prompts.
-     * - DBInstanceId: Required. Specifies the database instance ID.
-     * - KnowledgeParams: Optional. Contains knowledge retrieval parameters, such as retrieval content and merge strategies.
-     * - ModelParams: Required. Contains model inference parameters, such as the message list and the model name.
-     * - PromptTemplate: Optional. Used to customize the system prompt template.
+     * This API allows you to interact with large language models through specified knowledge base collections to obtain answers based on the knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. Additionally, this API provides a default system prompt template and allows you to customize system prompts.
+     * - DBInstanceId: required. Specifies the ID of the database instance.
+     * - KnowledgeParams: optional. Contains parameters related to knowledge retrieval, such as retrieval content and merge strategies.
+     * - ModelParams: required. Contains parameters related to model inference, such as the message list and the model name.
+     * - PromptTemplate: optional. Used to customize the system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1629,11 +1635,11 @@ class Gpdb extends OpenApiClient
      * Provides AI chat services by combining knowledge bases and large language models. This streaming API can be invoked by using Server-Sent Events (SSE) or the Java asynchronous SDK.
      *
      * @remarks
-     * This API allows users to interact with large language models through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. In addition, it provides a default system prompt template and allows users to customize system prompts.
-     * - DBInstanceId: Required. Specifies the database instance ID.
-     * - KnowledgeParams: Optional. Contains knowledge retrieval parameters, such as retrieval content and merge strategies.
-     * - ModelParams: Required. Contains model inference parameters, such as the message list and the model name.
-     * - PromptTemplate: Optional. Used to customize the system prompt template.
+     * This API allows you to interact with large language models through specified knowledge base collections to obtain answers based on the knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. Additionally, this API provides a default system prompt template and allows you to customize system prompts.
+     * - DBInstanceId: required. Specifies the ID of the database instance.
+     * - KnowledgeParams: optional. Contains parameters related to knowledge retrieval, such as retrieval content and merge strategies.
+     * - ModelParams: required. Contains parameters related to model inference, such as the message list and the model name.
+     * - PromptTemplate: optional. Used to customize the system prompt template.
      *
      * @param Request - ChatWithKnowledgeBaseStreamRequest
      *
@@ -1858,10 +1864,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Checks for updatable versions of a SaaS service.
+     * Checks for available updates for a SaaS service.
      *
      * @remarks
-     * Checks for updatable versions of a SaaS service.
+     * Checks for available updates for a SaaS service.
      *
      * @param Request - CheckSaasServiceVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1904,10 +1910,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Checks for updatable versions of a SaaS service.
+     * Checks for available updates for a SaaS service.
      *
      * @remarks
-     * Checks for updatable versions of a SaaS service.
+     * Checks for available updates for a SaaS service.
      *
      * @param Request - CheckSaasServiceVersionRequest
      *
@@ -1925,7 +1931,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role is created.
+     * Checks whether the service-linked role is created.
      *
      * @param Request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1964,7 +1970,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role is created.
+     * Checks whether the service-linked role is created.
      *
      * @param Request - CheckServiceLinkedRoleRequest
      *
@@ -1982,7 +1988,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Restores data to a new AnalyticDB for PostgreSQL instance.
+     * Restores data to a specified instance.
      *
      * @param Request - CloneDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2029,7 +2035,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Restores data to a new AnalyticDB for PostgreSQL instance.
+     * Restores data to a specified instance.
      *
      * @param Request - CloneDBInstanceRequest
      *
@@ -2124,13 +2130,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an initial account for an AnalyticDB for PostgreSQL instance.
+     * Creates the initial account for an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
-     * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * - Before using an AnalyticDB for PostgreSQL instance, you must create an initial account.
+     * - This operation only supports creating an initial account. To create other accounts, refer to [Create a database account](https://help.aliyun.com/document_detail/50206.html).
      *
      * @param Request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2193,13 +2197,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an initial account for an AnalyticDB for PostgreSQL instance.
+     * Creates the initial account for an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
-     * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * - Before using an AnalyticDB for PostgreSQL instance, you must create an initial account.
+     * - This operation only supports creating an initial account. To create other accounts, refer to [Create a database account](https://help.aliyun.com/document_detail/50206.html).
      *
      * @param Request - CreateAccountRequest
      *
@@ -2302,7 +2304,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a backup set.
+     * Creates a backup.
      *
      * @param Request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2341,7 +2343,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a backup set.
+     * Creates a backup.
      *
      * @param Request - CreateBackupRequest
      *
@@ -2362,7 +2364,7 @@ class Gpdb extends OpenApiClient
      * Creates a Supabase project branch.
      *
      * @remarks
-     * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+     * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits resource configurations such as region, network, and storage from the main branch.
      *
      * @param Request - CreateBranchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2448,7 +2450,7 @@ class Gpdb extends OpenApiClient
      * Creates a Supabase project branch.
      *
      * @remarks
-     * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+     * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits resource configurations such as region, network, and storage from the main branch.
      *
      * @param Request - CreateBranchRequest
      *
@@ -2638,6 +2640,10 @@ class Gpdb extends OpenApiClient
         $query = [];
         if (null !== $request->AINodeSpecInfos) {
             @$query['AINodeSpecInfos'] = $request->AINodeSpecInfos;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
 
         if (null !== $request->backupId) {
@@ -2860,7 +2866,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an IP address whitelist group for an instance.
+     * Creates an IP whitelist group for an instance.
      *
      * @param tmpReq - CreateDBInstanceIPArrayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2917,7 +2923,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an IP address whitelist group for an instance.
+     * Creates an IP whitelist group for an instance.
      *
      * @param Request - CreateDBInstanceIPArrayRequest
      *
@@ -2935,12 +2941,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a plan for an AnalyticDB for PostgreSQL instance.
+     * Creates a scheduled plan.
      *
      * @remarks
-     *   The plan management feature is supported only for pay-as-you-go instances.
-     * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
-     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * - The billing method of the instance must be pay-as-you-go.
+     * - When you change the specifications or scale the instance, transient disconnections may occur. Set the execution time to off-peak hours.
+     * Make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL before you call this operation.
      *
      * @param Request - CreateDBInstancePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3011,12 +3017,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a plan for an AnalyticDB for PostgreSQL instance.
+     * Creates a scheduled plan.
      *
      * @remarks
-     *   The plan management feature is supported only for pay-as-you-go instances.
-     * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
-     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * - The billing method of the instance must be pay-as-you-go.
+     * - When you change the specifications or scale the instance, transient disconnections may occur. Set the execution time to off-peak hours.
+     * Make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL before you call this operation.
      *
      * @param Request - CreateDBInstancePlanRequest
      *
@@ -3436,7 +3442,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Service.
+     * Creates an external data service.
      *
      * @param Request - CreateExternalDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3491,7 +3497,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Service.
+     * Creates an external data service.
      *
      * @param Request - CreateExternalDataServiceRequest
      *
@@ -3857,6 +3863,89 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Creates a model creation operator sub-service.
+     *
+     * @remarks
+     * *Before invoking this operation, make sure that you fully understand the billing methods and pricing of the model creation operator sub-service, and confirm the prices for the target region and specifications in the console.**
+     * This operation creates a model creation operator sub-service and generates a sales order. If the request is successful, a ServiceId and an OrderId are returned. The sub-service is asynchronously activated by a sales callback, which does not mean that the sub-service is immediately active. You can invoke ListModelOperatorServices to query the sub-service status. After the sub-service is activated, you can invoke CreateModelOperatorApiKey to create invocation credentials.
+     * Each successful invocation may generate a new order. Do not query the progress by repeatedly creating sub-services. If an invocation timeout occurs or the result is ambiguous, check the original order and sub-service before you decide whether to retry.
+     *
+     * @param Request - CreateModelOperatorServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelOperatorServiceResponse
+     *
+     * @param CreateModelOperatorServiceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateModelOperatorServiceResponse
+     */
+    public function createModelOperatorServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cu) {
+            @$query['Cu'] = $request->cu;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelOperatorService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelOperatorServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a model creation operator sub-service.
+     *
+     * @remarks
+     * *Before invoking this operation, make sure that you fully understand the billing methods and pricing of the model creation operator sub-service, and confirm the prices for the target region and specifications in the console.**
+     * This operation creates a model creation operator sub-service and generates a sales order. If the request is successful, a ServiceId and an OrderId are returned. The sub-service is asynchronously activated by a sales callback, which does not mean that the sub-service is immediately active. You can invoke ListModelOperatorServices to query the sub-service status. After the sub-service is activated, you can invoke CreateModelOperatorApiKey to create invocation credentials.
+     * Each successful invocation may generate a new order. Do not query the progress by repeatedly creating sub-services. If an invocation timeout occurs or the result is ambiguous, check the original order and sub-service before you decide whether to retry.
+     *
+     * @param Request - CreateModelOperatorServiceRequest
+     *
+     * @returns CreateModelOperatorServiceResponse
+     *
+     * @param CreateModelOperatorServiceRequest $request
+     *
+     * @return CreateModelOperatorServiceResponse
+     */
+    public function createModelOperatorService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelOperatorServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a model service.
      *
      * @remarks
@@ -4153,7 +4242,7 @@ class Gpdb extends OpenApiClient
      * Creates a SaaS service.
      *
      * @remarks
-     * Before you use this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - CreateSaasServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4223,7 +4312,7 @@ class Gpdb extends OpenApiClient
      * Creates a SaaS service.
      *
      * @remarks
-     * Before you use this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - CreateSaasServiceRequest
      *
@@ -4401,7 +4490,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role.
+     * Creates a service-linked role (SLR).
      *
      * @param Request - CreateServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4444,7 +4533,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role.
+     * Creates a service-linked role (SLR).
      *
      * @param Request - CreateServiceLinkedRoleRequest
      *
@@ -4465,7 +4554,7 @@ class Gpdb extends OpenApiClient
      * Creates a snapshot for a Supabase project.
      *
      * @remarks
-     * Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+     * This operation creates a snapshot for a Supabase project based on a specified point in time or log sequence number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken ensures request idempotence.
      *
      * @param Request - CreateSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4523,7 +4612,7 @@ class Gpdb extends OpenApiClient
      * Creates a snapshot for a Supabase project.
      *
      * @remarks
-     * Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+     * This operation creates a snapshot for a Supabase project based on a specified point in time or log sequence number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken ensures request idempotence.
      *
      * @param Request - CreateSnapshotRequest
      *
@@ -4857,7 +4946,7 @@ class Gpdb extends OpenApiClient
      * Creates a backup job for a specified Supabase instance and returns the backup job ID.
      *
      * @remarks
-     * The instance must be in the running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+     * The instance must be in the running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query the backup sets.
      *
      * @param Request - CreateSupabaseBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4903,7 +4992,7 @@ class Gpdb extends OpenApiClient
      * Creates a backup job for a specified Supabase instance and returns the backup job ID.
      *
      * @remarks
-     * The instance must be in the running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+     * The instance must be in the running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query the backup sets.
      *
      * @param Request - CreateSupabaseBackupRequest
      *
@@ -5252,11 +5341,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete AI Node.
+     * Deletes AI nodes.
      *
      * @remarks
-     *   Subscription instances cannot be manually released. They are automatically released when they expire.
-     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+     * - Subscription instances do not support manual release, and automatic release is triggered when the instance expires.
+     * - Only pay-as-you-go instances in the **Running** state can be released by calling this operation.
      *
      * @param Request - DeleteAINodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5307,11 +5396,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete AI Node.
+     * Deletes AI nodes.
      *
      * @remarks
-     *   Subscription instances cannot be manually released. They are automatically released when they expire.
-     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+     * - Subscription instances do not support manual release, and automatic release is triggered when the instance expires.
+     * - Only pay-as-you-go instances in the **Running** state can be released by calling this operation.
      *
      * @param Request - DeleteAINodeRequest
      *
@@ -5522,7 +5611,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
+     * Deletes a backup. Note: Only physical manual backups can be deleted.
      *
      * @param Request - DeleteBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5565,7 +5654,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
+     * Deletes a backup. Note: Only physical manual backups can be deleted.
      *
      * @param Request - DeleteBackupRequest
      *
@@ -5586,7 +5675,7 @@ class Gpdb extends OpenApiClient
      * Deletes a Supabase branch.
      *
      * @remarks
-     * Deletes a specified Supabase branch. The default branch or a branch that still has child branches cannot be deleted.
+     * Deletes a specified Supabase branch. You cannot delete the default branch or a branch that has child branches.
      *
      * @param Request - DeleteBranchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5632,7 +5721,7 @@ class Gpdb extends OpenApiClient
      * Deletes a Supabase branch.
      *
      * @remarks
-     * Deletes a specified Supabase branch. The default branch or a branch that still has child branches cannot be deleted.
+     * Deletes a specified Supabase branch. You cannot delete the default branch or a branch that has child branches.
      *
      * @param Request - DeleteBranchRequest
      *
@@ -5906,10 +5995,8 @@ class Gpdb extends OpenApiClient
      * Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     *   Subscription instances cannot be manually released. They are automatically released when they expire.
-     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * - Subscription instances do not support manual release. Automatic release is triggered when the instance expires.
+     * - Only pay-as-you-go instances in the **Running** state can be released by calling this operation.
      *
      * @param Request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5963,10 +6050,8 @@ class Gpdb extends OpenApiClient
      * Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     *   Subscription instances cannot be manually released. They are automatically released when they expire.
-     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * - Subscription instances do not support manual release. Automatic release is triggered when the instance expires.
+     * - Only pay-as-you-go instances in the **Running** state can be released by calling this operation.
      *
      * @param Request - DeleteDBInstanceRequest
      *
@@ -5984,7 +6069,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes an IP whitelist group from an instance.
+     * Deletes an IP address whitelist group for an instance.
      *
      * @param Request - DeleteDBInstanceIPArrayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6027,7 +6112,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes an IP whitelist group from an instance.
+     * Deletes an IP address whitelist group for an instance.
      *
      * @param Request - DeleteDBInstanceIPArrayRequest
      *
@@ -6404,7 +6489,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uninstalls extensions.
+     * Uninstalls a plug-in.
      *
      * @param Request - DeleteExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6455,7 +6540,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uninstalls extensions.
+     * Uninstalls a plug-in.
      *
      * @param Request - DeleteExtensionRequest
      *
@@ -6473,7 +6558,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Service.
+     * Deletes an external data service.
      *
      * @param Request - DeleteExternalDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6520,7 +6605,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Service.
+     * Deletes an external data service.
      *
      * @param Request - DeleteExternalDataServiceRequest
      *
@@ -6753,7 +6838,143 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete Model Service.
+     * Deletes a model operator API key.
+     *
+     * @remarks
+     * Deletes a specified API key. A successful request indicates that the deletion intent is accepted, and external credentials are asynchronously cleaned up by the system. This does not mean that all underlying resources have been deleted.
+     * After the deletion is accepted, the key no longer appears in the ListModelOperatorApiKeys response. During the cleanup process, DescribeModelOperatorApiKey returns Deleting and does not return the plaintext key or the endpoint. After the cleanup is complete, it returns a resource not found error.
+     * Use the endpoint of the region to which the target key belongs, and specify an ApiKeyId greater than 0.
+     *
+     * @param Request - DeleteModelOperatorApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelOperatorApiKeyResponse
+     *
+     * @param DeleteModelOperatorApiKeyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteModelOperatorApiKeyResponse
+     */
+    public function deleteModelOperatorApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['ApiKeyId'] = $request->apiKeyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelOperatorApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelOperatorApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a model operator API key.
+     *
+     * @remarks
+     * Deletes a specified API key. A successful request indicates that the deletion intent is accepted, and external credentials are asynchronously cleaned up by the system. This does not mean that all underlying resources have been deleted.
+     * After the deletion is accepted, the key no longer appears in the ListModelOperatorApiKeys response. During the cleanup process, DescribeModelOperatorApiKey returns Deleting and does not return the plaintext key or the endpoint. After the cleanup is complete, it returns a resource not found error.
+     * Use the endpoint of the region to which the target key belongs, and specify an ApiKeyId greater than 0.
+     *
+     * @param Request - DeleteModelOperatorApiKeyRequest
+     *
+     * @returns DeleteModelOperatorApiKeyResponse
+     *
+     * @param DeleteModelOperatorApiKeyRequest $request
+     *
+     * @return DeleteModelOperatorApiKeyResponse
+     */
+    public function deleteModelOperatorApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteModelOperatorApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Releases a model operator service.
+     *
+     * @remarks
+     * Releases a specified model operator service. Standard deletion supports services in the active or locked state. You cannot initiate a new release for services in processing states such as locking or unlocking.
+     * Delete all API keys under the service that have not been marked for deletion. Subscription services must be unsubscribed or refunded through the sales process and cannot be released directly through this operation. Pay-as-you-go services are accepted for deletion after passing ownership, billing type, and associated key checks.
+     * A successful request indicates that the deletion intent is accepted and the system asynchronously cleans up associated resources. It does not mean that all underlying resources are deleted. You can call ListModelOperatorServices to query the deleting state. After all keys and gateway resources are physically cleaned up, the service no longer appears in the list.
+     * Use the endpoint of the region where the service resides to make the call. The Force parameter is not provided as a user parameter for this operation and cannot be used to bypass the associated key check.
+     *
+     * @param Request - DeleteModelOperatorServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelOperatorServiceResponse
+     *
+     * @param DeleteModelOperatorServiceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteModelOperatorServiceResponse
+     */
+    public function deleteModelOperatorServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelOperatorService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelOperatorServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Releases a model operator service.
+     *
+     * @remarks
+     * Releases a specified model operator service. Standard deletion supports services in the active or locked state. You cannot initiate a new release for services in processing states such as locking or unlocking.
+     * Delete all API keys under the service that have not been marked for deletion. Subscription services must be unsubscribed or refunded through the sales process and cannot be released directly through this operation. Pay-as-you-go services are accepted for deletion after passing ownership, billing type, and associated key checks.
+     * A successful request indicates that the deletion intent is accepted and the system asynchronously cleans up associated resources. It does not mean that all underlying resources are deleted. You can call ListModelOperatorServices to query the deleting state. After all keys and gateway resources are physically cleaned up, the service no longer appears in the list.
+     * Use the endpoint of the region where the service resides to make the call. The Force parameter is not provided as a user parameter for this operation and cannot be used to bypass the associated key check.
+     *
+     * @param Request - DeleteModelOperatorServiceRequest
+     *
+     * @returns DeleteModelOperatorServiceResponse
+     *
+     * @param DeleteModelOperatorServiceRequest $request
+     *
+     * @return DeleteModelOperatorServiceResponse
+     */
+    public function deleteModelOperatorService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteModelOperatorServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a model service.
      *
      * @remarks
      * Deletes a model service.
@@ -6799,7 +7020,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete Model Service.
+     * Deletes a model service.
      *
      * @remarks
      * Deletes a model service.
@@ -7167,10 +7388,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a snapshot of a Supabase project.
+     * Deletes a Supabase project snapshot.
      *
      * @remarks
-     * Deletes a snapshot from a specified Supabase project by ProjectId and Lsn.
+     * Deletes a snapshot in a specified Supabase project by ProjectId and Lsn.
      *
      * @param Request - DeleteSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7217,10 +7438,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a snapshot of a Supabase project.
+     * Deletes a Supabase project snapshot.
      *
      * @remarks
-     * Deletes a snapshot from a specified Supabase project by ProjectId and Lsn.
+     * Deletes a snapshot in a specified Supabase project by ProjectId and Lsn.
      *
      * @param Request - DeleteSnapshotRequest
      *
@@ -7654,6 +7875,10 @@ class Gpdb extends OpenApiClient
     /**
      * Deploy a private RAG service.
      *
+     * @remarks
+     * 1. 部署私有RAG服务前，请先创建初始账号。
+     * 2. 私有RAG服务支持向量接口，调用时请配置CA证书。
+     *
      * @param Request - DeployPrivateRAGServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7700,6 +7925,10 @@ class Gpdb extends OpenApiClient
 
     /**
      * Deploy a private RAG service.
+     *
+     * @remarks
+     * 1. 部署私有RAG服务前，请先创建初始账号。
+     * 2. 私有RAG服务支持向量接口，调用时请配置CA证书。
      *
      * @param Request - DeployPrivateRAGServiceRequest
      *
@@ -7782,12 +8011,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
-     * ## Limit
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * Queries the account information of an AnalyticDB for PostgreSQL database.
      *
      * @param Request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7834,12 +8058,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
-     * ## Limit
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * Queries the account information of an AnalyticDB for PostgreSQL database.
      *
      * @param Request - DescribeAccountsRequest
      *
@@ -8017,7 +8236,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a backup job.
+     * Retrieves the details of a backup task.
      *
      * @param Request - DescribeBackupJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8060,7 +8279,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a backup job.
+     * Retrieves the details of a backup task.
      *
      * @param Request - DescribeBackupJobRequest
      *
@@ -8081,9 +8300,7 @@ class Gpdb extends OpenApiClient
      * Queries the backup policy of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Periodic data backups effectively prevent data loss. You can call this operation to query the backup policy of an instance in elastic storage mode. To modify the backup policy, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
      *
      * @param Request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8125,9 +8342,7 @@ class Gpdb extends OpenApiClient
      * Queries the backup policy of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Periodic data backups effectively prevent data loss. You can call this operation to query the backup policy of an instance in elastic storage mode. To modify the backup policy, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
      *
      * @param Request - DescribeBackupPolicyRequest
      *
@@ -8212,7 +8427,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries vector dataset information.
+     * Queries the details of a vector dataset.
      *
      * @param Request - DescribeCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8275,7 +8490,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries vector dataset information.
+     * Queries the details of a vector dataset.
      *
      * @param Request - DescribeCollectionRequest
      *
@@ -8617,10 +8832,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the data bloat status of an AnalyticDB for PostgreSQL instance.
+     * Queries the data bloat status of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation queries the data bloat status of an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor engine version of the instance must be V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the engine version](https://help.aliyun.com/document_detail/139271.html).
+     * This operation queries the data bloat status of an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor engine version of the instance must be V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [Minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Version upgrade](https://help.aliyun.com/document_detail/139271.html).
      *
      * @param Request - DescribeDBInstanceDataBloatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8675,10 +8890,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the data bloat status of an AnalyticDB for PostgreSQL instance.
+     * Queries the data bloat status of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation queries the data bloat status of an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor engine version of the instance must be V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the engine version](https://help.aliyun.com/document_detail/139271.html).
+     * This operation queries the data bloat status of an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor engine version of the instance must be V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [Minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Version upgrade](https://help.aliyun.com/document_detail/139271.html).
      *
      * @param Request - DescribeDBInstanceDataBloatRequest
      *
@@ -8696,12 +8911,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+     * Queries the data skew of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Data skew affects database performance. AnalyticDB for PostgreSQL provides the DescribeDBInstanceDataSkew operation to help you query the data skew of an instance so that you can eliminate data skew promptly.
      *
      * @param Request - DescribeDBInstanceDataSkewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8756,12 +8969,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+     * Queries the data skew of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Data skew affects database performance. AnalyticDB for PostgreSQL provides the DescribeDBInstanceDataSkew operation to help you query the data skew of an instance so that you can eliminate data skew promptly.
      *
      * @param Request - DescribeDBInstanceDataSkewRequest
      *
@@ -8779,10 +8990,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     * Retrieves the node details of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+     * Queries the distribution and status of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDBInstanceDiagnosisSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8841,10 +9052,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     * Retrieves the node details of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+     * Queries the distribution and status of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDBInstanceDiagnosisSummaryRequest
      *
@@ -9172,7 +9383,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     * Queries the performance monitoring data of specified performance metrics for an AnalyticDB for PostgreSQL instance in reserved storage mode within a specified time period.
      *
      * @param Request - DescribeDBInstancePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9227,7 +9438,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     * Queries the performance monitoring data of specified performance metrics for an AnalyticDB for PostgreSQL instance in reserved storage mode within a specified time period.
      *
      * @param Request - DescribeDBInstancePerformanceRequest
      *
@@ -9336,7 +9547,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     * Retrieves the SSL information of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9375,7 +9586,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     * Retrieves the SSL information of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDBInstanceSSLRequest
      *
@@ -9662,7 +9873,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
+     * Retrieves the resource management mode of an instance.
      *
      * @param Request - DescribeDBResourceManagementModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9705,7 +9916,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the resource management mode of an AnalyticDB for PostgreSQL instance.
+     * Retrieves the resource management mode of an instance.
      *
      * @param Request - DescribeDBResourceManagementModeRequest
      *
@@ -9723,7 +9934,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the kernel update version information.
+     * Queries kernel update version information.
      *
      * @param Request - DescribeDBVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9766,7 +9977,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the kernel update version information.
+     * Queries kernel update version information.
      *
      * @param Request - DescribeDBVersionRequest
      *
@@ -9857,10 +10068,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     * Queries the data backups and restorable points of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     * Currently, only instances in elastic storage mode support viewing the backup list and backup details.
      *
      * @param Request - DescribeDataBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9931,10 +10142,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     * Queries the data backups and restorable points of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     * Currently, only instances in elastic storage mode support viewing the backup list and backup details.
      *
      * @param Request - DescribeDataBackupsRequest
      *
@@ -9952,7 +10163,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * Queries the data redistribution progress during node scaling for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      *
      * @param Request - DescribeDataReDistributeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9995,7 +10206,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * Queries the data redistribution progress during node scaling for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
      *
      * @param Request - DescribeDataReDistributeInfoRequest
      *
@@ -10096,7 +10307,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the performance metrics for data sharing.
+     * Queries the performance metrics for data sharing.
      *
      * @remarks
      * Currently, only serverless instances support the data sharing feature.
@@ -10154,7 +10365,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the performance metrics for data sharing.
+     * Queries the performance metrics for data sharing.
      *
      * @remarks
      * Currently, only serverless instances support the data sharing feature.
@@ -10175,7 +10386,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Describes the basic information about an AnalyticDB for PostgreSQL database.
+     * Queries the basic information of an AnalyticDB for PostgreSQL database.
      *
      * @param Request - DescribeDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10218,7 +10429,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Describes the basic information about an AnalyticDB for PostgreSQL database.
+     * Queries the basic information of an AnalyticDB for PostgreSQL database.
      *
      * @param Request - DescribeDatabaseRequest
      *
@@ -10236,12 +10447,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Retrieves all databases and users in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDiagnosisDimensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10280,12 +10486,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Retrieves all databases and users in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDiagnosisDimensionsRequest
      *
@@ -10303,12 +10504,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Queries the SQL execution information of an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time period.
      *
      * @param Request - DescribeDiagnosisMonitorPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10367,12 +10563,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Queries the SQL execution information of an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time period.
      *
      * @param Request - DescribeDiagnosisMonitorPerformanceRequest
      *
@@ -10390,12 +10581,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Retrieves a list of SQL queries for an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDiagnosisRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10470,12 +10656,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Retrieves a list of SQL queries for an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDiagnosisRecordsRequest
      *
@@ -10493,11 +10674,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+     * Queries the details of a specified query statement in an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * This operation queries the details of a specified query in an AnalyticDB for PostgreSQL instance, such as the query statement, execution plan text, and execution plan tree. Currently, this feature is supported only for instances in elastic storage mode with a minor engine version of V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the Milvus version](https://help.aliyun.com/document_detail/139271.html).
      *
      * @param Request - DescribeDiagnosisSQLInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10544,11 +10724,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+     * Queries the details of a specified query statement in an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * This operation queries the details of a specified query in an AnalyticDB for PostgreSQL instance, such as the query statement, execution plan text, and execution plan tree. Currently, this feature is supported only for instances in elastic storage mode with a minor engine version of V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the Milvus version](https://help.aliyun.com/document_detail/139271.html).
      *
      * @param Request - DescribeDiagnosisSQLInfoRequest
      *
@@ -10716,7 +10895,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the latest five download records of slow query information for AnalyticDB for PostgreSQL.
+     * Retrieves the five most recent download records of slow query information for AnalyticDB for PostgreSQL.
      *
      * @param Request - DescribeDownloadSQLLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10755,7 +10934,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the latest five download records of slow query information for AnalyticDB for PostgreSQL.
+     * Retrieves the five most recent download records of slow query information for AnalyticDB for PostgreSQL.
      *
      * @param Request - DescribeDownloadSQLLogsRequest
      *
@@ -10773,7 +10952,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Describes the extension information.
+     * Queries the details of an extension.
      *
      * @param Request - DescribeExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10820,7 +10999,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Describes the extension information.
+     * Queries the details of an extension.
      *
      * @param Request - DescribeExtensionRequest
      *
@@ -10903,7 +11082,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves E-MapReduce (EMR) clusters in the same Virtual Private Cloud (VPC).
+     * Retrieves EMR cluster instances in the same VPC.
      *
      * @param Request - DescribeHadoopClustersInSameNetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10946,7 +11125,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves E-MapReduce (EMR) clusters in the same Virtual Private Cloud (VPC).
+     * Retrieves EMR cluster instances in the same VPC.
      *
      * @param Request - DescribeHadoopClustersInSameNetRequest
      *
@@ -10964,7 +11143,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about a Hadoop cluster.
+     * Retrieves the configuration information of a Hadoop cluster.
      *
      * @param Request - DescribeHadoopConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11015,7 +11194,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about a Hadoop cluster.
+     * Retrieves the configuration information of a Hadoop cluster.
      *
      * @param Request - DescribeHadoopConfigsRequest
      *
@@ -11098,12 +11277,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+     * Queries the health status of instances and nodes.
      *
      * @remarks
-     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation queries the health status of instances, coordinator nodes (also known as master nodes), and compute nodes (also known as segment nodes) in AnalyticDB for PostgreSQL instances of the elastic storage mode and Serverless edition.
      *
      * @param Request - DescribeHealthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11146,12 +11323,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+     * Queries the health status of instances and nodes.
      *
      * @remarks
-     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation queries the health status of instances, coordinator nodes (also known as master nodes), and compute nodes (also known as segment nodes) in AnalyticDB for PostgreSQL instances of the elastic storage mode and Serverless edition.
      *
      * @param Request - DescribeHealthStatusRequest
      *
@@ -11510,7 +11685,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the usage metrics of model operators.
+     * Retrieves the usage of model operators.
      *
      * @param tmpReq - DescribeModelOperatorUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11587,7 +11762,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the usage metrics of model operators.
+     * Retrieves the usage of model operators.
      *
      * @param Request - DescribeModelOperatorUsageRequest
      *
@@ -11678,7 +11853,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     * Queries the parameter modification history of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeModifyParameterLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11725,7 +11900,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     * Queries the parameter modification history of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeModifyParameterLogRequest
      *
@@ -11824,10 +11999,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration parameter information of an AnalyticDB for PostgreSQL instance.
+     * Queries the configuration parameter information of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation retrieves the configuration parameters and related information only for AnalyticDB for PostgreSQL instances in elastic storage mode and Serverless Edition.
+     * This operation only supports querying the configuration parameters and related information of AnalyticDB for PostgreSQL instances in elastic storage mode and Serverless Edition.
      *
      * @param Request - DescribeParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11866,10 +12041,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration parameter information of an AnalyticDB for PostgreSQL instance.
+     * Queries the configuration parameter information of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation retrieves the configuration parameters and related information only for AnalyticDB for PostgreSQL instances in elastic storage mode and Serverless Edition.
+     * This operation only supports querying the configuration parameters and related information of AnalyticDB for PostgreSQL instances in elastic storage mode and Serverless Edition.
      *
      * @param Request - DescribeParametersRequest
      *
@@ -11887,7 +12062,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a private RAG service.
+     * Retrieves the details of a private RAG service.
      *
      * @param Request - DescribePrivateRAGServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11926,7 +12101,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a private RAG service.
+     * Retrieves the details of a private RAG service.
      *
      * @param Request - DescribePrivateRAGServiceRequest
      *
@@ -11944,12 +12119,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of vSwitches.
+     * Queries vSwitches.
      *
      * @remarks
-     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query available vSwitches in the specified region and zone.
      *
      * @param Request - DescribeRdsVSwitchsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12020,12 +12193,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of vSwitches.
+     * Queries vSwitches.
      *
      * @remarks
-     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query available vSwitches in the specified region and zone.
      *
      * @param Request - DescribeRdsVSwitchsRequest
      *
@@ -12043,12 +12214,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of VPCs.
+     * Retrieves a list of VPCs.
      *
      * @remarks
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query available VPCs in the specified region and zone.
      *
      * @param Request - DescribeRdsVpcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12115,12 +12284,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of VPCs.
+     * Retrieves a list of VPCs.
      *
      * @remarks
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query available VPCs in the specified region and zone.
      *
      * @param Request - DescribeRdsVpcsRequest
      *
@@ -12258,7 +12425,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of roles.
+     * Retrieves a list of roles.
      *
      * @param Request - DescribeRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12301,7 +12468,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of roles.
+     * Retrieves a list of roles.
      *
      * @param Request - DescribeRolesRequest
      *
@@ -13009,7 +13176,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     * Queries the features supported by the current AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeSupportFeaturesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13052,7 +13219,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     * Queries the features supported by the current AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeSupportFeaturesRequest
      *
@@ -13376,12 +13543,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+     * Retrieves the lock diagnosis list for an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation only supports querying the lock diagnosis list for instances of V6.0 in elastic storage mode.
      *
      * @param Request - DescribeWaitingSQLRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13456,12 +13621,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+     * Retrieves the lock diagnosis list for an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation only supports querying the lock diagnosis list for instances of V6.0 in elastic storage mode.
      *
      * @param Request - DescribeWaitingSQLRecordsRequest
      *
@@ -13479,7 +13642,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Obtains the deployable zone of the private RAG service.
+     * Retrieves the zones available for deploying the private RAG service.
      *
      * @param Request - DescribeZonesPrivateRAGServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13522,7 +13685,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Obtains the deployable zone of the private RAG service.
+     * Retrieves the zones available for deploying the private RAG service.
      *
      * @param Request - DescribeZonesPrivateRAGServiceRequest
      *
@@ -13611,13 +13774,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+     * Downloads the query diagnostic records of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
-     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation downloads the query diagnostic records of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to view download records and obtain the download URL.
+     * This feature is supported only for instances in elastic storage mode with a minor engine version of V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the Milvus version](https://help.aliyun.com/document_detail/139271.html).
      *
      * @param Request - DownloadDiagnosisRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13684,13 +13845,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+     * Downloads the query diagnostic records of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
-     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation downloads the query diagnostic records of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to view download records and obtain the download URL.
+     * This feature is supported only for instances in elastic storage mode with a minor engine version of V6.3.10.1 or later. For more information about how to view and upgrade the minor engine version, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Upgrade the Milvus version](https://help.aliyun.com/document_detail/139271.html).
      *
      * @param Request - DownloadDiagnosisRecordsRequest
      *
@@ -14029,12 +14188,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
+     * Enables resource group management for an AnalyticDB for PostgreSQL instance in elastic storage mode V6.0. After this feature is enabled, the resource management mode of the instance switches from resource queues to resource groups.
      *
      * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
-     * *   You can call this operation to enable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
-     * *   **Note: When the resource management mode is changed, your AnalyticDB for PostgreSQL instance is restarted and remains unavailable within 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
+     * - This operation is supported only for instances in elastic storage mode V6.0 with a minor version of v6.6.1.0 or later.
+     * - You can call this operation to enable resource group management only for instances in the **Running** state.
+     * - **Note: The instance is restarted during the switchover process and will be unavailable for about 5 minutes. Plan your business accordingly to avoid impacts.**
      *
      * @param Request - EnableDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14077,12 +14236,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
+     * Enables resource group management for an AnalyticDB for PostgreSQL instance in elastic storage mode V6.0. After this feature is enabled, the resource management mode of the instance switches from resource queues to resource groups.
      *
      * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
-     * *   You can call this operation to enable resource group management only for AnalyticDB for PostgreSQL instances that are in the **Running** state.
-     * *   **Note: When the resource management mode is changed, your AnalyticDB for PostgreSQL instance is restarted and remains unavailable within 5 minutes. To prevent your business from being affected, call this operation during off-peak hours.
+     * - This operation is supported only for instances in elastic storage mode V6.0 with a minor version of v6.6.1.0 or later.
+     * - You can call this operation to enable resource group management only for instances in the **Running** state.
+     * - **Note: The instance is restarted during the switchover process and will be unavailable for about 5 minutes. Plan your business accordingly to avoid impacts.**
      *
      * @param Request - EnableDBResourceGroupRequest
      *
@@ -14419,7 +14578,7 @@ class Gpdb extends OpenApiClient
      * Retrieves the database schema of a Supabase branch.
      *
      * @remarks
-     * Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+     * This operation queries the schema SQL content of a specified database in a specified branch. System databases such as postgres, template0, and template1 are not supported.
      *
      * @param Request - GetBranchSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14473,7 +14632,7 @@ class Gpdb extends OpenApiClient
      * Retrieves the database schema of a Supabase branch.
      *
      * @remarks
-     * Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+     * This operation queries the schema SQL content of a specified database in a specified branch. System databases such as postgres, template0, and template1 are not supported.
      *
      * @param Request - GetBranchSchemaRequest
      *
@@ -14575,7 +14734,7 @@ class Gpdb extends OpenApiClient
      * Queries the SaaS DataUnit usage.
      *
      * @remarks
-     * Aggregates SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
+     * Summarizes SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
      *
      * @param Request - GetSaasDataUnitUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14633,7 +14792,7 @@ class Gpdb extends OpenApiClient
      * Queries the SaaS DataUnit usage.
      *
      * @remarks
-     * Aggregates SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
+     * Summarizes SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
      *
      * @param Request - GetSaasDataUnitUsageRequest
      *
@@ -15209,10 +15368,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the available upgrade versions for a Supabase project.
+     * Queries the upgradable version information for a Supabase project.
      *
      * @remarks
-     * This operation queries the currently recommended stable version and the latest available upgrade version for a specified Supabase project.
+     * This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
      *
      * @param Request - GetSupabaseUpdateVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15255,10 +15414,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the available upgrade versions for a Supabase project.
+     * Queries the upgradable version information for a Supabase project.
      *
      * @remarks
-     * This operation queries the currently recommended stable version and the latest available upgrade version for a specified Supabase project.
+     * This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
      *
      * @param Request - GetSupabaseUpdateVersionRequest
      *
@@ -15533,7 +15692,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Authorizes an API key to access SaaS services.
+     * Grants an API key access to SaaS services.
      *
      * @remarks
      * Retrieves the details of an API key.
@@ -15593,7 +15752,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Authorizes an API key to access SaaS services.
+     * Grants an API key access to SaaS services.
      *
      * @remarks
      * Retrieves the details of an API key.
@@ -15703,7 +15862,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Processes active queries.
+     * Processes one or more active queries.
      *
      * @param Request - HandleActiveSQLRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15750,7 +15909,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Processes active queries.
+     * Processes one or more active queries.
      *
      * @param Request - HandleActiveSQLRecordRequest
      *
@@ -15912,7 +16071,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of AI services.
+     * Retrieves a list of AI services.
      *
      * @param Request - ListAIServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15963,7 +16122,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of AI services.
+     * Retrieves a list of AI services.
      *
      * @param Request - ListAIServicesRequest
      *
@@ -15981,10 +16140,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of API keys.
+     * Queries the list of API keys.
      *
      * @remarks
-     * Queries a list of API keys.
+     * Queries the list of API keys.
      *
      * @param Request - ListApiKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16039,10 +16198,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of API keys.
+     * Queries the list of API keys.
      *
      * @remarks
-     * Queries a list of API keys.
+     * Queries the list of API keys.
      *
      * @param Request - ListApiKeysRequest
      *
@@ -16060,7 +16219,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup jobs.
+     * Queries backup tasks.
      *
      * @param Request - ListBackupJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16103,7 +16262,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup jobs.
+     * Queries backup tasks.
      *
      * @param Request - ListBackupJobsRequest
      *
@@ -16121,10 +16280,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the branch list of a Supabase project.
+     * Queries the list of branches for a Supabase project.
      *
      * @remarks
-     * This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
+     * This operation performs a paging query for all branches under a specified Supabase project and supports filtering by parent branch, keyword, and sorting conditions.
      *
      * @param Request - ListBranchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16195,10 +16354,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the branch list of a Supabase project.
+     * Queries the list of branches for a Supabase project.
      *
      * @remarks
-     * This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
+     * This operation performs a paging query for all branches under a specified Supabase project and supports filtering by parent branch, keyword, and sorting conditions.
      *
      * @param Request - ListBranchesRequest
      *
@@ -16386,7 +16545,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Lists all plug-ins installed on an instance.
+     * Lists all extensions installed on the instance.
      *
      * @param Request - ListDatabaseExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16429,7 +16588,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Lists all plug-ins installed on an instance.
+     * Lists all extensions installed on the instance.
      *
      * @param Request - ListDatabaseExtensionsRequest
      *
@@ -16905,7 +17064,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * List all databases in an AnalyticDB for PostgreSQL instance.
+     * Lists all databases in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ListInstanceDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16952,7 +17111,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * List all databases in an AnalyticDB for PostgreSQL instance.
+     * Lists all databases in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ListInstanceDatabasesRequest
      *
@@ -17108,7 +17267,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of model services.
+     * Queries the list of model services.
      *
      * @param Request - ListModelOperatorServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17151,7 +17310,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of model services.
+     * Queries the list of model services.
      *
      * @param Request - ListModelOperatorServicesRequest
      *
@@ -17473,7 +17632,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of schemas.
+     * Lists schemas.
      *
      * @param Request - ListSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17540,7 +17699,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of schemas.
+     * Lists schemas.
      *
      * @param Request - ListSchemasRequest
      *
@@ -17627,7 +17786,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries slow SQL queries.
+     * Queries slow SQL records.
      *
      * @param Request - ListSlowSQLRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17710,7 +17869,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries slow SQL queries.
+     * Queries slow SQL records.
      *
      * @param Request - ListSlowSQLRecordsRequest
      *
@@ -17935,7 +18094,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the backup tasks and progress of a specified Supabase instance.
+     * Queries the backup tasks and task progress of a specified Supabase instance.
      *
      * @param Request - ListSupabaseBackupJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17990,7 +18149,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the backup tasks and progress of a specified Supabase instance.
+     * Queries the backup tasks and task progress of a specified Supabase instance.
      *
      * @param Request - ListSupabaseBackupJobsRequest
      *
@@ -18008,7 +18167,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the list of Supabase data backups.
+     * Queries a list of Supabase data backups.
      *
      * @param Request - ListSupabaseDataBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18091,7 +18250,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the list of Supabase data backups.
+     * Queries a list of Supabase data backups.
      *
      * @param Request - ListSupabaseDataBackupsRequest
      *
@@ -18109,10 +18268,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the tags of a Supabase instance.
+     * Queries the list of tags for a Supabase instance.
      *
      * @remarks
-     * - This operation queries the tag list of Supabase instances.
+     * - This operation queries the list of Supabase instances.
      *
      * @param Request - ListSupabaseProjectTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18167,10 +18326,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the tags of a Supabase instance.
+     * Queries the list of tags for a Supabase instance.
      *
      * @remarks
-     * - This operation queries the tag list of Supabase instances.
+     * - This operation queries the list of Supabase instances.
      *
      * @param Request - ListSupabaseProjectTagsRequest
      *
@@ -18674,7 +18833,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     * Modifies the description of a database account.
      *
      * @param Request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18725,7 +18884,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     * Modifies the description of a database account.
      *
      * @param Request - ModifyAccountDescriptionRequest
      *
@@ -18905,7 +19064,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     * Modifies the compute resource threshold and idle release wait time of an AnalyticDB for PostgreSQL Serverless instance in automatic scheduling mode.
      *
      * @param Request - ModifyDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18960,7 +19119,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     * Modifies the compute resource threshold and idle release wait time of an AnalyticDB for PostgreSQL Serverless instance in automatic scheduling mode.
      *
      * @param Request - ModifyDBInstanceConfigRequest
      *
@@ -19120,12 +19279,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the description of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Modifies the description of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ModifyDBInstanceDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19172,12 +19326,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the description of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Modifies the description of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ModifyDBInstanceDescriptionRequest
      *
@@ -19196,11 +19345,6 @@ class Gpdb extends OpenApiClient
 
     /**
      * Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
-     *
-     * @remarks
-     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param Request - ModifyDBInstanceMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19253,11 +19397,6 @@ class Gpdb extends OpenApiClient
     /**
      * Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
      *
-     * @remarks
-     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param Request - ModifyDBInstanceMaintainTimeRequest
      *
      * @returns ModifyDBInstanceMaintainTimeResponse
@@ -19274,13 +19413,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the network type of an AnalyticDB for PostgreSQL instance.
+     * Switches the network type of an instance.
      *
      * @remarks
-     * ##
-     * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * ## Usage notes
+     * This operation only supports changing the network type of AnalyticDB for PostgreSQL instances that use the reserved storage mode.
      * ## QPS limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * The default QPS limit per user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     * <props="china">The QPS values in this document are default reference values only. For accurate information, see [API rate limit quotas](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - ModifyDBInstanceNetworkTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19335,13 +19475,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the network type of an AnalyticDB for PostgreSQL instance.
+     * Switches the network type of an instance.
      *
      * @remarks
-     * ##
-     * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * ## Usage notes
+     * This operation only supports changing the network type of AnalyticDB for PostgreSQL instances that use the reserved storage mode.
      * ## QPS limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * The default QPS limit per user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     * <props="china">The QPS values in this document are default reference values only. For accurate information, see [API rate limit quotas](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - ModifyDBInstanceNetworkTypeRequest
      *
@@ -19428,10 +19569,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     * Moves an AnalyticDB for PostgreSQL instance to a specified resource group.
      *
      * @remarks
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     * Resource Management allows you to build appropriate resource organizational structures based on your business needs. You can use directories, folders, accounts, and resource groups to hierarchically organize and manage your cloud resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html).
      *
      * @param Request - ModifyDBInstanceResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19494,10 +19635,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     * Moves an AnalyticDB for PostgreSQL instance to a specified resource group.
      *
      * @remarks
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     * Resource Management allows you to build appropriate resource organizational structures based on your business needs. You can use directories, folders, accounts, and resource groups to hierarchically organize and manage your cloud resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html).
      *
      * @param Request - ModifyDBInstanceResourceGroupRequest
      *
@@ -19580,7 +19721,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group.
+     * Modifies a resource group.
      *
      * @param tmpReq - ModifyDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19633,7 +19774,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group.
+     * Modifies a resource group.
      *
      * @param Request - ModifyDBResourceGroupRequest
      *
@@ -19651,7 +19792,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify External Data Service.
+     * Modifies an external data service.
      *
      * @param Request - ModifyExternalDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19706,7 +19847,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify External Data Service.
+     * Modifies an external data service.
      *
      * @param Request - ModifyExternalDataServiceRequest
      *
@@ -20002,9 +20143,7 @@ class Gpdb extends OpenApiClient
      * Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * This operation modifies the configuration parameters only for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless Edition.
      *
      * @param Request - ModifyParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20054,9 +20193,7 @@ class Gpdb extends OpenApiClient
      * Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * This operation modifies the configuration parameters only for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless Edition.
      *
      * @param Request - ModifyParametersRequest
      *
@@ -20151,11 +20288,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+     * Enables or disables the SQL Explorer feature for a specified instance.
      *
      * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
-     * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
+     * - Only storage-reserved instances are supported.
+     * - Only the Serverless auto-scheduling edition is supported.
      *
      * @param Request - ModifySQLCollectorPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20198,11 +20335,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+     * Enables or disables the SQL Explorer feature for a specified instance.
      *
      * @remarks
-     *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
-     * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
+     * - Only storage-reserved instances are supported.
+     * - Only the Serverless auto-scheduling edition is supported.
      *
      * @param Request - ModifySQLCollectorPolicyRequest
      *
@@ -20675,7 +20812,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto start/stop policy for a Supabase instance.
+     * Modifies the automatic start and stop policy for Supabase.
      *
      * @remarks
      * - Only AnalyticDB for PostgreSQL Supabase instances are supported.
@@ -20729,7 +20866,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto start/stop policy for a Supabase instance.
+     * Modifies the automatic start and stop policy for Supabase.
      *
      * @remarks
      * - Only AnalyticDB for PostgreSQL Supabase instances are supported.
@@ -20750,10 +20887,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+     * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configuration of a specified Supabase instance.
      *
      * @remarks
-     * You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after modification.
+     * You can call the DescribeSupabaseBackupPolicy operation to query the current backup policy, and then call this operation again to confirm the configuration after modification.
      *
      * @param Request - ModifySupabaseBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20816,10 +20953,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+     * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configuration of a specified Supabase instance.
      *
      * @remarks
-     * You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after modification.
+     * You can call the DescribeSupabaseBackupPolicy operation to query the current backup policy, and then call this operation again to confirm the configuration after modification.
      *
      * @param Request - ModifySupabaseBackupPolicyRequest
      *
@@ -20840,7 +20977,7 @@ class Gpdb extends OpenApiClient
      * Modifies the description of a Supabase project.
      *
      * @remarks
-     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
+     * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase.**
      *
      * @param Request - ModifySupabaseProjectDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20890,7 +21027,7 @@ class Gpdb extends OpenApiClient
      * Modifies the description of a Supabase project.
      *
      * @remarks
-     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
+     * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase.**
      *
      * @param Request - ModifySupabaseProjectDescriptionRequest
      *
@@ -20908,10 +21045,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the resources of a Supabase instance, including upgrading or downgrading compute resources and expanding storage resources (cloud disk size).
+     * Modifies the resources of a Supabase instance to upgrade or decrease the quota of compute resources, or expand storage resources (cloud disk size).
      *
      * @remarks
-     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.
+     * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase.**
      *
      * @param Request - ModifySupabaseProjectResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20966,10 +21103,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the resources of a Supabase instance, including upgrading or downgrading compute resources and expanding storage resources (cloud disk size).
+     * Modifies the resources of a Supabase instance to upgrade or decrease the quota of compute resources, or expand storage resources (cloud disk size).
      *
      * @remarks
-     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.
+     * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase.**
      *
      * @param Request - ModifySupabaseProjectResourceRequest
      *
@@ -21066,7 +21203,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     * Modifies the vector engine optimization configuration of an instance.
      *
      * @param Request - ModifyVectorConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21113,7 +21250,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     * Modifies the vector engine optimization configuration of an instance.
      *
      * @param Request - ModifyVectorConfigurationRequest
      *
@@ -21267,10 +21404,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Pauses a SaaS service.
+     * Pauses the SaaS service.
      *
      * @remarks
-     * Deletes a model service.
+     * Deletes the model service.
      *
      * @param Request - PauseSaasServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21313,10 +21450,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Pauses a SaaS service.
+     * Pauses the SaaS service.
      *
      * @remarks
-     * Deletes a model service.
+     * Deletes the model service.
      *
      * @param Request - PauseSaasServiceRequest
      *
@@ -21337,7 +21474,7 @@ class Gpdb extends OpenApiClient
      * Pauses a Supabase instance.
      *
      * @remarks
-     * Pauses a Supabase instance.
+     * This operation pauses a Supabase instance.
      *
      * @param Request - PauseSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21383,7 +21520,7 @@ class Gpdb extends OpenApiClient
      * Pauses a Supabase instance.
      *
      * @remarks
-     * Pauses a Supabase instance.
+     * This operation pauses a Supabase instance.
      *
      * @param Request - PauseSupabaseProjectRequest
      *
@@ -21934,7 +22071,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Rebalances an AnalyticDB for PostgreSQL instance.
+     * Balances the deployment of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - RebalanceDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21977,7 +22114,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Rebalances an AnalyticDB for PostgreSQL instance.
+     * Balances the deployment of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - RebalanceDBInstanceRequest
      *
@@ -22161,7 +22298,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     * Resets the password of an account.
      *
      * @param Request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22208,7 +22345,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     * Resets the password of an account.
      *
      * @param Request - ResetAccountPasswordRequest
      *
@@ -22229,7 +22366,7 @@ class Gpdb extends OpenApiClient
      * Resets a Supabase branch.
      *
      * @remarks
-     * This operation resets a child branch to the latest data of its parent branch. You cannot reset main branches, branches without a parent branch, branches with child branches, or protected branches.
+     * This operation resets a child branch to the latest data of its parent branch. You cannot reset the main branch, branches without a parent branch, branches that have child branches, or protected branches.
      *
      * @param Request - ResetBranchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22279,7 +22416,7 @@ class Gpdb extends OpenApiClient
      * Resets a Supabase branch.
      *
      * @remarks
-     * This operation resets a child branch to the latest data of its parent branch. You cannot reset main branches, branches without a parent branch, branches with child branches, or protected branches.
+     * This operation resets a child branch to the latest data of its parent branch. You cannot reset the main branch, branches without a parent branch, branches that have child branches, or protected branches.
      *
      * @param Request - ResetBranchRequest
      *
@@ -22436,9 +22573,7 @@ class Gpdb extends OpenApiClient
      * Restarts an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
-     * ## Limit
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * The restart process typically takes 3 to 30 minutes. During the restart, the instance cannot provide external services. Perform this operation during off-peak hours. After the restart is complete, the instance status changes to Running, and you can access the instance normally.
      *
      * @param Request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22484,9 +22619,7 @@ class Gpdb extends OpenApiClient
      * Restarts an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
-     * ## Limit
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * The restart process typically takes 3 to 30 minutes. During the restart, the instance cannot provide external services. Perform this operation during off-peak hours. After the restart is complete, the instance status changes to Running, and you can access the instance normally.
      *
      * @param Request - RestartDBInstanceRequest
      *
@@ -22507,7 +22640,7 @@ class Gpdb extends OpenApiClient
      * Restarts a Supabase project.
      *
      * @remarks
-     * Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+     * Restarts a specified Supabase project. A request ID is returned upon a successful call, and the restart process runs asynchronously in the backend.
      *
      * @param Request - RestartSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22553,7 +22686,7 @@ class Gpdb extends OpenApiClient
      * Restarts a Supabase project.
      *
      * @remarks
-     * Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+     * Restarts a specified Supabase project. A request ID is returned upon a successful call, and the restart process runs asynchronously in the backend.
      *
      * @param Request - RestartSupabaseProjectRequest
      *
@@ -22571,10 +22704,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Recovers a Supabase branch.
+     * Restores a Supabase branch.
      *
      * @remarks
-     * Recovers a target branch to a specified point in time or LSN of the source branch. Before recovery, you can specify a backup branch name to preserve the original target branch.
+     * This operation restores the target branch to a specified point in time or LSN of the source branch. You can specify a backup branch name to preserve the original target branch before the restoration.
      *
      * @param Request - RestoreBranchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22641,10 +22774,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Recovers a Supabase branch.
+     * Restores a Supabase branch.
      *
      * @remarks
-     * Recovers a target branch to a specified point in time or LSN of the source branch. Before recovery, you can specify a backup branch name to preserve the original target branch.
+     * This operation restores the target branch to a specified point in time or LSN of the source branch. You can specify a backup branch name to preserve the original target branch before the restoration.
      *
      * @param Request - RestoreBranchRequest
      *
@@ -22665,7 +22798,7 @@ class Gpdb extends OpenApiClient
      * Restores a Supabase project from a snapshot.
      *
      * @remarks
-     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and the target branch. FinalizeRestore controls whether to complete the restoration immediately.
+     * This operation restores a project to a target branch based on a snapshot LSN. You can specify the name of the restored branch and the target branch. The FinalizeRestore parameter specifies whether to complete the restoration immediately.
      *
      * @param Request - RestoreSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22731,7 +22864,7 @@ class Gpdb extends OpenApiClient
      * Restores a Supabase project from a snapshot.
      *
      * @remarks
-     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and the target branch. FinalizeRestore controls whether to complete the restoration immediately.
+     * This operation restores a project to a target branch based on a snapshot LSN. You can specify the name of the restored branch and the target branch. The FinalizeRestore parameter specifies whether to complete the restoration immediately.
      *
      * @param Request - RestoreSnapshotRequest
      *
@@ -22885,7 +23018,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resumes a SaaS service.
+     * Restores a SaaS service.
      *
      * @remarks
      * Deletes a model service.
@@ -22931,7 +23064,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resumes a SaaS service.
+     * Restores a SaaS service.
      *
      * @remarks
      * Deletes a model service.
@@ -22955,7 +23088,7 @@ class Gpdb extends OpenApiClient
      * Resumes a Supabase instance.
      *
      * @remarks
-     * Queries the details of a Supabase instance.
+     * This operation queries the details of a Supabase instance.
      *
      * @param Request - ResumeSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23001,7 +23134,7 @@ class Gpdb extends OpenApiClient
      * Resumes a Supabase instance.
      *
      * @remarks
-     * Queries the details of a Supabase instance.
+     * This operation queries the details of a Supabase instance.
      *
      * @param Request - ResumeSupabaseProjectRequest
      *
@@ -23103,7 +23236,7 @@ class Gpdb extends OpenApiClient
      * Sets the default branch for a Supabase project.
      *
      * @remarks
-     * Sets a specified branch as the default branch for a Supabase project.
+     * Sets the specified branch as the default branch for a Supabase project.
      *
      * @param Request - SetAsDefaultBranchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23153,7 +23286,7 @@ class Gpdb extends OpenApiClient
      * Sets the default branch for a Supabase project.
      *
      * @remarks
-     * Sets a specified branch as the default branch for a Supabase project.
+     * Sets the specified branch as the default branch for a Supabase project.
      *
      * @param Request - SetAsDefaultBranchRequest
      *
@@ -23331,10 +23464,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Switches between the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
+     * Switches the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
+     * This operation is not supported for instances in elastic storage mode or serverless instances.
      *
      * @param Request - SwitchDBInstanceNetTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23381,10 +23514,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Switches between the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
+     * Switches the internal and public endpoints of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation is not supported for AnalyticDB for PostgreSQL instances in elastic storage mode or Serverless mode.
+     * This operation is not supported for instances in elastic storage mode or serverless instances.
      *
      * @param Request - SwitchDBInstanceNetTypeRequest
      *
@@ -23647,7 +23780,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Unbinds database roles from a resource group.
+     * Disassociates a resource group from database roles.
      *
      * @param tmpReq - UnbindDBResourceGroupWithRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23704,7 +23837,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Unbinds database roles from a resource group.
+     * Disassociates a resource group from database roles.
      *
      * @param Request - UnbindDBResourceGroupWithRoleRequest
      *
@@ -23793,7 +23926,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+     * Detaches tags from the specified AnalyticDB for PostgreSQL instances. After a tag is detached, it is automatically deleted if it is not attached to any other instances.
      *
      * @param Request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23864,7 +23997,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+     * Detaches tags from the specified AnalyticDB for PostgreSQL instances. After a tag is detached, it is automatically deleted if it is not attached to any other instances.
      *
      * @param Request - UntagResourcesRequest
      *
@@ -24678,13 +24811,13 @@ class Gpdb extends OpenApiClient
      * Asynchronously uploads a document.
      *
      * @remarks
-     * The server loads and splits a document based on the file name extension, performs vectorization by using the embedding model specified when you invoke the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multimodal embedding of text and images in various formats.
+     * The server loads and splits the document based on the file name extension, performs vectorization by using the embedding model specified when the CreateDocumentCollection operation is called, and then writes the document to the specified document collection. This operation supports multimodal embeddings for text and images in various formats.
      * Related operations:
-     * - You can invoke the GetUploadDocumentJob operation to query the progress and result of a document upload job.
-     * - You can invoke the CancelUploadDocumentJob operation to cancel a document upload job.
-     * > - After you commit a document upload request, the request is queued for processing. A maximum of 20 documents in the Pending and Running states can be processed for each Resource Access Management (RAM) user or Alibaba Cloud account.
-     * >- A text document can be split into a maximum of 100,000 chunks.
-     * >- If the document collection uses the OnePeace model, a maximum of 10,000 images can be uploaded and queried for each RAM user or Alibaba Cloud account.
+     * - You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
+     * - You can call the CancelUploadDocumentJob operation to cancel a document upload job.
+     * > - After you submit a document upload request, the request is queued for processing. Under a Resource Access Management (RAM) user or an Alibaba Cloud account, a maximum of 20 documents in the Pending and Running states can be processed.
+     * > - A text document can be split into a maximum of 100,000 chunks.
+     * > - If the document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query a maximum of 10,000 images.
      *
      * @param tmpReq - UploadDocumentAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24806,13 +24939,13 @@ class Gpdb extends OpenApiClient
      * Asynchronously uploads a document.
      *
      * @remarks
-     * The server loads and splits a document based on the file name extension, performs vectorization by using the embedding model specified when you invoke the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multimodal embedding of text and images in various formats.
+     * The server loads and splits the document based on the file name extension, performs vectorization by using the embedding model specified when the CreateDocumentCollection operation is called, and then writes the document to the specified document collection. This operation supports multimodal embeddings for text and images in various formats.
      * Related operations:
-     * - You can invoke the GetUploadDocumentJob operation to query the progress and result of a document upload job.
-     * - You can invoke the CancelUploadDocumentJob operation to cancel a document upload job.
-     * > - After you commit a document upload request, the request is queued for processing. A maximum of 20 documents in the Pending and Running states can be processed for each Resource Access Management (RAM) user or Alibaba Cloud account.
-     * >- A text document can be split into a maximum of 100,000 chunks.
-     * >- If the document collection uses the OnePeace model, a maximum of 10,000 images can be uploaded and queried for each RAM user or Alibaba Cloud account.
+     * - You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
+     * - You can call the CancelUploadDocumentJob operation to cancel a document upload job.
+     * > - After you submit a document upload request, the request is queued for processing. Under a Resource Access Management (RAM) user or an Alibaba Cloud account, a maximum of 20 documents in the Pending and Running states can be processed.
+     * > - A text document can be split into a maximum of 100,000 chunks.
+     * > - If the document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query a maximum of 10,000 images.
      *
      * @param Request - UploadDocumentAsyncRequest
      *
@@ -25029,15 +25162,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uploads vector data to a vector collection.
+     * Uploads vector data to a specified collection.
      *
      * @remarks
      * >Notice:
-     * **SDK于2023-11-8日升级，从最大512KB数据请求量升级到10MB。**
-     * 请使用最新版SDK或不低于此版本：
-     * - Java：1.2.1
-     * - Go：v3.3.1
-     * - Python：3.3.1
+     * **The SDK was upgraded on November 8, 2023, increasing the maximum data request size from 512 KB to 10 MB.**
+     * Use the latest SDK or a version no earlier than the following:
+     * - Java: 1.2.1
+     * - Go: v3.3.1
+     * - Python: 3.3.1
      *
      * @param tmpReq - UpsertCollectionDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25112,15 +25245,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uploads vector data to a vector collection.
+     * Uploads vector data to a specified collection.
      *
      * @remarks
      * >Notice:
-     * **SDK于2023-11-8日升级，从最大512KB数据请求量升级到10MB。**
-     * 请使用最新版SDK或不低于此版本：
-     * - Java：1.2.1
-     * - Go：v3.3.1
-     * - Python：3.3.1
+     * **The SDK was upgraded on November 8, 2023, increasing the maximum data request size from 512 KB to 10 MB.**
+     * Use the latest SDK or a version no earlier than the following:
+     * - Java: 1.2.1
+     * - Go: v3.3.1
+     * - Python: 3.3.1
      *
      * @param Request - UpsertCollectionDataRequest
      *

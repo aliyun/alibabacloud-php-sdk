@@ -18,6 +18,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $autoRenew;
+
+    /**
+     * @var string
+     */
     public $backupId;
 
     /**
@@ -241,6 +246,7 @@ class CreateDBInstanceRequest extends Model
     public $zoneId;
     protected $_name = [
         'AINodeSpecInfos' => 'AINodeSpecInfos',
+        'autoRenew' => 'AutoRenew',
         'backupId' => 'BackupId',
         'cacheStorageSize' => 'CacheStorageSize',
         'clientToken' => 'ClientToken',
@@ -311,6 +317,10 @@ class CreateDBInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
 
         if (null !== $this->backupId) {
@@ -520,6 +530,10 @@ class CreateDBInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
 
         if (isset($map['BackupId'])) {

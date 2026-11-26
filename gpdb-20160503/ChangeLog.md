@@ -1,3 +1,10 @@
+2026-11-26 Version: 3.17.0
+- Support API CreateModelOperatorService.
+- Support API DeleteModelOperatorApiKey.
+- Support API DeleteModelOperatorService.
+- Update API CreateDBInstance: add request parameters AutoRenew.
+
+
 2026-11-12 Version: 3.16.1
 - Update API CreateModelOperatorApiKey: add response parameters Body.Status.
 - Update API DescribeDBInstanceAttribute: add response parameters Body.Items.$.DiskNotifyThreshold.
