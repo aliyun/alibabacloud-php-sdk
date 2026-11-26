@@ -1,3 +1,14 @@
+2026-11-26 Version: 1.12.0
+- Support API DescribeJobPerformance.
+- Update API ModifyDtsJob: add request parameters NeedRestart.
+- Update API ModifyDtsJob: add request parameters OnlineDdlShadowTableRule.
+- Update API ModifyDtsJob: add request parameters OnlineDdlTrashTableRule.
+- Update API ModifyDtsJob: add request parameters SqlparserDmsOriginalDdl.
+- Update API ModifyDtsJob: add request parameters SqlparserGhostOriginalDdl.
+- Update API ModifyDtsJob: add request parameters WhitelistDmsOnlineDdlEnable.
+- Update API ModifyDtsJob: add request parameters WhitelistGhostOnlineDdlEnable.
+
+
 2026-10-28 Version: 1.11.0
 - Support API CreateGadInstance.
 - Support API CreateGadOrder.

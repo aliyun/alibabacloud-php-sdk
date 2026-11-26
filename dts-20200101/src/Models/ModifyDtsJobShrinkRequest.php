@@ -59,6 +59,21 @@ class ModifyDtsJobShrinkRequest extends Model
     public $modifyTypeEnum;
 
     /**
+     * @var bool
+     */
+    public $needRestart;
+
+    /**
+     * @var string
+     */
+    public $onlineDdlShadowTableRule;
+
+    /**
+     * @var string
+     */
+    public $onlineDdlTrashTableRule;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -76,12 +91,32 @@ class ModifyDtsJobShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $sqlparserDmsOriginalDdl;
+
+    /**
+     * @var bool
+     */
+    public $sqlparserGhostOriginalDdl;
+
+    /**
+     * @var bool
+     */
     public $structureInitialization;
 
     /**
      * @var string
      */
     public $synchronizationDirection;
+
+    /**
+     * @var bool
+     */
+    public $whitelistDmsOnlineDdlEnable;
+
+    /**
+     * @var bool
+     */
+    public $whitelistGhostOnlineDdlEnable;
 
     /**
      * @var bool
@@ -98,11 +133,18 @@ class ModifyDtsJobShrinkRequest extends Model
         'fileOssUrl' => 'FileOssUrl',
         'filterTableName' => 'FilterTableName',
         'modifyTypeEnum' => 'ModifyTypeEnum',
+        'needRestart' => 'NeedRestart',
+        'onlineDdlShadowTableRule' => 'OnlineDdlShadowTableRule',
+        'onlineDdlTrashTableRule' => 'OnlineDdlTrashTableRule',
         'regionId' => 'RegionId',
         'reserved' => 'Reserved',
         'resourceGroupId' => 'ResourceGroupId',
+        'sqlparserDmsOriginalDdl' => 'SqlparserDmsOriginalDdl',
+        'sqlparserGhostOriginalDdl' => 'SqlparserGhostOriginalDdl',
         'structureInitialization' => 'StructureInitialization',
         'synchronizationDirection' => 'SynchronizationDirection',
+        'whitelistDmsOnlineDdlEnable' => 'WhitelistDmsOnlineDdlEnable',
+        'whitelistGhostOnlineDdlEnable' => 'WhitelistGhostOnlineDdlEnable',
         'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
@@ -154,6 +196,18 @@ class ModifyDtsJobShrinkRequest extends Model
             $res['ModifyTypeEnum'] = $this->modifyTypeEnum;
         }
 
+        if (null !== $this->needRestart) {
+            $res['NeedRestart'] = $this->needRestart;
+        }
+
+        if (null !== $this->onlineDdlShadowTableRule) {
+            $res['OnlineDdlShadowTableRule'] = $this->onlineDdlShadowTableRule;
+        }
+
+        if (null !== $this->onlineDdlTrashTableRule) {
+            $res['OnlineDdlTrashTableRule'] = $this->onlineDdlTrashTableRule;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -166,12 +220,28 @@ class ModifyDtsJobShrinkRequest extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->sqlparserDmsOriginalDdl) {
+            $res['SqlparserDmsOriginalDdl'] = $this->sqlparserDmsOriginalDdl;
+        }
+
+        if (null !== $this->sqlparserGhostOriginalDdl) {
+            $res['SqlparserGhostOriginalDdl'] = $this->sqlparserGhostOriginalDdl;
+        }
+
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
         }
 
         if (null !== $this->synchronizationDirection) {
             $res['SynchronizationDirection'] = $this->synchronizationDirection;
+        }
+
+        if (null !== $this->whitelistDmsOnlineDdlEnable) {
+            $res['WhitelistDmsOnlineDdlEnable'] = $this->whitelistDmsOnlineDdlEnable;
+        }
+
+        if (null !== $this->whitelistGhostOnlineDdlEnable) {
+            $res['WhitelistGhostOnlineDdlEnable'] = $this->whitelistGhostOnlineDdlEnable;
         }
 
         if (null !== $this->zeroEtlJob) {
@@ -229,6 +299,18 @@ class ModifyDtsJobShrinkRequest extends Model
             $model->modifyTypeEnum = $map['ModifyTypeEnum'];
         }
 
+        if (isset($map['NeedRestart'])) {
+            $model->needRestart = $map['NeedRestart'];
+        }
+
+        if (isset($map['OnlineDdlShadowTableRule'])) {
+            $model->onlineDdlShadowTableRule = $map['OnlineDdlShadowTableRule'];
+        }
+
+        if (isset($map['OnlineDdlTrashTableRule'])) {
+            $model->onlineDdlTrashTableRule = $map['OnlineDdlTrashTableRule'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -241,12 +323,28 @@ class ModifyDtsJobShrinkRequest extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
+        if (isset($map['SqlparserDmsOriginalDdl'])) {
+            $model->sqlparserDmsOriginalDdl = $map['SqlparserDmsOriginalDdl'];
+        }
+
+        if (isset($map['SqlparserGhostOriginalDdl'])) {
+            $model->sqlparserGhostOriginalDdl = $map['SqlparserGhostOriginalDdl'];
+        }
+
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];
         }
 
         if (isset($map['SynchronizationDirection'])) {
             $model->synchronizationDirection = $map['SynchronizationDirection'];
+        }
+
+        if (isset($map['WhitelistDmsOnlineDdlEnable'])) {
+            $model->whitelistDmsOnlineDdlEnable = $map['WhitelistDmsOnlineDdlEnable'];
+        }
+
+        if (isset($map['WhitelistGhostOnlineDdlEnable'])) {
+            $model->whitelistGhostOnlineDdlEnable = $map['WhitelistGhostOnlineDdlEnable'];
         }
 
         if (isset($map['ZeroEtlJob'])) {
