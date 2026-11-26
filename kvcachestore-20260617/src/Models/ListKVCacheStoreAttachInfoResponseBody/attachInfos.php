@@ -21,6 +21,11 @@ class attachInfos extends Model
     /**
      * @var string
      */
+    public $controlSn;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -32,6 +37,16 @@ class attachInfos extends Model
      * @var string
      */
     public $mountPointId;
+
+    /**
+     * @var string
+     */
+    public $nguid;
+
+    /**
+     * @var string
+     */
+    public $protocol;
 
     /**
      * @var string
@@ -60,9 +75,12 @@ class attachInfos extends Model
     protected $_name = [
         'attachedAt' => 'AttachedAt',
         'capacity' => 'Capacity',
+        'controlSn' => 'ControlSn',
         'instanceId' => 'InstanceId',
         'kvcsId' => 'KvcsId',
         'mountPointId' => 'MountPointId',
+        'nguid' => 'Nguid',
+        'protocol' => 'Protocol',
         'regionId' => 'RegionId',
         'status' => 'Status',
         'type' => 'Type',
@@ -86,6 +104,10 @@ class attachInfos extends Model
             $res['Capacity'] = $this->capacity;
         }
 
+        if (null !== $this->controlSn) {
+            $res['ControlSn'] = $this->controlSn;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -96,6 +118,14 @@ class attachInfos extends Model
 
         if (null !== $this->mountPointId) {
             $res['MountPointId'] = $this->mountPointId;
+        }
+
+        if (null !== $this->nguid) {
+            $res['Nguid'] = $this->nguid;
+        }
+
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
 
         if (null !== $this->regionId) {
@@ -137,6 +167,10 @@ class attachInfos extends Model
             $model->capacity = $map['Capacity'];
         }
 
+        if (isset($map['ControlSn'])) {
+            $model->controlSn = $map['ControlSn'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -147,6 +181,14 @@ class attachInfos extends Model
 
         if (isset($map['MountPointId'])) {
             $model->mountPointId = $map['MountPointId'];
+        }
+
+        if (isset($map['Nguid'])) {
+            $model->nguid = $map['Nguid'];
+        }
+
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
 
         if (isset($map['RegionId'])) {
