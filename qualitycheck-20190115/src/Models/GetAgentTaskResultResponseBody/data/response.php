@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultRespo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\customerPromptResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\fieldResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\multiLevelTagResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\serviceInspectionResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\tagCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\voiceprintResponse;
@@ -22,6 +23,11 @@ class response extends Model
      * @var fieldResponse
      */
     public $fieldResponse;
+
+    /**
+     * @var multiLevelTagResponse
+     */
+    public $multiLevelTagResponse;
 
     /**
      * @var serviceInspectionResponse
@@ -40,6 +46,7 @@ class response extends Model
     protected $_name = [
         'customerPromptResponse' => 'CustomerPromptResponse',
         'fieldResponse' => 'FieldResponse',
+        'multiLevelTagResponse' => 'MultiLevelTagResponse',
         'serviceInspectionResponse' => 'ServiceInspectionResponse',
         'tagCategoryResponse' => 'TagCategoryResponse',
         'voiceprintResponse' => 'VoiceprintResponse',
@@ -52,6 +59,9 @@ class response extends Model
         }
         if (null !== $this->fieldResponse) {
             $this->fieldResponse->validate();
+        }
+        if (null !== $this->multiLevelTagResponse) {
+            $this->multiLevelTagResponse->validate();
         }
         if (null !== $this->serviceInspectionResponse) {
             $this->serviceInspectionResponse->validate();
@@ -74,6 +84,10 @@ class response extends Model
 
         if (null !== $this->fieldResponse) {
             $res['FieldResponse'] = null !== $this->fieldResponse ? $this->fieldResponse->toArray($noStream) : $this->fieldResponse;
+        }
+
+        if (null !== $this->multiLevelTagResponse) {
+            $res['MultiLevelTagResponse'] = null !== $this->multiLevelTagResponse ? $this->multiLevelTagResponse->toArray($noStream) : $this->multiLevelTagResponse;
         }
 
         if (null !== $this->serviceInspectionResponse) {
@@ -105,6 +119,10 @@ class response extends Model
 
         if (isset($map['FieldResponse'])) {
             $model->fieldResponse = fieldResponse::fromMap($map['FieldResponse']);
+        }
+
+        if (isset($map['MultiLevelTagResponse'])) {
+            $model->multiLevelTagResponse = multiLevelTagResponse::fromMap($map['MultiLevelTagResponse']);
         }
 
         if (isset($map['ServiceInspectionResponse'])) {

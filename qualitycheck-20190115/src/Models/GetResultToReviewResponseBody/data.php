@@ -14,6 +14,11 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody
 class data extends Model
 {
     /**
+     * @var float
+     */
+    public $artificialScore;
+
+    /**
      * @var string
      */
     public $audioScheme;
@@ -64,6 +69,11 @@ class data extends Model
     public $reviewTypeIdList;
 
     /**
+     * @var float
+     */
+    public $smartCheckScore;
+
+    /**
      * @var int
      */
     public $status;
@@ -78,6 +88,7 @@ class data extends Model
      */
     public $vid;
     protected $_name = [
+        'artificialScore' => 'ArtificialScore',
         'audioScheme' => 'AudioScheme',
         'audioURL' => 'AudioURL',
         'comments' => 'Comments',
@@ -88,6 +99,7 @@ class data extends Model
         'manualScoreInfoList' => 'ManualScoreInfoList',
         'reviewHistoryList' => 'ReviewHistoryList',
         'reviewTypeIdList' => 'ReviewTypeIdList',
+        'smartCheckScore' => 'SmartCheckScore',
         'status' => 'Status',
         'totalScore' => 'TotalScore',
         'vid' => 'Vid',
@@ -116,6 +128,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->artificialScore) {
+            $res['ArtificialScore'] = $this->artificialScore;
+        }
+
         if (null !== $this->audioScheme) {
             $res['AudioScheme'] = $this->audioScheme;
         }
@@ -156,6 +172,10 @@ class data extends Model
             $res['ReviewTypeIdList'] = null !== $this->reviewTypeIdList ? $this->reviewTypeIdList->toArray($noStream) : $this->reviewTypeIdList;
         }
 
+        if (null !== $this->smartCheckScore) {
+            $res['SmartCheckScore'] = $this->smartCheckScore;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -179,6 +199,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtificialScore'])) {
+            $model->artificialScore = $map['ArtificialScore'];
+        }
+
         if (isset($map['AudioScheme'])) {
             $model->audioScheme = $map['AudioScheme'];
         }
@@ -217,6 +241,10 @@ class data extends Model
 
         if (isset($map['ReviewTypeIdList'])) {
             $model->reviewTypeIdList = reviewTypeIdList::fromMap($map['ReviewTypeIdList']);
+        }
+
+        if (isset($map['SmartCheckScore'])) {
+            $model->smartCheckScore = $map['SmartCheckScore'];
         }
 
         if (isset($map['Status'])) {

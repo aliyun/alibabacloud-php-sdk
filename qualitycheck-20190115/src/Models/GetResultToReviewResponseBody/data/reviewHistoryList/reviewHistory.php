@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\reviewHistoryList;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\reviewHistoryList\reviewHistory\reviewErrorRule;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\reviewHistoryList\reviewHistory\reviewRightRule;
 
 class reviewHistory extends Model
@@ -33,6 +34,11 @@ class reviewHistory extends Model
      * @var string
      */
     public $operatorName;
+
+    /**
+     * @var reviewErrorRule
+     */
+    public $reviewErrorRule;
 
     /**
      * @var string
@@ -74,6 +80,7 @@ class reviewHistory extends Model
         'oldScore' => 'OldScore',
         'operator' => 'Operator',
         'operatorName' => 'OperatorName',
+        'reviewErrorRule' => 'ReviewErrorRule',
         'reviewManagerType' => 'ReviewManagerType',
         'reviewResult' => 'ReviewResult',
         'reviewRightRule' => 'ReviewRightRule',
@@ -85,6 +92,9 @@ class reviewHistory extends Model
 
     public function validate()
     {
+        if (null !== $this->reviewErrorRule) {
+            $this->reviewErrorRule->validate();
+        }
         if (null !== $this->reviewRightRule) {
             $this->reviewRightRule->validate();
         }
@@ -112,6 +122,10 @@ class reviewHistory extends Model
 
         if (null !== $this->operatorName) {
             $res['OperatorName'] = $this->operatorName;
+        }
+
+        if (null !== $this->reviewErrorRule) {
+            $res['ReviewErrorRule'] = null !== $this->reviewErrorRule ? $this->reviewErrorRule->toArray($noStream) : $this->reviewErrorRule;
         }
 
         if (null !== $this->reviewManagerType) {
@@ -171,6 +185,10 @@ class reviewHistory extends Model
 
         if (isset($map['OperatorName'])) {
             $model->operatorName = $map['OperatorName'];
+        }
+
+        if (isset($map['ReviewErrorRule'])) {
+            $model->reviewErrorRule = reviewErrorRule::fromMap($map['ReviewErrorRule']);
         }
 
         if (isset($map['ReviewManagerType'])) {
