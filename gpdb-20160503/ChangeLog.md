@@ -1,3 +1,6 @@
+2026-11-26 Version: 3.16.2
+- Generated php 2016-05-03 for gpdb.
+
 2026-11-26 Version: 3.17.0
 - Support API CreateModelOperatorService.
 - Support API DeleteModelOperatorApiKey.
