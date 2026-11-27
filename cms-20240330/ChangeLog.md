@@ -1,3 +1,14 @@
+2026-11-27 Version: 10.11.0
+- Support API DeleteRumSymbolFiles.
+- Support API GetRumSymbolFileParams.
+- Support API GetRumSymbolFiles.
+- Support API GetRumSymbolicStack.
+- Update API CreateService: add request parameters dryRun.
+- Update API CreateServiceObservability: add request parameters dryRun.
+- Update API DeleteService: add request parameters dryRun.
+- Update API UpdateService: add request parameters dryRun.
+
+
 2026-11-21 Version: 10.10.1
 - Update API CreateEntityStore: add request parameters dryRun.
 - Update API CreateUmodel: add request parameters dryRun.

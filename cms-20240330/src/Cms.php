@@ -141,6 +141,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusVirtualInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusVirtualInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteRumSymbolFilesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteRumSymbolFilesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRecordRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRequest;
@@ -238,6 +240,12 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetRumSymbolFileParamsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetRumSymbolFileParamsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetRumSymbolFilesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetRumSymbolFilesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetRumSymbolicStackRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetRumSymbolicStackResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRecordRequest;
@@ -2989,6 +2997,11 @@ class Cms extends OpenApiClient
     public function createServiceWithOptions($workspace, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->attributes) {
             @$body['attributes'] = $request->attributes;
@@ -3028,6 +3041,7 @@ class Cms extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3085,8 +3099,14 @@ class Cms extends OpenApiClient
     public function createServiceObservabilityWithOptions($workspace, $type, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateServiceObservability',
@@ -5337,7 +5357,76 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes an application observability service.
+     * Deletes the RUM symbol files.
+     *
+     * @param request - DeleteRumSymbolFilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRumSymbolFilesResponse
+     *
+     * @param DeleteRumSymbolFilesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteRumSymbolFilesResponse
+     */
+    public function deleteRumSymbolFilesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->filePaths) {
+            @$body['filePaths'] = $request->filePaths;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['serviceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRumSymbolFiles',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/rum/symbolFiles/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRumSymbolFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the RUM symbol files.
+     *
+     * @param request - DeleteRumSymbolFilesRequest
+     *
+     * @returns DeleteRumSymbolFilesResponse
+     *
+     * @param DeleteRumSymbolFilesRequest $request
+     *
+     * @return DeleteRumSymbolFilesResponse
+     */
+    public function deleteRumSymbolFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRumSymbolFilesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes the application observability service.
      *
      * @param request - DeleteServiceRequest
      * @param headers - map
@@ -5356,8 +5445,14 @@ class Cms extends OpenApiClient
     public function deleteServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteService',
@@ -5375,7 +5470,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes an application observability service.
+     * Deletes the application observability service.
      *
      * @param request - DeleteServiceRequest
      *
@@ -8584,6 +8679,265 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getPrometheusViewWithOptions($prometheusViewId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the signature parameters required for uploading RUM symbol files.
+     *
+     * @param request - GetRumSymbolFileParamsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRumSymbolFileParamsResponse
+     *
+     * @param GetRumSymbolFileParamsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRumSymbolFileParamsResponse
+     */
+    public function getRumSymbolFileParamsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->debugId) {
+            @$body['debugId'] = $request->debugId;
+        }
+
+        if (null !== $request->fileKind) {
+            @$body['fileKind'] = $request->fileKind;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['serviceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRumSymbolFileParams',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/rum/symbolFile/upload/policies',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRumSymbolFileParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the signature parameters required for uploading RUM symbol files.
+     *
+     * @param request - GetRumSymbolFileParamsRequest
+     *
+     * @returns GetRumSymbolFileParamsResponse
+     *
+     * @param GetRumSymbolFileParamsRequest $request
+     *
+     * @return GetRumSymbolFileParamsResponse
+     */
+    public function getRumSymbolFileParams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRumSymbolFileParamsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the symbol files uploaded by Real User Monitoring (RUM) users and supports filtering by platform, file type, version, and keywords.
+     *
+     * @param request - GetRumSymbolFilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRumSymbolFilesResponse
+     *
+     * @param GetRumSymbolFilesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRumSymbolFilesResponse
+     */
+    public function getRumSymbolFilesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->artifactType) {
+            @$body['artifactType'] = $request->artifactType;
+        }
+
+        if (null !== $request->keywords) {
+            @$body['keywords'] = $request->keywords;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->platform) {
+            @$body['platform'] = $request->platform;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['serviceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRumSymbolFiles',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/rum/symbolFiles/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRumSymbolFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the symbol files uploaded by Real User Monitoring (RUM) users and supports filtering by platform, file type, version, and keywords.
+     *
+     * @param request - GetRumSymbolFilesRequest
+     *
+     * @returns GetRumSymbolFilesResponse
+     *
+     * @param GetRumSymbolFilesRequest $request
+     *
+     * @return GetRumSymbolFilesResponse
+     */
+    public function getRumSymbolFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRumSymbolFilesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the RUM symbolicated stack.
+     *
+     * @param request - GetRumSymbolicStackRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRumSymbolicStackResponse
+     *
+     * @param GetRumSymbolicStackRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetRumSymbolicStackResponse
+     */
+    public function getRumSymbolicStackWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileInfo) {
+            @$body['fileInfo'] = $request->fileInfo;
+        }
+
+        if (null !== $request->images) {
+            @$body['images'] = $request->images;
+        }
+
+        if (null !== $request->pid) {
+            @$body['pid'] = $request->pid;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['serviceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->stack) {
+            @$body['stack'] = $request->stack;
+        }
+
+        if (null !== $request->stackType) {
+            @$body['stackType'] = $request->stackType;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRumSymbolicStack',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/rum/symbolic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRumSymbolicStackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the RUM symbolicated stack.
+     *
+     * @param request - GetRumSymbolicStackRequest
+     *
+     * @returns GetRumSymbolicStackResponse
+     *
+     * @param GetRumSymbolicStackRequest $request
+     *
+     * @return GetRumSymbolicStackResponse
+     */
+    public function getRumSymbolicStack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRumSymbolicStackWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -13177,7 +13531,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param tmpReq - QueryAlertRulesRequest
      * @param headers - map
@@ -13246,7 +13600,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - QueryAlertRulesRequest
      *
@@ -15787,7 +16141,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates an application observability service.
+     * Updates the application observability service.
      *
      * @param request - UpdateServiceRequest
      * @param headers - map
@@ -15806,6 +16160,11 @@ class Cms extends OpenApiClient
     public function updateServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->attributes) {
             @$body['attributes'] = $request->attributes;
@@ -15825,6 +16184,7 @@ class Cms extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -15843,7 +16203,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates an application observability service.
+     * Updates the application observability service.
      *
      * @param request - UpdateServiceRequest
      *

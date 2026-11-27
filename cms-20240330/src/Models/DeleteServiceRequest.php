@@ -8,7 +8,12 @@ use AlibabaCloud\Dara\Model;
 
 class DeleteServiceRequest extends Model
 {
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
@@ -18,7 +23,12 @@ class DeleteServiceRequest extends Model
 
     public function toArray($noStream = false)
     {
-        return [];
+        $res = [];
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
+        }
+
+        return $res;
     }
 
     public function toMap($noStream = false)
@@ -28,6 +38,11 @@ class DeleteServiceRequest extends Model
 
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
+        }
+
+        return $model;
     }
 }

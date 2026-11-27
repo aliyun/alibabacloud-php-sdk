@@ -53,6 +53,11 @@ class CreateServiceRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'attributes' => 'attributes',
         'description' => 'description',
@@ -63,6 +68,7 @@ class CreateServiceRequest extends Model
         'serviceStatus' => 'serviceStatus',
         'serviceType' => 'serviceType',
         'tags' => 'tags',
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
@@ -119,6 +125,10 @@ class CreateServiceRequest extends Model
             }
         }
 
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
+        }
+
         return $res;
     }
 
@@ -171,6 +181,10 @@ class CreateServiceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;

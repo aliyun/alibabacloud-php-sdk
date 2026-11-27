@@ -27,11 +27,17 @@ class UpdateServiceRequest extends Model
      * @var string
      */
     public $serviceStatus;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'attributes' => 'attributes',
         'description' => 'description',
         'displayName' => 'displayName',
         'serviceStatus' => 'serviceStatus',
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class UpdateServiceRequest extends Model
 
         if (null !== $this->serviceStatus) {
             $res['serviceStatus'] = $this->serviceStatus;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class UpdateServiceRequest extends Model
 
         if (isset($map['serviceStatus'])) {
             $model->serviceStatus = $map['serviceStatus'];
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;
