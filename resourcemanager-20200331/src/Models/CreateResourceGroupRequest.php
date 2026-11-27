@@ -12,7 +12,17 @@ class CreateResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $displayName;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -24,7 +34,9 @@ class CreateResourceGroupRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'displayName' => 'DisplayName',
+        'dryRun' => 'DryRun',
         'name' => 'Name',
         'tag' => 'Tag',
     ];
@@ -40,8 +52,16 @@ class CreateResourceGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->name) {
@@ -70,8 +90,16 @@ class CreateResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Name'])) {
