@@ -1,3 +1,10 @@
+2026-11-27 Version: 3.14.0
+- Support API AddMediaConvertTemplateGroup.
+- Support API DeleteMediaConvertTemplateGroup.
+- Support API GetMediaConvertTemplateGroup.
+- Support API ListMediaConvertTemplateGroup.
+
+
 2026-11-24 Version: 3.13.0
 - Support API AddManifestEditTemplate.
 - Support API DeleteManifestEditTemplate.

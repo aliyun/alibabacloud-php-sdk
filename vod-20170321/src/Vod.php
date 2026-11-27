@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddManifestEditTemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddManifestEditTemplateResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\AddMediaConvertTemplateGroupRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\AddMediaConvertTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodDomainRequest;
@@ -71,6 +73,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteManifestEditTemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteManifestEditTemplateResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMediaConvertTemplateGroupRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMediaConvertTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMessageCallbackRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMessageCallbackResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteMezzaninesRequest;
@@ -229,6 +233,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaConvertTemplateGroupRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaConvertTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaRefreshJobsRequest;
@@ -283,6 +289,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListManifestEditTemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListManifestEditTemplateResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ListMediaConvertTemplateGroupRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ListMediaConvertTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListTranscodeTaskRequest;
@@ -810,7 +818,7 @@ class Vod extends OpenApiClient
      * ## Request description
      * - The `Name` parameter is required and must pass the `COMPLEX_STRING_SPACE_ALLOWED` format validation.
      * - Other parameters are optional, but if provided, they must meet the corresponding format requirements.
-     * - The encryption type `EncryptType` supports a combination of multiple encryption methods. For more information, see the valid values.
+     * - The `EncryptType` parameter supports a combination of multiple encryption methods. For more information, refer to the valid values.
      * - When HLS encryption is used, `EncryptConfig` must include information such as `DecryptKeyUri`, `KeyServiceType`, `CipherText`, and `MasterKeyId`.
      *
      * @param request - AddManifestEditTemplateRequest
@@ -860,7 +868,7 @@ class Vod extends OpenApiClient
      * ## Request description
      * - The `Name` parameter is required and must pass the `COMPLEX_STRING_SPACE_ALLOWED` format validation.
      * - Other parameters are optional, but if provided, they must meet the corresponding format requirements.
-     * - The encryption type `EncryptType` supports a combination of multiple encryption methods. For more information, see the valid values.
+     * - The `EncryptType` parameter supports a combination of multiple encryption methods. For more information, refer to the valid values.
      * - When HLS encryption is used, `EncryptConfig` must include information such as `DecryptKeyUri`, `KeyServiceType`, `CipherText`, and `MasterKeyId`.
      *
      * @param request - AddManifestEditTemplateRequest
@@ -876,6 +884,91 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addManifestEditTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a MediaConvert transcoding template group, or appends transcoding template configurations to an existing MediaConvert transcoding template group.
+     *
+     * @remarks
+     * - Specify **Name** to create a new transcoding template group. Specify **TranscodeTemplateGroupId** to append transcoding template configurations to a specified transcoding template group. The total number of existing and new templates cannot exceed 20.
+     * - **GroupConfig** is not supported in append mode. To modify group-level configurations, call the UpdateMediaConvertTemplateGroup operation.
+     * - Creating a transcoding template group requires an available storage address. If no available storage address exists, the template creation fails. You can activate the **VOD system bucket** to obtain an available storage address by navigating to **ApsaraVideo VOD console > Configuration Management > Media Asset Management Configuration > Storage Management**.
+     * - The queries per second (QPS) limit per user is 5. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     *
+     * @param request - AddMediaConvertTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddMediaConvertTemplateGroupResponse
+     *
+     * @param AddMediaConvertTemplateGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AddMediaConvertTemplateGroupResponse
+     */
+    public function addMediaConvertTemplateGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->groupConfig) {
+            @$query['GroupConfig'] = $request->groupConfig;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+
+        if (null !== $request->transcodeTemplateList) {
+            @$query['TranscodeTemplateList'] = $request->transcodeTemplateList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddMediaConvertTemplateGroup',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddMediaConvertTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a MediaConvert transcoding template group, or appends transcoding template configurations to an existing MediaConvert transcoding template group.
+     *
+     * @remarks
+     * - Specify **Name** to create a new transcoding template group. Specify **TranscodeTemplateGroupId** to append transcoding template configurations to a specified transcoding template group. The total number of existing and new templates cannot exceed 20.
+     * - **GroupConfig** is not supported in append mode. To modify group-level configurations, call the UpdateMediaConvertTemplateGroup operation.
+     * - Creating a transcoding template group requires an available storage address. If no available storage address exists, the template creation fails. You can activate the **VOD system bucket** to obtain an available storage address by navigating to **ApsaraVideo VOD console > Configuration Management > Media Asset Management Configuration > Storage Management**.
+     * - The queries per second (QPS) limit per user is 5. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     *
+     * @param request - AddMediaConvertTemplateGroupRequest
+     *
+     * @returns AddMediaConvertTemplateGroupResponse
+     *
+     * @param AddMediaConvertTemplateGroupRequest $request
+     *
+     * @return AddMediaConvertTemplateGroupResponse
+     */
+    public function addMediaConvertTemplateGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMediaConvertTemplateGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3033,8 +3126,8 @@ class Vod extends OpenApiClient
      * Deletes a specified ManifestEdit track orchestration template.
      *
      * @remarks
-     * - After deletion, the template and its track configurations cannot be recovered. Submitted jobs are not affected, but resubmitting a SubmitEditMediaManifestJob job with the deleted template ID will fail.
-     * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline will also be cleared (preset templates are not affected).
+     * - After the template is deleted, the template and its track configurations cannot be recovered. Submitted tasks are not affected. However, submitting a SubmitEditMediaManifestJob task by using the deleted template ID will fail.
+     * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline are also cleared (preset templates are not affected).
      *
      * @param request - DeleteManifestEditTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3076,8 +3169,8 @@ class Vod extends OpenApiClient
      * Deletes a specified ManifestEdit track orchestration template.
      *
      * @remarks
-     * - After deletion, the template and its track configurations cannot be recovered. Submitted jobs are not affected, but resubmitting a SubmitEditMediaManifestJob job with the deleted template ID will fail.
-     * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline will also be cleared (preset templates are not affected).
+     * - After the template is deleted, the template and its track configurations cannot be recovered. Submitted tasks are not affected. However, submitting a SubmitEditMediaManifestJob task by using the deleted template ID will fail.
+     * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline are also cleared (preset templates are not affected).
      *
      * @param request - DeleteManifestEditTemplateRequest
      *
@@ -3092,6 +3185,83 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteManifestEditTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a MediaConvert transcoding template group or specified transcoding templates in the template group.
+     *
+     * @remarks
+     * - If **ForceDelGroup** is set to **true** (default), the entire transcoding template group is deleted. If it is set to **false**, you must specify the transcoding templates to delete by using **TranscodeTemplateIdList**.
+     * - When deleting templates individually, you cannot delete the last transcoding template in the group. To delete the entire template group, use the default value of ForceDelGroup.
+     * - The deletion request returns a synchronous response, but template cleanup on the MediaConvert side is executed asynchronously.
+     * - The QPS limit per user is 5. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
+     *
+     * @param request - DeleteMediaConvertTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMediaConvertTemplateGroupResponse
+     *
+     * @param DeleteMediaConvertTemplateGroupRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteMediaConvertTemplateGroupResponse
+     */
+    public function deleteMediaConvertTemplateGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->forceDelGroup) {
+            @$query['ForceDelGroup'] = $request->forceDelGroup;
+        }
+
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+
+        if (null !== $request->transcodeTemplateIdList) {
+            @$query['TranscodeTemplateIdList'] = $request->transcodeTemplateIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMediaConvertTemplateGroup',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMediaConvertTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a MediaConvert transcoding template group or specified transcoding templates in the template group.
+     *
+     * @remarks
+     * - If **ForceDelGroup** is set to **true** (default), the entire transcoding template group is deleted. If it is set to **false**, you must specify the transcoding templates to delete by using **TranscodeTemplateIdList**.
+     * - When deleting templates individually, you cannot delete the last transcoding template in the group. To delete the entire template group, use the default value of ForceDelGroup.
+     * - The deletion request returns a synchronous response, but template cleanup on the MediaConvert side is executed asynchronously.
+     * - The QPS limit per user is 5. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
+     *
+     * @param request - DeleteMediaConvertTemplateGroupRequest
+     *
+     * @returns DeleteMediaConvertTemplateGroupResponse
+     *
+     * @param DeleteMediaConvertTemplateGroupRequest $request
+     *
+     * @return DeleteMediaConvertTemplateGroupResponse
+     */
+    public function deleteMediaConvertTemplateGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaConvertTemplateGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -9490,6 +9660,71 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * Queries the configuration details of a specified MediaConvert (MC) transcoding template group, including the group information and the list of transcoding templates.
+     *
+     * @remarks
+     * - Only custom transcoding template groups for the MC pipeline created by calling AddMediaConvertTemplateGroup can be queried. If you query a template group that does not exist or is not for the MC pipeline, the InvalidTranscodeTemplateGroup.NotFound error is returned.
+     * - The queries per second (QPS) limit per user for this API operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+     *
+     * @param request - GetMediaConvertTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaConvertTemplateGroupResponse
+     *
+     * @param GetMediaConvertTemplateGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetMediaConvertTemplateGroupResponse
+     */
+    public function getMediaConvertTemplateGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMediaConvertTemplateGroup',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMediaConvertTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration details of a specified MediaConvert (MC) transcoding template group, including the group information and the list of transcoding templates.
+     *
+     * @remarks
+     * - Only custom transcoding template groups for the MC pipeline created by calling AddMediaConvertTemplateGroup can be queried. If you query a template group that does not exist or is not for the MC pipeline, the InvalidTranscodeTemplateGroup.NotFound error is returned.
+     * - The queries per second (QPS) limit per user for this API operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+     *
+     * @param request - GetMediaConvertTemplateGroupRequest
+     *
+     * @returns GetMediaConvertTemplateGroupResponse
+     *
+     * @param GetMediaConvertTemplateGroupRequest $request
+     *
+     * @return GetMediaConvertTemplateGroupResponse
+     */
+    public function getMediaConvertTemplateGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaConvertTemplateGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves media fingerprint results. After a media fingerprint job is complete, you can call this operation to query the results in real time.
      *
      * @remarks
@@ -11412,7 +11647,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * Queries the created ManifestEdit track orchestration templates by paging.
+     * Queries the list of created ManifestEdit track orchestration templates by paging.
      *
      * @param request - ListManifestEditTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11455,7 +11690,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * Queries the created ManifestEdit track orchestration templates by paging.
+     * Queries the list of created ManifestEdit track orchestration templates by paging.
      *
      * @param request - ListManifestEditTemplateRequest
      *
@@ -11470,6 +11705,77 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listManifestEditTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of custom transcoding template groups for the MediaConvert (MC) pipeline by using paging.
+     *
+     * @remarks
+     * - Returns only custom transcoding template groups for the MC pipeline that are created by calling AddMediaConvertTemplateGroup under the current account. You can specify an application. Preset template groups are not included.
+     * - The results are sorted in ascending order by creation time. Pagination is supported by using MaxResults and NextToken.
+     * - The queries per second (QPS) limit for a single user is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     *
+     * @param request - ListMediaConvertTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMediaConvertTemplateGroupResponse
+     *
+     * @param ListMediaConvertTemplateGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListMediaConvertTemplateGroupResponse
+     */
+    public function listMediaConvertTemplateGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMediaConvertTemplateGroup',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMediaConvertTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of custom transcoding template groups for the MediaConvert (MC) pipeline by using paging.
+     *
+     * @remarks
+     * - Returns only custom transcoding template groups for the MC pipeline that are created by calling AddMediaConvertTemplateGroup under the current account. You can specify an application. Preset template groups are not included.
+     * - The results are sorted in ascending order by creation time. Pagination is supported by using MaxResults and NextToken.
+     * - The queries per second (QPS) limit for a single user is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     *
+     * @param request - ListMediaConvertTemplateGroupRequest
+     *
+     * @returns ListMediaConvertTemplateGroupResponse
+     *
+     * @param ListMediaConvertTemplateGroupRequest $request
+     *
+     * @return ListMediaConvertTemplateGroupResponse
+     */
+    public function listMediaConvertTemplateGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaConvertTemplateGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -14108,11 +14414,11 @@ class Vod extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API operation incrementally edits the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
-     * - `VideoId` and `JobId` are required parameters used for authentication isolation and consistency verification.
+     * - This API operation is used to incrementally edit the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
+     * - `VideoId` and `JobId` are required parameters for authentication isolation and consistency verification.
      * - You can specify `TemplateId` to apply a predefined manifest editing template.
-     * - This operation supports appending, removing, and replacing audio, subtitle, and video tracks.
-     * - The `OutputConfig` parameter specifies the storage location of the edited manifest.
+     * - It supports appending, removing, and replacing audio, subtitle, and video tracks.
+     * - The output configuration `OutputConfig` specifies the storage location of the edited manifest.
      * - You can pass custom data in `UserData` as pass-through information.
      *
      * @param request - SubmitEditMediaManifestJobRequest
@@ -14188,11 +14494,11 @@ class Vod extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API operation incrementally edits the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
-     * - `VideoId` and `JobId` are required parameters used for authentication isolation and consistency verification.
+     * - This API operation is used to incrementally edit the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
+     * - `VideoId` and `JobId` are required parameters for authentication isolation and consistency verification.
      * - You can specify `TemplateId` to apply a predefined manifest editing template.
-     * - This operation supports appending, removing, and replacing audio, subtitle, and video tracks.
-     * - The `OutputConfig` parameter specifies the storage location of the edited manifest.
+     * - It supports appending, removing, and replacing audio, subtitle, and video tracks.
+     * - The output configuration `OutputConfig` specifies the storage location of the edited manifest.
      * - You can pass custom data in `UserData` as pass-through information.
      *
      * @param request - SubmitEditMediaManifestJobRequest
