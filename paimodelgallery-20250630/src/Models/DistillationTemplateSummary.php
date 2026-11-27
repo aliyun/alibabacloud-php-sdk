@@ -28,6 +28,11 @@ class DistillationTemplateSummary extends Model
     /**
      * @var string
      */
+    public $doc;
+
+    /**
+     * @var string
+     */
     public $jobType;
 
     /**
@@ -63,6 +68,7 @@ class DistillationTemplateSummary extends Model
         'capabilityTags' => 'CapabilityTags',
         'category' => 'Category',
         'description' => 'Description',
+        'doc' => 'Doc',
         'jobType' => 'JobType',
         'orderNumber' => 'OrderNumber',
         'pipelineStages' => 'PipelineStages',
@@ -106,6 +112,10 @@ class DistillationTemplateSummary extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->doc) {
+            $res['Doc'] = $this->doc;
         }
 
         if (null !== $this->jobType) {
@@ -178,6 +188,10 @@ class DistillationTemplateSummary extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Doc'])) {
+            $model->doc = $map['Doc'];
         }
 
         if (isset($map['JobType'])) {

@@ -48,6 +48,11 @@ class DistillationTemplate extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $doc;
+
+    /**
      * @var bool
      */
     public $inputDatasetMustBeDirectory;
@@ -114,6 +119,7 @@ class DistillationTemplate extends Model
         'category' => 'Category',
         'defaultConfig' => 'DefaultConfig',
         'description' => 'Description',
+        'doc' => 'Doc',
         'inputDatasetMustBeDirectory' => 'InputDatasetMustBeDirectory',
         'inputExampleUri' => 'InputExampleUri',
         'jobType' => 'JobType',
@@ -184,6 +190,10 @@ class DistillationTemplate extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->doc) {
+            $res['Doc'] = $this->doc;
         }
 
         if (null !== $this->inputDatasetMustBeDirectory) {
@@ -306,6 +316,10 @@ class DistillationTemplate extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Doc'])) {
+            $model->doc = $map['Doc'];
         }
 
         if (isset($map['InputDatasetMustBeDirectory'])) {
