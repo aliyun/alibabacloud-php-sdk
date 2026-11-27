@@ -36,6 +36,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $channelName;
+
+    /**
+     * @var string[]
+     */
+    public $customerLabels;
+
+    /**
+     * @var string
+     */
     public $decision;
 
     /**
@@ -78,6 +88,8 @@ class data extends Model
         'address' => 'Address',
         'admissionDate' => 'AdmissionDate',
         'allowedDates' => 'AllowedDates',
+        'channelName' => 'ChannelName',
+        'customerLabels' => 'CustomerLabels',
         'decision' => 'Decision',
         'endTime' => 'EndTime',
         'maskedIdCardNo' => 'MaskedIdCardNo',
@@ -92,6 +104,9 @@ class data extends Model
     {
         if (\is_array($this->allowedDates)) {
             Model::validateArray($this->allowedDates);
+        }
+        if (\is_array($this->customerLabels)) {
+            Model::validateArray($this->customerLabels);
         }
         parent::validate();
     }
@@ -121,6 +136,21 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->allowedDates as $item1) {
                     $res['AllowedDates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->channelName) {
+            $res['ChannelName'] = $this->channelName;
+        }
+
+        if (null !== $this->customerLabels) {
+            if (\is_array($this->customerLabels)) {
+                $res['CustomerLabels'] = [];
+                $n1 = 0;
+                foreach ($this->customerLabels as $item1) {
+                    $res['CustomerLabels'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -191,6 +221,21 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['AllowedDates'] as $item1) {
                     $model->allowedDates[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ChannelName'])) {
+            $model->channelName = $map['ChannelName'];
+        }
+
+        if (isset($map['CustomerLabels'])) {
+            if (!empty($map['CustomerLabels'])) {
+                $model->customerLabels = [];
+                $n1 = 0;
+                foreach ($map['CustomerLabels'] as $item1) {
+                    $model->customerLabels[$n1] = $item1;
                     ++$n1;
                 }
             }
