@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateDirRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $fileSystemId;
@@ -38,6 +43,7 @@ class CreateDirRequest extends Model
      */
     public $rootDirectory;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'fileSystemId' => 'FileSystemId',
         'ownerGroupId' => 'OwnerGroupId',
         'ownerUserId' => 'OwnerUserId',
@@ -54,6 +60,10 @@ class CreateDirRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
@@ -89,6 +99,10 @@ class CreateDirRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }

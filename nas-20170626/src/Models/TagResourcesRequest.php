@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\TagResourcesRequest\tag;
 class TagResourcesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string[]
      */
     public $resourceId;
@@ -24,6 +29,7 @@ class TagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag' => 'Tag',
@@ -43,6 +49,10 @@ class TagResourcesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->resourceId) {
             if (\is_array($this->resourceId)) {
                 $res['ResourceId'] = [];
@@ -80,6 +90,10 @@ class TagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = [];

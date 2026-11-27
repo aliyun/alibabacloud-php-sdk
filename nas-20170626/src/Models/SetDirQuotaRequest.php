@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SetDirQuotaRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $fileCountLimit;
@@ -43,6 +48,7 @@ class SetDirQuotaRequest extends Model
      */
     public $userType;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'fileCountLimit' => 'FileCountLimit',
         'fileSystemId' => 'FileSystemId',
         'path' => 'Path',
@@ -60,6 +66,10 @@ class SetDirQuotaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->fileCountLimit) {
             $res['FileCountLimit'] = $this->fileCountLimit;
         }
@@ -99,6 +109,10 @@ class SetDirQuotaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['FileCountLimit'])) {
             $model->fileCountLimit = $map['FileCountLimit'];
         }
