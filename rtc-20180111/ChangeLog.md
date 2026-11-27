@@ -1,3 +1,7 @@
+2026-11-27 Version: 5.4.0
+- Support API RtcSendSipDtmf.
+
+
 2026-04-13 Version: 5.3.5
 - Update API StartAgent: add request parameters VoiceChatConfig.BackChannelConfig.Version.
 
