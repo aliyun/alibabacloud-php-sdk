@@ -31,6 +31,11 @@ class GetResourceUsageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $snapshotID;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -52,6 +57,7 @@ class GetResourceUsageShrinkRequest extends Model
         'granularity' => 'granularity',
         'groupByShrink' => 'groupBy',
         'sandboxPlan' => 'sandboxPlan',
+        'snapshotID' => 'snapshotID',
         'startTime' => 'startTime',
         'teamID' => 'teamID',
         'templateID' => 'templateID',
@@ -80,6 +86,10 @@ class GetResourceUsageShrinkRequest extends Model
 
         if (null !== $this->sandboxPlan) {
             $res['sandboxPlan'] = $this->sandboxPlan;
+        }
+
+        if (null !== $this->snapshotID) {
+            $res['snapshotID'] = $this->snapshotID;
         }
 
         if (null !== $this->startTime) {
@@ -123,6 +133,10 @@ class GetResourceUsageShrinkRequest extends Model
 
         if (isset($map['sandboxPlan'])) {
             $model->sandboxPlan = $map['sandboxPlan'];
+        }
+
+        if (isset($map['snapshotID'])) {
+            $model->snapshotID = $map['snapshotID'];
         }
 
         if (isset($map['startTime'])) {
