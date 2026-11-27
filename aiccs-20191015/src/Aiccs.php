@@ -402,6 +402,7 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateSkillGroupRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateSkillGroupResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -412,6 +413,9 @@ class Aiccs extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'aiccs';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aiccs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -442,10 +446,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the AddHotlineNumber API to add a hotline number.
+     * Adds a hotline number.
      *
      * @remarks
-     * > Hotline numbers are for inbound and outbound calls only.
+     * > Hotline numbers are used only for inbound and outbound calls.
      *
      * @param tmpReq - AddHotlineNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -530,10 +534,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the AddHotlineNumber API to add a hotline number.
+     * Adds a hotline number.
      *
      * @remarks
-     * > Hotline numbers are for inbound and outbound calls only.
+     * > Hotline numbers are used only for inbound and outbound calls.
      *
      * @param request - AddHotlineNumberRequest
      *
@@ -551,7 +555,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Adds one or more inbound numbers.
+     * Adds inbound numbers.
      *
      * @param tmpReq - AddInboundNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -620,7 +624,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Adds one or more inbound numbers.
+     * Adds inbound numbers.
      *
      * @param request - AddInboundNumberRequest
      *
@@ -638,7 +642,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Adds a large language model.
+     * Adds a large model gateway.
      *
      * @param tmpReq - AddLargeModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -719,7 +723,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Adds a large language model.
+     * Adds a large model gateway.
      *
      * @param request - AddLargeModelRequest
      *
@@ -737,7 +741,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Creates a large language model application.
+     * Creates a model application.
      *
      * @param tmpReq - AddModelApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -870,7 +874,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Creates a large language model application.
+     * Creates a model application.
      *
      * @param request - AddModelApplicationRequest
      *
@@ -888,7 +892,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke AddOuterAccount to add an external account.
+     * Adds an external account.
      *
      * @param request - AddOuterAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -923,7 +927,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke AddOuterAccount to add an external account.
+     * Adds an external account.
      *
      * @param request - AddOuterAccountRequest
      *
@@ -941,7 +945,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke AddSkillGroup to create an external skill group.
+     * Creates an external skill group.
      *
      * @param request - AddSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -976,7 +980,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke AddSkillGroup to create an external skill group.
+     * Creates an external skill group.
      *
      * @param request - AddSkillGroupRequest
      *
@@ -1175,7 +1179,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the AiccsSmartCallOperate API to initiate a specified action during an Intelligent outbound call. This API is only used for scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+     * Invokes the AiccsSmartCallOperate operation to initiate a specified action during an intelligent outbound call. This operation applies only to scenarios such as parallel transfer to a human agent, where the agent can monitor the man-machine dialogue.
      *
      * @param request - AiccsSmartCallOperateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1238,7 +1242,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the AiccsSmartCallOperate API to initiate a specified action during an Intelligent outbound call. This API is only used for scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+     * Invokes the AiccsSmartCallOperate operation to initiate a specified action during an intelligent outbound call. This operation applies only to scenarios such as parallel transfer to a human agent, where the agent can monitor the man-machine dialogue.
      *
      * @param request - AiccsSmartCallOperateRequest
      *
@@ -1256,7 +1260,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke AnswerCall to answer an incoming call.
+     * Answers an incoming call.
      *
      * @param request - AnswerCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1315,7 +1319,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke AnswerCall to answer an incoming call.
+     * Answers an incoming call.
      *
      * @param request - AnswerCallRequest
      *
@@ -1333,16 +1337,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Append job details.
+     * Appends task details.
      *
      * @remarks
-     * - After creating an Intelligent Contact Robot calling job, you can invoke this API to append job details.
-     * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
-     * - If you do not have a successfully created Intelligent Contact Robot calling job, you can click **Create Job** on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or create a job by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * After you create an intelligent contact robot call task, you can call this operation to append task details.
+     * Before you call this operation, make sure that you have a successfully created intelligent contact robot call task.
+     * If you do not have a successfully created intelligent contact robot call task, you can click Create Task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or call the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) operation to create a task.
+     * ### Rate limit
+     * - Call frequency per user: not limited.
+     * - API rate limit: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - AttachTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1397,16 +1401,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Append job details.
+     * Appends task details.
      *
      * @remarks
-     * - After creating an Intelligent Contact Robot calling job, you can invoke this API to append job details.
-     * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
-     * - If you do not have a successfully created Intelligent Contact Robot calling job, you can click **Create Job** on the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or create a job by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * After you create an intelligent contact robot call task, you can call this operation to append task details.
+     * Before you call this operation, make sure that you have a successfully created intelligent contact robot call task.
+     * If you do not have a successfully created intelligent contact robot call task, you can click Create Task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or call the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) operation to create a task.
+     * ### Rate limit
+     * - Call frequency per user: not limited.
+     * - API rate limit: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - AttachTaskRequest
      *
@@ -1424,6 +1428,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates multiple quality check tasks.
+     *
      * @param request - BatchCreateQualityProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1485,6 +1491,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates multiple quality check tasks.
+     *
      * @param request - BatchCreateQualityProjectsRequest
      *
      * @returns BatchCreateQualityProjectsResponse
@@ -1501,13 +1509,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * This operation cancels calls from a call task. You cannot cancel a call if its detail record is already in the pending call queue or is in progress.
+     * Cancels a call task. If detail records have entered the pending call queue or are currently being called, they cannot be canceled.
      *
      * @remarks
-     * - Use this operation to cancel calls. Alternatively, you can manually cancel calls in the console by navigating to **Call Task Management** > **Manage** > **Execution Records** > **Pending**.
-     * - Before calling this operation, ensure you have created a call task and imported callee data.
-     * - If you have not created a call task, you can create one and import callee data on the **Call Task Management** page. You can also call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926815.html) and [ImportTaskNumberDatas]() operations.
-     * - Canceling a call task may affect your business. Please proceed with caution.
+     * - You can call this operation to cancel a call task, or manually cancel a call task on the **Call task management** > **Manage** > **Execution records** > **Pending** page.
+     * - Before calling this operation, make sure that you have created a call task and imported the callee data.
+     * - If you do not have an existing call task, you can create a call task and import callee data on the Call task management page, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - Canceling a call task may affect your business. Proceed with caution.
      *
      * @param tmpReq - CancelAiCallDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1584,13 +1592,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * This operation cancels calls from a call task. You cannot cancel a call if its detail record is already in the pending call queue or is in progress.
+     * Cancels a call task. If detail records have entered the pending call queue or are currently being called, they cannot be canceled.
      *
      * @remarks
-     * - Use this operation to cancel calls. Alternatively, you can manually cancel calls in the console by navigating to **Call Task Management** > **Manage** > **Execution Records** > **Pending**.
-     * - Before calling this operation, ensure you have created a call task and imported callee data.
-     * - If you have not created a call task, you can create one and import callee data on the **Call Task Management** page. You can also call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926815.html) and [ImportTaskNumberDatas]() operations.
-     * - Canceling a call task may affect your business. Please proceed with caution.
+     * - You can call this operation to cancel a call task, or manually cancel a call task on the **Call task management** > **Manage** > **Execution records** > **Pending** page.
+     * - Before calling this operation, make sure that you have created a call task and imported the callee data.
+     * - If you do not have an existing call task, you can create a call task and import callee data on the Call task management page, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - Canceling a call task may affect your business. Proceed with caution.
      *
      * @param request - CancelAiCallDetailsRequest
      *
@@ -1608,16 +1616,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Cancel an Intelligent Contact Robot calling job.
+     * Cancels an intelligent contact robot call task.
      *
      * @remarks
-     * - You can invoke this API to cancel an Intelligent Contact Robot calling job, or manually cancel the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
-     * - After an Intelligent Contact Robot calling job is canceled, it cannot be started again. Proceed with caution.
-     * - If you want to pause a job and restart it later, you can manually pause the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or pause it by using the [StopTask](https://help.aliyun.com/document_detail/2718006.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - You can call this operation to cancel an intelligent contact robot call task, or manually cancel the task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
+     * - After an intelligent contact robot call task is canceled, it cannot be restarted. Proceed with caution.
+     * - If you want to pause a task and restart it later, you can manually pause the task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or call the [StopTask](https://help.aliyun.com/document_detail/2718006.html) operation to pause the task.
+     * ### Rate limit
+     * - Rate limit per user: None.
+     * - API rate limit: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - CancelTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1668,16 +1676,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Cancel an Intelligent Contact Robot calling job.
+     * Cancels an intelligent contact robot call task.
      *
      * @remarks
-     * - You can invoke this API to cancel an Intelligent Contact Robot calling job, or manually cancel the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface.
-     * - After an Intelligent Contact Robot calling job is canceled, it cannot be started again. Proceed with caution.
-     * - If you want to pause a job and restart it later, you can manually pause the job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or pause it by using the [StopTask](https://help.aliyun.com/document_detail/2718006.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - You can call this operation to cancel an intelligent contact robot call task, or manually cancel the task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
+     * - After an intelligent contact robot call task is canceled, it cannot be restarted. Proceed with caution.
+     * - If you want to pause a task and restart it later, you can manually pause the task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or call the [StopTask](https://help.aliyun.com/document_detail/2718006.html) operation to pause the task.
+     * ### Rate limit
+     * - Rate limit per user: None.
+     * - API rate limit: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - CancelTaskRequest
      *
@@ -1695,10 +1703,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ChangeChatAgentStatus to modify the Live Support status.
+     * Modifies the status of an online customer service agent.
      *
      * @remarks
-     * > Currently, only changing the Live Support status to offline is supported.
+     * Currently, you can only change the status of an online customer service agent to offline.
      *
      * @param request - ChangeChatAgentStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1749,10 +1757,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ChangeChatAgentStatus to modify the Live Support status.
+     * Modifies the status of an online customer service agent.
      *
      * @remarks
-     * > Currently, only changing the Live Support status to offline is supported.
+     * Currently, you can only change the status of an online customer service agent to offline.
      *
      * @param request - ChangeChatAgentStatusRequest
      *
@@ -1770,6 +1778,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Updates the status of a quality inspection task based on the task ID.
+     *
      * @param request - ChangeQualityProjectStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1815,6 +1825,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Updates the status of a quality inspection task based on the task ID.
+     *
      * @param request - ChangeQualityProjectStatusRequest
      *
      * @returns ChangeQualityProjectStatusResponse
@@ -1831,16 +1843,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Create an agent account in the Cloud Customer Service System and return the agent ID.
+     * Creates an agent account in the Cloud Customer Service System and returns the agent ID.
      *
      * @remarks
-     * - Before calling this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify skill group information, refer to the guidance in [Request Parameters](#api-detail-35).
-     * - You can manage agents by calling [DeleteAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-deleteagent) to delete an agent or [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update agent data.
-     * ### QPS Limit
-     * - Per-user call frequency: No rate limiting.
-     * - API call frequency: 100 queries per second (QPS).
-     * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify skill group information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * - You can call [DeleteAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-deleteagent) to delete an agent, or call [UpdateAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update agent data and manage the agent.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - CreateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1902,16 +1914,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Create an agent account in the Cloud Customer Service System and return the agent ID.
+     * Creates an agent account in the Cloud Customer Service System and returns the agent ID.
      *
      * @remarks
-     * - Before calling this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify skill group information, refer to the guidance in [Request Parameters](#api-detail-35).
-     * - You can manage agents by calling [DeleteAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-deleteagent) to delete an agent or [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update agent data.
-     * ### QPS Limit
-     * - Per-user call frequency: No rate limiting.
-     * - API call frequency: 100 queries per second (QPS).
-     * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify skill group information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * - You can call [DeleteAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-deleteagent) to delete an agent, or call [UpdateAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update agent data and manage the agent.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - CreateAgentRequest
      *
@@ -1932,7 +1944,7 @@ class Aiccs extends OpenApiClient
      * Creates a voice call task.
      *
      * @remarks
-     * Before creating a voice call task, use an agent to perform a test call to confirm that the results meet your requirements.
+     * Before creating a voice call task, use an agent to perform a test call to ensure that the results meet your requirements.
      *
      * @param tmpReq - CreateAiCallTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2084,7 +2096,7 @@ class Aiccs extends OpenApiClient
      * Creates a voice call task.
      *
      * @remarks
-     * Before creating a voice call task, use an agent to perform a test call to confirm that the results meet your requirements.
+     * Before creating a voice call task, use an agent to perform a test call to ensure that the results meet your requirements.
      *
      * @param request - CreateAiCallTaskRequest
      *
@@ -2225,14 +2237,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Creates a batch for an Intelligent Outbound Calling job based on the instance ID and job ID, enabling data under the job to be queried by batch.
+     * Creates a task batch for an intelligent outbound calling task based on the instance ID and task ID so that data under the task can be queried by batch.
      *
      * @remarks
-     * Before invoking this API, we recommend that you confirm the instance ID and job ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
-     * ### QPS limit
-     * - Per-user invocation frequency: 20 queries per second (QPS).
-     * - API-wide invocation frequency: 20 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * Before you call this operation, confirm the instance ID and task ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Calls per user: 20 calls per second.
+     * - API rate limit: 20 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - CreateAiOutboundTaskBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2275,14 +2287,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Creates a batch for an Intelligent Outbound Calling job based on the instance ID and job ID, enabling data under the job to be queried by batch.
+     * Creates a task batch for an intelligent outbound calling task based on the instance ID and task ID so that data under the task can be queried by batch.
      *
      * @remarks
-     * Before invoking this API, we recommend that you confirm the instance ID and job ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
-     * ### QPS limit
-     * - Per-user invocation frequency: 20 queries per second (QPS).
-     * - API-wide invocation frequency: 20 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * Before you call this operation, confirm the instance ID and task ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Calls per user: 20 calls per second.
+     * - API rate limit: 20 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - CreateAiOutboundTaskBatchRequest
      *
@@ -2377,6 +2389,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates an outbound call task.
+     *
      * @param request - CreateOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2478,6 +2492,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates an outbound call task.
+     *
      * @param request - CreateOutboundTaskRequest
      *
      * @returns CreateOutboundTaskResponse
@@ -2494,6 +2510,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates a quality check task.
+     *
      * @param request - CreateQualityProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2571,6 +2589,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates a quality check task.
+     *
      * @param request - CreateQualityProjectRequest
      *
      * @returns CreateQualityProjectResponse
@@ -2587,6 +2607,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates a quality check rule.
+     *
      * @param request - CreateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2640,6 +2662,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Creates a quality check rule.
+     *
      * @param request - CreateQualityRuleRequest
      *
      * @returns CreateQualityRuleResponse
@@ -2886,7 +2910,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Create an agent that enables password-free login to the Cloud Customer Service System based on a User Account.
+     * Creates an agent for passwordless logon to the Cloud Customer Service System based on a user account.
      *
      * @param request - CreateThirdSsoAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2956,7 +2980,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Create an agent that enables password-free login to the Cloud Customer Service System based on a User Account.
+     * Creates an agent for passwordless logon to the Cloud Customer Service System based on a user account.
      *
      * @param request - CreateThirdSsoAgentRequest
      *
@@ -2974,16 +2998,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Deletes an agent account in the Cloud Customer Service System based on the instance ID and agent account name.
+     * Deletes an agent account in the Xixi Cloud Customer Service System based on the instance ID and agent account name.
      *
      * @remarks
-     * - Before deletion, we recommend that you confirm the agent account name and instance ID to be deleted. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
-     * - If an agent is accidentally deleted, you can invoke the [CreateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createagent) API to recreate the agent.
-     * > If an account is re-added after deletion, the agent ID remains unchanged.
-     * ### Queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+     * - Before deleting an agent account, verify the agent account name and instance ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * - If you delete an agent account by mistake, you can call the [CreateAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-createagent) operation to recreate the agent account.
+     * > If you add the account again after it is deleted, the agent ID remains unchanged.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - DeleteAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3030,16 +3054,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Deletes an agent account in the Cloud Customer Service System based on the instance ID and agent account name.
+     * Deletes an agent account in the Xixi Cloud Customer Service System based on the instance ID and agent account name.
      *
      * @remarks
-     * - Before deletion, we recommend that you confirm the agent account name and instance ID to be deleted. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
-     * - If an agent is accidentally deleted, you can invoke the [CreateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createagent) API to recreate the agent.
-     * > If an account is re-added after deletion, the agent ID remains unchanged.
-     * ### Queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+     * - Before deleting an agent account, verify the agent account name and instance ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * - If you delete an agent account by mistake, you can call the [CreateAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-createagent) operation to recreate the agent account.
+     * > If you add the account again after it is deleted, the agent ID remains unchanged.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - DeleteAgentRequest
      *
@@ -3057,16 +3081,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Deletes an Intelligent Outbound Calling job by instance ID and job ID. After deletion, the job will no longer appear in the outbound calling job list.
+     * Deletes an AI outbound call task based on the instance ID and task ID. After the task is deleted, it cannot be retrieved when you query the list of outbound call tasks.
      *
      * @remarks
      * >Notice: Deletion is a sensitive operation. Proceed with caution.
-     * - Before deletion, we recommend that you confirm the job ID and related information. You can call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API to view the outbound calling job list and verify the task name, description, and corresponding job ID.
-     * - If you need to recreate an Intelligent Outbound Calling job, you can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 20 times/second.
-     * - API invocation frequency: 20 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before deletion, confirm the ID and information of the task to be deleted. You can call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) operation to view the list of outbound call tasks and confirm the task name, description, and corresponding task ID.
+     * - To recreate an AI outbound call task, call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) operation.
+     * ### QPS limits
+     * - Call frequency per user: 20 calls per second.
+     * - API rate limit: 20 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - DeleteAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3109,16 +3133,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Deletes an Intelligent Outbound Calling job by instance ID and job ID. After deletion, the job will no longer appear in the outbound calling job list.
+     * Deletes an AI outbound call task based on the instance ID and task ID. After the task is deleted, it cannot be retrieved when you query the list of outbound call tasks.
      *
      * @remarks
      * >Notice: Deletion is a sensitive operation. Proceed with caution.
-     * - Before deletion, we recommend that you confirm the job ID and related information. You can call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API to view the outbound calling job list and verify the task name, description, and corresponding job ID.
-     * - If you need to recreate an Intelligent Outbound Calling job, you can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 20 times/second.
-     * - API invocation frequency: 20 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before deletion, confirm the ID and information of the task to be deleted. You can call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) operation to view the list of outbound call tasks and confirm the task name, description, and corresponding task ID.
+     * - To recreate an AI outbound call task, call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) operation.
+     * ### QPS limits
+     * - Call frequency per user: 20 calls per second.
+     * - API rate limit: 20 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - DeleteAiOutboundTaskRequest
      *
@@ -3276,6 +3300,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Deletes an outbound task by outbound task ID.
+     *
      * @param request - DeleteOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3317,6 +3343,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Deletes an outbound task by outbound task ID.
+     *
      * @param request - DeleteOutboundTaskRequest
      *
      * @returns DeleteOutboundTaskResponse
@@ -3333,7 +3361,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke DeleteOuterAccount to delete an external account by its external Account ID.
+     * Deletes an external account based on the external account ID.
      *
      * @param request - DeleteOuterAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3368,7 +3396,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke DeleteOuterAccount to delete an external account by its external Account ID.
+     * Deletes an external account based on the external account ID.
      *
      * @param request - DeleteOuterAccountRequest
      *
@@ -3386,6 +3414,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Deletes a quality inspection task by task ID.
+     *
      * @param request - DeleteQualityProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3427,6 +3457,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Deletes a quality inspection task by task ID.
+     *
      * @param request - DeleteQualityProjectRequest
      *
      * @returns DeleteQualityProjectResponse
@@ -3443,6 +3475,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Deletes a quality check rule based on the rule ID.
+     *
      * @param request - DeleteQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3484,6 +3518,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Deletes a quality check rule based on the rule ID.
+     *
      * @param request - DeleteQualityRuleRequest
      *
      * @returns DeleteQualityRuleResponse
@@ -3500,7 +3536,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Deletes an external skill group based on the skill group ID and skill group channel type.
+     * Deletes an external skill group by skill group ID and channel type.
      *
      * @param request - DeleteSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3535,7 +3571,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Deletes an external skill group based on the skill group ID and skill group channel type.
+     * Deletes an external skill group by skill group ID and channel type.
      *
      * @param request - DeleteSkillGroupRequest
      *
@@ -3638,6 +3674,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Modifies a quality inspection project.
+     *
      * @param request - EditQualityProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3725,6 +3763,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Modifies a quality inspection project.
+     *
      * @param request - EditQualityProjectRequest
      *
      * @returns EditQualityProjectResponse
@@ -3741,6 +3781,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Modifies a quality check rule based on the quality check rule ID.
+     *
      * @param request - EditQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3798,6 +3840,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Modifies a quality check rule based on the quality check rule ID.
+     *
      * @param request - EditQualityRuleRequest
      *
      * @returns EditQualityRuleResponse
@@ -3814,6 +3858,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Modifies a quality check rule tag based on the tag ID.
+     *
      * @param request - EditQualityRuleTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3855,6 +3901,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Modifies a quality check rule tag based on the tag ID.
+     *
      * @param request - EditQualityRuleTagRequest
      *
      * @returns EditQualityRuleTagResponse
@@ -3871,7 +3919,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke EncryptPhoneNum to encrypt the User\\"s Phone number.
+     * Encrypts the mobile phone number of a user.
      *
      * @param request - EncryptPhoneNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3906,7 +3954,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke EncryptPhoneNum to encrypt the User\\"s Phone number.
+     * Encrypts the mobile phone number of a user.
      *
      * @param request - EncryptPhoneNumRequest
      *
@@ -3924,7 +3972,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Retrieve or recover a call.
+     * Retrieves or resumes a call.
      *
      * @param request - FetchCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3987,7 +4035,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Retrieve or recover a call.
+     * Retrieves or resumes a call.
      *
      * @param request - FetchCallRequest
      *
@@ -4082,15 +4130,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Generate a message channel access signature based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and agent account name.
+     * Generates a message channel access signature based on the AICCS instance ID and the agent account name.
      *
      * @remarks
-     * - You can invoke this API to generate a message channel access signature. The **Data** field in the response contains the MessageBox message channel signature code.
-     * - Before invoking the API, we recommend that you confirm your AICCS instance ID. For instructions on how to obtain it, see the description of [Request Parameters](#api-detail-35).
-     * ### Queries per second (QPS) limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API-wide frequency: 100 queries per second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - You can call this operation to generate a message channel access signature. The **Data** parameter in the response is the MessageBox message channel signature code.
+     * - Before calling this operation, confirm the AICCS instance ID. Refer to the instructions in the [request parameters](#api-detail-35) section to obtain the ID.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 100 calls per second.
+     * > Throttling is also triggered if the total number of calls from multiple users exceeds the API frequency limit.
      *
      * @param request - GenerateWebSocketSignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4137,15 +4185,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Generate a message channel access signature based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and agent account name.
+     * Generates a message channel access signature based on the AICCS instance ID and the agent account name.
      *
      * @remarks
-     * - You can invoke this API to generate a message channel access signature. The **Data** field in the response contains the MessageBox message channel signature code.
-     * - Before invoking the API, we recommend that you confirm your AICCS instance ID. For instructions on how to obtain it, see the description of [Request Parameters](#api-detail-35).
-     * ### Queries per second (QPS) limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API-wide frequency: 100 queries per second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - You can call this operation to generate a message channel access signature. The **Data** parameter in the response is the MessageBox message channel signature code.
+     * - Before calling this operation, confirm the AICCS instance ID. Refer to the instructions in the [request parameters](#api-detail-35) section to obtain the ID.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 100 calls per second.
+     * > Throttling is also triggered if the total number of calls from multiple users exceeds the API frequency limit.
      *
      * @param request - GenerateWebSocketSignRequest
      *
@@ -4311,6 +4359,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves agent information by agent ID.
+     *
      * @param request - GetAgentByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4352,6 +4402,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves agent information by agent ID.
+     *
      * @param request - GetAgentByIdRequest
      *
      * @returns GetAgentByIdResponse
@@ -4447,15 +4499,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain real-time agent detail data grouped by instance, department, and skill group (real-time data).
+     * Retrieves real-time details of agents grouped by instance, department, and skill group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-     * ### queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 10 requests per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify department and skill group information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * ### Rate limit
+     * - Rate limit per user: None.
+     * - API rate limit: 10 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - GetAgentIndexRealTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4510,15 +4562,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain real-time agent detail data grouped by instance, department, and skill group (real-time data).
+     * Retrieves real-time details of agents grouped by instance, department, and skill group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-     * ### queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 10 requests per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify department and skill group information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * ### Rate limit
+     * - Rate limit per user: None.
+     * - API rate limit: 10 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - GetAgentIndexRealTimeRequest
      *
@@ -4615,15 +4667,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain agent-level statistics under hotline monitoring. Supports querying by instance, time range, agent, and department group.
+     * Queries the agent dimension statistics for hotline monitoring. Supports grouping queries by instance, time range, agent, and department.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
-     * ### queries per second (QPS) limit
-     * - Per-user invocation frequency: 100 times per second.
-     * - API-wide invocation frequency: 100 times per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify agent and department information, refer to the instructions in the [request parameters](#api-detail-35) section to obtain them.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API rate limit: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param tmpReq - GetAgentStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4668,15 +4720,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain agent-level statistics under hotline monitoring. Supports querying by instance, time range, agent, and department group.
+     * Queries the agent dimension statistics for hotline monitoring. Supports grouping queries by instance, time range, agent, and department.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify agent or department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
-     * ### queries per second (QPS) limit
-     * - Per-user invocation frequency: 100 times per second.
-     * - API-wide invocation frequency: 100 times per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify agent and department information, refer to the instructions in the [request parameters](#api-detail-35) section to obtain them.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API rate limit: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - GetAgentStatisticsRequest
      *
@@ -4826,14 +4878,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain task execution details by instance ID and job ID.
+     * Queries the execution details of a task based on the instance ID and task ID.
      *
      * @remarks
-     * The task execution details include the total number of jobs, job batches, outbound call numbers, corresponding call counts, execution status, and other information.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * The task execution details include information such as the total number of tasks, task batches, outbound call numbers and their corresponding call counts, and execution statuses.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - GetAiOutboundTaskExecDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4868,14 +4920,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain task execution details by instance ID and job ID.
+     * Queries the execution details of a task based on the instance ID and task ID.
      *
      * @remarks
-     * The task execution details include the total number of jobs, job batches, outbound call numbers, corresponding call counts, execution status, and other information.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * The task execution details include information such as the total number of tasks, task batches, outbound call numbers and their corresponding call counts, and execution statuses.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - GetAiOutboundTaskExecDetailRequest
      *
@@ -4893,15 +4945,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Retrieve the outbound call job list by instance ID and Task Type.
+     * Queries a list of outbound call tasks based on the instance ID and task type.
      *
      * @remarks
-     * - The job list contains job information, including job ID, Task Status, Task Name, task completion rate, and more. For details, see [Response parameters](#api-detail-40).
-     * - If you need to update job information, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API invocation frequency: 100 times/second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+     * - The task list contains task information, including the task ID, task status, task name, and task completion rate. For more information, see [Response parameters](#api-detail-40).
+     * - To update task information, call the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) operation.
+     * ### QPS limit
+     * - Calls per second per user: 100.
+     * - Calls per second for the API: 100.
+     * > If the total number of calls from multiple users exceeds the API limit, throttling is triggered.
      *
      * @param request - GetAiOutboundTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4936,15 +4988,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Retrieve the outbound call job list by instance ID and Task Type.
+     * Queries a list of outbound call tasks based on the instance ID and task type.
      *
      * @remarks
-     * - The job list contains job information, including job ID, Task Status, Task Name, task completion rate, and more. For details, see [Response parameters](#api-detail-40).
-     * - If you need to update job information, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API invocation frequency: 100 times/second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+     * - The task list contains task information, including the task ID, task status, task name, and task completion rate. For more information, see [Response parameters](#api-detail-40).
+     * - To update task information, call the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) operation.
+     * ### QPS limit
+     * - Calls per second per user: 100.
+     * - Calls per second for the API: 100.
+     * > If the total number of calls from multiple users exceeds the API limit, throttling is triggered.
      *
      * @param request - GetAiOutboundTaskListRequest
      *
@@ -5329,7 +5381,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetConfigNumList API to obtain the hotline settings number list.
+     * Queries the list of hotline configuration numbers.
      *
      * @param request - GetConfigNumListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5364,7 +5416,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetConfigNumList API to obtain the hotline settings number list.
+     * Queries the list of hotline configuration numbers.
      *
      * @param request - GetConfigNumListRequest
      *
@@ -5382,7 +5434,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * You can invoke the GetCustomerInfo API to obtain membership details by Workbench membership ID.
+     * Retrieves the details of a member based on the workspace member ID.
      *
      * @param request - GetCustomerInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5417,7 +5469,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * You can invoke the GetCustomerInfo API to obtain membership details by Workbench membership ID.
+     * Retrieves the details of a member based on the workspace member ID.
      *
      * @param request - GetCustomerInfoRequest
      *
@@ -5435,16 +5487,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries skill group categories and the skill group list by AICCS instance ID and agent ID.
+     * Queries skill group categories and skill groups based on the AICCS instance ID and agent ID.
      *
      * @remarks
-     * - The skill groups returned by this API are grouped by department ID, which can be specified when you [create a skill group](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup).
-     * - To query detailed skill group information, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API.
-     * - Before invoking this API, you should confirm the AICCS instance ID and agent ID. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 1000 queries per second.
-     * - API-wide invocation frequency: 1000 queries per second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - The skill groups queried by this operation are grouped by department ID. You can specify the department ID when you [create a skill group](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup).
+     * - To query detailed skill group information, call the [QuerySkillGroups](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) operation.
+     * - Before calling this operation, verify the AICCS instance ID and agent ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: 1,000 calls per second.
+     * - API frequency: 1,000 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - GetDepGroupTreeDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5479,16 +5531,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries skill group categories and the skill group list by AICCS instance ID and agent ID.
+     * Queries skill group categories and skill groups based on the AICCS instance ID and agent ID.
      *
      * @remarks
-     * - The skill groups returned by this API are grouped by department ID, which can be specified when you [create a skill group](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup).
-     * - To query detailed skill group information, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API.
-     * - Before invoking this API, you should confirm the AICCS instance ID and agent ID. For guidance on how to obtain them, see the description of [Request Parameters](#api-detail-35).
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 1000 queries per second.
-     * - API-wide invocation frequency: 1000 queries per second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - The skill groups queried by this operation are grouped by department ID. You can specify the department ID when you [create a skill group](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup).
+     * - To query detailed skill group information, call the [QuerySkillGroups](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) operation.
+     * - Before calling this operation, verify the AICCS instance ID and agent ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: 1,000 calls per second.
+     * - API frequency: 1,000 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - GetDepGroupTreeDataRequest
      *
@@ -5506,15 +5558,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain department-level status metrics under hotline monitoring. Supports queries by instance, time range, and department group.
+     * Retrieves the department-level status metrics for hotline monitoring. Supports queries by instance, time range, and department group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API-wide invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - Before calling this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify department information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param tmpReq - GetDepartmentalLatitudeAgentStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5555,15 +5607,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain department-level status metrics under hotline monitoring. Supports queries by instance, time range, and department group.
+     * Retrieves the department-level status metrics for hotline monitoring. Supports queries by instance, time range, and department group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify department information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API-wide invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - Before calling this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify department information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - GetDepartmentalLatitudeAgentStatusRequest
      *
@@ -5581,14 +5633,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the current service details of a hotline agent based on the instance ID and agent account name.
+     * Queries the current service details of a hotline agent based on the instance ID and agent account name.
      *
      * @remarks
-     * The hotline agent details include information such as agent posture status, agent ID, and heartbeat signature. For more information, see [Response parameters](#api-detail-40).
-     * ### Queries per second (QPS) limit
-     * - Per-user invocation frequency: Rate Limiting is not applied.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * The hotline agent details include the agent status, agent ID, heartbeat signature, and other information. For more information, see [Response parameters](#api-detail-40).
+     * ### QPS limits
+     * - Rate limit per user: None.
+     * - API rate limit: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - GetHotlineAgentDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5623,14 +5675,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the current service details of a hotline agent based on the instance ID and agent account name.
+     * Queries the current service details of a hotline agent based on the instance ID and agent account name.
      *
      * @remarks
-     * The hotline agent details include information such as agent posture status, agent ID, and heartbeat signature. For more information, see [Response parameters](#api-detail-40).
-     * ### Queries per second (QPS) limit
-     * - Per-user invocation frequency: Rate Limiting is not applied.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * The hotline agent details include the agent status, agent ID, heartbeat signature, and other information. For more information, see [Response parameters](#api-detail-40).
+     * ### QPS limits
+     * - Rate limit per user: None.
+     * - API rate limit: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - GetHotlineAgentDetailRequest
      *
@@ -5648,19 +5700,19 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain detailed data metrics by hotline agent dimension (T+1). Supports grouping queries by instance, time range, department, and skill group.
+     * Queries the details of hotline agent dimension (T+1) data. Supports querying by instance, time range, department, and skill group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).
-     * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+     * - Before you call this operation, make sure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).
+     * - If you need to specify department and skill group information, refer to the instructions in the [Request parameters](#api-detail-35) section.
      * > Query logic priority:
-     * > - If GroupIds is not empty, query data metrics under the specified skill groups.
-     * > - Otherwise, if DepIds is not empty, query data metrics under the corresponding department groups.
-     * > - Otherwise, query data metrics under the AICCS instance.
-     * ### QPS Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 10 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * > - If GroupIds is not empty, the system queries the data metrics under the specified skill groups.
+     * > - Otherwise, if DepIds is not empty, the system queries the data metrics under the specified departments.
+     * > - Otherwise, the system queries the data metrics under the AICCS instance.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 10 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - GetHotlineAgentDetailReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5723,19 +5775,19 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain detailed data metrics by hotline agent dimension (T+1). Supports grouping queries by instance, time range, department, and skill group.
+     * Queries the details of hotline agent dimension (T+1) data. Supports querying by instance, time range, department, and skill group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).
-     * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
+     * - Before you call this operation, make sure that you have [activated the service](https://help.aliyun.com/document_detail/276009.html) and [created an instance](https://help.aliyun.com/document_detail/276011.html).
+     * - If you need to specify department and skill group information, refer to the instructions in the [Request parameters](#api-detail-35) section.
      * > Query logic priority:
-     * > - If GroupIds is not empty, query data metrics under the specified skill groups.
-     * > - Otherwise, if DepIds is not empty, query data metrics under the corresponding department groups.
-     * > - Otherwise, query data metrics under the AICCS instance.
-     * ### QPS Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 10 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * > - If GroupIds is not empty, the system queries the data metrics under the specified skill groups.
+     * > - Otherwise, if DepIds is not empty, the system queries the data metrics under the specified departments.
+     * > - Otherwise, the system queries the data metrics under the AICCS instance.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 10 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - GetHotlineAgentDetailReportRequest
      *
@@ -5830,13 +5882,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetHotlineCallAction API to query the result data of call actions.
+     * Queries the result data of hotline call actions.
      *
      * @remarks
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 50 times/second.
-     * - API invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * ### QPS limits
+     * - Call frequency per user: 50 calls per second.
+     * - API frequency: 100 calls per second.
+     * > Throttling is also triggered if the total call volume from multiple users exceeds the API rate limit.
      *
      * @param request - GetHotlineCallActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5899,13 +5951,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetHotlineCallAction API to query the result data of call actions.
+     * Queries the result data of hotline call actions.
      *
      * @remarks
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 50 times/second.
-     * - API invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * ### QPS limits
+     * - Call frequency per user: 50 calls per second.
+     * - API frequency: 100 calls per second.
+     * > Throttling is also triggered if the total call volume from multiple users exceeds the API rate limit.
      *
      * @param request - GetHotlineCallActionRequest
      *
@@ -6020,7 +6072,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetHotlineMessageLog API to retrieve hotline message records.
+     * Retrieves hotline message logs.
      *
      * @param request - GetHotlineMessageLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6055,7 +6107,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetHotlineMessageLog API to retrieve hotline message records.
+     * Retrieves hotline message logs.
      *
      * @param request - GetHotlineMessageLogRequest
      *
@@ -6073,7 +6125,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetHotlineRuntimeInfo API to query hotline runtime information.
+     * Queries the hotline runtime information.
      *
      * @param request - GetHotlineRuntimeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6108,7 +6160,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetHotlineRuntimeInfo API to query hotline runtime information.
+     * Queries the hotline runtime information.
      *
      * @param request - GetHotlineRuntimeInfoRequest
      *
@@ -6209,7 +6261,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the queue length of hotline members.
+     * Retrieves the number of hotline customers in the queue.
      *
      * @param request - GetHotlineWaitingNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6244,7 +6296,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the queue length of hotline members.
+     * Retrieves the number of hotline customers in the queue.
      *
      * @param request - GetHotlineWaitingNumberRequest
      *
@@ -6351,6 +6403,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of instances.
+     *
      * @param request - GetInstanceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6396,6 +6450,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of instances.
+     *
      * @param request - GetInstanceListRequest
      *
      * @returns GetInstanceListResponse
@@ -6412,7 +6468,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetMcuLvsIp API to query the hotline server IP address.
+     * Queries the IP addresses of hotline servers.
      *
      * @param request - GetMcuLvsIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6447,7 +6503,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetMcuLvsIp API to query the hotline server IP address.
+     * Queries the IP addresses of hotline servers.
      *
      * @param request - GetMcuLvsIpRequest
      *
@@ -6465,13 +6521,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the number\\"s归属地 information based on the instance ID and phone number.
+     * Retrieves the location information of a phone number based on the instance ID and phone number.
      *
      * @remarks
-     * ### Queries per second (QPS) limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is also triggered.
      *
      * @param request - GetNumLocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6506,13 +6562,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the number\\"s归属地 information based on the instance ID and phone number.
+     * Retrieves the location information of a phone number based on the instance ID and phone number.
      *
      * @remarks
-     * ### Queries per second (QPS) limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is also triggered.
      *
      * @param request - GetNumLocationRequest
      *
@@ -6757,7 +6813,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke GetQualityProjectDetail to obtain the quality inspection job details.
+     * Queries the details of a quality inspection task.
      *
      * @param request - GetQualityProjectDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6800,7 +6856,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke GetQualityProjectDetail to obtain the quality inspection job details.
+     * Queries the details of a quality inspection task.
      *
      * @param request - GetQualityProjectDetailRequest
      *
@@ -6818,7 +6874,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke GetQualityProjectList to obtain the quality inspection job list.
+     * Queries the list of quality check tasks.
      *
      * @param request - GetQualityProjectListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6881,7 +6937,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke GetQualityProjectList to obtain the quality inspection job list.
+     * Queries the list of quality check tasks.
      *
      * @param request - GetQualityProjectListRequest
      *
@@ -6899,6 +6955,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the task logs of a quality inspection node.
+     *
      * @param request - GetQualityProjectLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6940,6 +6998,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the task logs of a quality inspection node.
+     *
      * @param request - GetQualityProjectLogRequest
      *
      * @returns GetQualityProjectLogResponse
@@ -6956,6 +7016,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the quality inspection task report.
+     *
      * @param request - GetQualityResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7029,6 +7091,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the quality inspection task report.
+     *
      * @param request - GetQualityResultRequest
      *
      * @returns GetQualityResultResponse
@@ -7045,6 +7109,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a quality check rule.
+     *
      * @param request - GetQualityRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7086,6 +7152,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a quality check rule.
+     *
      * @param request - GetQualityRuleDetailRequest
      *
      * @returns GetQualityRuleDetailResponse
@@ -7102,6 +7170,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of quality check rules.
+     *
      * @param request - GetQualityRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7147,6 +7217,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of quality check rules.
+     *
      * @param request - GetQualityRuleListRequest
      *
      * @returns GetQualityRuleListResponse
@@ -7163,6 +7235,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of quality check rule tags.
+     *
      * @param request - GetQualityRuleTagListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7200,6 +7274,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of quality check rule tags.
+     *
      * @param request - GetQualityRuleTagListRequest
      *
      * @returns GetQualityRuleTagListResponse
@@ -7295,7 +7371,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetRecordData API to obtain a recording file.
+     * Retrieves the recording file.
      *
      * @param request - GetRecordDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7338,7 +7414,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the GetRecordData API to obtain a recording file.
+     * Retrieves the recording file.
      *
      * @param request - GetRecordDataRequest
      *
@@ -7616,15 +7692,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the aggregated agent status metrics for skill groups under hotline monitoring. Supports grouped queries by instance, time range, department, and skill group.
+     * Queries the summary status of agents in skill groups under hotline monitoring. Supports querying by instance, time range, department, and skill group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times per second.
-     * - API-wide invocation frequency: 100 times per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify department and skill group information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is triggered.
      *
      * @param tmpReq - GetSkillGroupAndAgentStatusSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7669,15 +7745,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Obtain the aggregated agent status metrics for skill groups under hotline monitoring. Supports grouped queries by instance, time range, department, and skill group.
+     * Queries the summary status of agents in skill groups under hotline monitoring. Supports querying by instance, time range, department, and skill group.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have [activated the service](https://help.aliyun.com/zh/aiccs/user-guide/activate-aiccs?spm=a2c4g.11186623.0.0.38365923RQDwdH) and [created an instance](https://help.aliyun.com/zh/aiccs/user-guide/create-an-instance?spm=a2c4g.11186623.0.0.8e0b5a2fWNeRUn).
-     * - If you need to specify department or skill group information, refer to the guidance in the [Request Parameters](#api-detail-35) section.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times per second.
-     * - API-wide invocation frequency: 100 times per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - Before you call this operation, make sure that you have [activated the service](https://www.alibabacloud.com/help/en/aiccs/user-guide/activate-aiccs) and [created an instance](https://www.alibabacloud.com/help/en/aiccs/user-guide/create-an-instance).
+     * - If you need to specify department and skill group information, refer to the instructions in the [request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: 100 calls per second.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is triggered.
      *
      * @param request - GetSkillGroupAndAgentStatusSummaryRequest
      *
@@ -8076,7 +8152,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke HangupCall to execute the agent hang-up operation.
+     * Hangs up a call for an agent.
      *
      * @param request - HangupCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8135,7 +8211,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke HangupCall to execute the agent hang-up operation.
+     * Hangs up a call for an agent.
      *
      * @param request - HangupCallRequest
      *
@@ -8222,7 +8298,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Hang up a third-party call.
+     * Disconnects a third-party call.
      *
      * @param request - HangupThirdCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8281,7 +8357,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Hang up a third-party call.
+     * Disconnects a third-party call.
      *
      * @param request - HangupThirdCallRequest
      *
@@ -8299,7 +8375,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Hold the call.
+     * Places a call on hold.
      *
      * @param request - HoldCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8358,7 +8434,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Hold the call.
+     * Places a call on hold.
      *
      * @param request - HoldCallRequest
      *
@@ -8551,7 +8627,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Imports a single phone number record.
+     * Imports data for a single phone number.
      *
      * @param tmpReq - ImportOneTaskPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8628,7 +8704,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Imports a single phone number record.
+     * Imports data for a single phone number.
      *
      * @param request - ImportOneTaskPhoneNumberRequest
      *
@@ -8646,13 +8722,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Imports callee data for a voice call task.
+     * Imports callee data for a call task.
      *
      * @remarks
-     * - You can call this operation to import callee data, or import callee data on the **Call Task Management** page by clicking Import Callee Data, downloading the template, and uploading the file.
+     * - You can call this operation to import callee data. You can also import callee data by clicking **Import Callee Data** on the **Call Task Management** page, downloading the template, and uploading a file.
      * - This operation currently supports only the JSON data type for importing callee data.
-     * - Before calling this operation, make sure that you have a successfully created call task.
-     * - If you do not have a successfully created call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+     * - Before calling this operation, make sure that a call task has been created.
+     * - If you do not have a created call task, you can create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
      *
      * @param tmpReq - ImportTaskNumberDatasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8727,13 +8803,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Imports callee data for a voice call task.
+     * Imports callee data for a call task.
      *
      * @remarks
-     * - You can call this operation to import callee data, or import callee data on the **Call Task Management** page by clicking Import Callee Data, downloading the template, and uploading the file.
+     * - You can call this operation to import callee data. You can also import callee data by clicking **Import Callee Data** on the **Call Task Management** page, downloading the template, and uploading a file.
      * - This operation currently supports only the JSON data type for importing callee data.
-     * - Before calling this operation, make sure that you have a successfully created call task.
-     * - If you do not have a successfully created call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+     * - Before calling this operation, make sure that a call task has been created.
+     * - If you do not have a created call task, you can create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
      *
      * @param request - ImportTaskNumberDatasRequest
      *
@@ -8751,15 +8827,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Import outbound call callee numbers based on the instance ID and job ID.
+     * Imports outbound called numbers based on the instance ID and task ID.
      *
      * @remarks
-     * - After importing outbound call callee numbers, the outbound calling job can operate normally.
-     * - Before invoking this API, we recommend that you confirm the instance ID and job ID. For more information, see [Request Parameters](#api-detail-35).
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 20 times/second.
-     * - API invocation frequency: 50 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - After you import outbound called numbers, the outbound call task can make calls normally.
+     * - Before you call this operation, verify the instance ID and task ID. For more information, see [Request parameters](#api-detail-35).
+     * ### QPS limits
+     * - Calls per second (CPS) per user: 20.
+     * - CPS per API: 50.
+     * > If the total number of calls from multiple users exceeds the API CPS limit, throttling is triggered.
      *
      * @param tmpReq - InsertAiOutboundPhoneNumsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8816,15 +8892,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Import outbound call callee numbers based on the instance ID and job ID.
+     * Imports outbound called numbers based on the instance ID and task ID.
      *
      * @remarks
-     * - After importing outbound call callee numbers, the outbound calling job can operate normally.
-     * - Before invoking this API, we recommend that you confirm the instance ID and job ID. For more information, see [Request Parameters](#api-detail-35).
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 20 times/second.
-     * - API invocation frequency: 50 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - After you import outbound called numbers, the outbound call task can make calls normally.
+     * - Before you call this operation, verify the instance ID and task ID. For more information, see [Request parameters](#api-detail-35).
+     * ### QPS limits
+     * - Calls per second (CPS) per user: 20.
+     * - CPS per API: 50.
+     * > If the total number of calls from multiple users exceeds the API CPS limit, throttling is triggered.
      *
      * @param request - InsertAiOutboundPhoneNumsRequest
      *
@@ -8842,6 +8918,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Supplements an outbound task based on the outbound task ID.
+     *
      * @param request - InsertTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8887,6 +8965,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Supplements an outbound task based on the outbound task ID.
+     *
      * @param request - InsertTaskDetailRequest
      *
      * @returns InsertTaskDetailResponse
@@ -8903,7 +8983,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Add a third party to the call.
+     * Adds a third party to a call.
      *
      * @param request - JoinThirdCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8966,7 +9046,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Add a third party to the call.
+     * Adds a third party to a call.
      *
      * @param request - JoinThirdCallRequest
      *
@@ -9138,10 +9218,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Lists the system and custom TTS voices available for large model-based outbound calls.
+     * Retrieves the list of TTS voices supported for large model outbound calls, including system preset voices and personalized voices.
      *
      * @remarks
-     * If you have not created and published any custom voices on the [Custom Voice](https://aiccs.console.aliyun.com/engine/voiceprint) page, the operation returns only system voices.
+     * If you do not have any created and online voices on the [Personalized Voices](https://aiccs.console.aliyun.com/engine/voiceprint) page, only system preset voices are returned.
      *
      * @param request - ListAvailableTtsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9196,10 +9276,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Lists the system and custom TTS voices available for large model-based outbound calls.
+     * Retrieves the list of TTS voices supported for large model outbound calls, including system preset voices and personalized voices.
      *
      * @remarks
-     * If you have not created and published any custom voices on the [Custom Voice](https://aiccs.console.aliyun.com/engine/voiceprint) page, the operation returns only system voices.
+     * If you do not have any created and online voices on the [Personalized Voices](https://aiccs.console.aliyun.com/engine/voiceprint) page, only system preset voices are returned.
      *
      * @param request - ListAvailableTtsRequest
      *
@@ -9217,15 +9297,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ListChatRecordDetail to query online session details by time period.
+     * Queries the details of online sessions within a specified time period.
      *
      * @remarks
-     * This API queries information about completed online sessions within a specified time range, including session content. The query rules are as follows:
-     * - The maximum time span for the query is 1 Day.
-     * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.
-     * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.
-     * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.
-     * - If both times are provided but the time span exceeds 1 Day, an abnormal response is returned.
+     * This operation queries online session information for sessions completed within a specified time period, including the session content. The query rules are as follows:
+     * - The maximum time span for a query is one day.
+     * - If only the end time is specified, the start time is set to one hour before the end time.
+     * - If only the start time is specified, the end time is set to one hour after the start time.
+     * - If neither is specified, the end time is set to the current time, and the start time is set to one hour before the end time.
+     * - If both are specified but the time span exceeds one day, an error message is returned.
      *
      * @param request - ListChatRecordDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9260,15 +9340,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ListChatRecordDetail to query online session details by time period.
+     * Queries the details of online sessions within a specified time period.
      *
      * @remarks
-     * This API queries information about completed online sessions within a specified time range, including session content. The query rules are as follows:
-     * - The maximum time span for the query is 1 Day.
-     * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.
-     * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.
-     * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.
-     * - If both times are provided but the time span exceeds 1 Day, an abnormal response is returned.
+     * This operation queries online session information for sessions completed within a specified time period, including the session content. The query rules are as follows:
+     * - The maximum time span for a query is one day.
+     * - If only the end time is specified, the start time is set to one hour before the end time.
+     * - If only the start time is specified, the end time is set to one hour after the start time.
+     * - If neither is specified, the end time is set to the current time, and the start time is set to one hour before the end time.
+     * - If both are specified but the time span exceeds one day, an error message is returned.
      *
      * @param request - ListChatRecordDetailRequest
      *
@@ -9286,16 +9366,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Query Intelligent Contact Bot conversation records.
+     * Queries the conversation records of the intelligent contact robot.
      *
      * @remarks
-     * - You can invoke this API to query Intelligent Contact Bot conversation records, or view them in the **Task Management** > **Details** > **View Conversation Records** interface.
-     * - Before invoking this API, ensure that your created Intelligent Contact Bot calling job has successfully connected to at least one phone number.
-     * - If you do not have an existing Intelligent Contact Bot calling job, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - You can call this operation to query the conversation records of the intelligent contact robot. You can also view the records on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** > **View Conversation Records** page.
+     * - Before calling this operation, make sure that the intelligent contact robot call task you created has successfully connected calls.
+     * - If you do not have an existing intelligent contact robot call task, you can create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page, or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+     * ### QPS limits
+     * - Call frequency per user: not limited.
+     * - API frequency: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - ListDialogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9350,16 +9430,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Query Intelligent Contact Bot conversation records.
+     * Queries the conversation records of the intelligent contact robot.
      *
      * @remarks
-     * - You can invoke this API to query Intelligent Contact Bot conversation records, or view them in the **Task Management** > **Details** > **View Conversation Records** interface.
-     * - Before invoking this API, ensure that your created Intelligent Contact Bot calling job has successfully connected to at least one phone number.
-     * - If you do not have an existing Intelligent Contact Bot calling job, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - You can call this operation to query the conversation records of the intelligent contact robot. You can also view the records on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** > **View Conversation Records** page.
+     * - Before calling this operation, make sure that the intelligent contact robot call task you created has successfully connected calls.
+     * - If you do not have an existing intelligent contact robot call task, you can create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page, or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+     * ### QPS limits
+     * - Call frequency per user: not limited.
+     * - API frequency: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - ListDialogRequest
      *
@@ -9377,7 +9457,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ListHotlineRecord to query the hotline recording list by hotline session ID.
+     * Queries a list of hotline recordings based on the hotline session ID.
      *
      * @param request - ListHotlineRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9412,7 +9492,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ListHotlineRecord to query the hotline recording list by hotline session ID.
+     * Queries a list of hotline recordings based on the hotline session ID.
      *
      * @param request - ListHotlineRecordRequest
      *
@@ -9430,15 +9510,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Query the list of hotline details by time period.
+     * Queries hotline details based on a time range.
      *
      * @remarks
-     * This API queries detailed hotline information within a specified time range, including hotline call information. The query rules are as follows:
-     * - The maximum time span for the query is 1 Day.
-     * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.
-     * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.
-     * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.
-     * - If both times are provided but the time span exceeds 1 Day, an abnormal result is returned.
+     * This operation queries hotline details within a specified time range, including hotline call information. The query rules are as follows:
+     * - The maximum time span for a query is 1 day.
+     * - If only the end time is specified, the start time is set to 1 hour before the end time.
+     * - If only the start time is specified, the end time is set to 1 hour after the start time.
+     * - If neither is specified, the end time is set to the current time, and the start time is set to 1 hour before the end time.
+     * - If both are specified but the time span exceeds 1 day, an error is returned.
      *
      * @param request - ListHotlineRecordDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9473,15 +9553,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Query the list of hotline details by time period.
+     * Queries hotline details based on a time range.
      *
      * @remarks
-     * This API queries detailed hotline information within a specified time range, including hotline call information. The query rules are as follows:
-     * - The maximum time span for the query is 1 Day.
-     * - If only the query End Time is provided, the query Start Time is set to 1 hour before the End Time.
-     * - If only the query Start Time is provided, the End Time is set to 1 hour after the Start Time.
-     * - If neither time is provided, the End Time defaults to the current time, and the Start Time is set to 1 hour before the End Time.
-     * - If both times are provided but the time span exceeds 1 Day, an abnormal result is returned.
+     * This operation queries hotline details within a specified time range, including hotline call information. The query rules are as follows:
+     * - The maximum time span for a query is 1 day.
+     * - If only the end time is specified, the start time is set to 1 hour before the end time.
+     * - If only the start time is specified, the end time is set to 1 hour after the start time.
+     * - If neither is specified, the end time is set to the current time, and the start time is set to 1 hour before the end time.
+     * - If both are specified but the time span exceeds 1 day, an error is returned.
      *
      * @param request - ListHotlineRecordDetailRequest
      *
@@ -9564,15 +9644,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the call records of an intelligent contact robot.
+     * Queries the call records of the intelligent contact robot.
      *
      * @remarks
      * - Before calling this operation, make sure that you have initiated an outbound call task by using the intelligent contact robot.
-     * - If you have not initiated an outbound call task by using the intelligent contact robot, call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation to initiate an outbound call task.
-     * ### QPS limit
-     * - Per-user call frequency: not throttled.
+     * - If you have not initiated an outbound call task by using the intelligent contact robot, you can call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation to initiate an outbound call task.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
      * - API frequency: 500 calls per second.
-     * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is also triggered.
      *
      * @param request - ListRobotCallDialogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9627,15 +9707,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the call records of an intelligent contact robot.
+     * Queries the call records of the intelligent contact robot.
      *
      * @remarks
      * - Before calling this operation, make sure that you have initiated an outbound call task by using the intelligent contact robot.
-     * - If you have not initiated an outbound call task by using the intelligent contact robot, call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation to initiate an outbound call task.
-     * ### QPS limit
-     * - Per-user call frequency: not throttled.
+     * - If you have not initiated an outbound call task by using the intelligent contact robot, you can call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation to initiate an outbound call task.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
      * - API frequency: 500 calls per second.
-     * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is also triggered.
      *
      * @param request - ListRobotCallDialogRequest
      *
@@ -9738,15 +9818,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the list of robot parameters by robot ID, which is also the script ID.
+     * Queries the list of chatbot parameters based on the chatbot ID, which is the dialog flow ID.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have already added input parameters for the robot.
-     * - If your robot does not have any input parameters, go to the [**Script Management**](https://aiccs.console.aliyun.com/patter/list) > **Configuration** > **Input and Output Parameters** interface and click to add an input parameter.
-     * ### Queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
+     * - Before calling this operation, make sure that you have added input parameters for the chatbot.
+     * - If you have not added input parameters for your chatbot, click Add Input Parameter on the **Dialog Flow Management** > **Configuration** > **Input and Output Parameters** page.
+     * ### QPS limits
+     * - Call frequency per user: No throttling.
+     * - API frequency: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
+     * [**Script management**](https://aiccs.console.aliyun.com/patter/list)
      *
      * @param request - ListRobotParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9797,15 +9878,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the list of robot parameters by robot ID, which is also the script ID.
+     * Queries the list of chatbot parameters based on the chatbot ID, which is the dialog flow ID.
      *
      * @remarks
-     * - Before invoking this API, ensure that you have already added input parameters for the robot.
-     * - If your robot does not have any input parameters, go to the [**Script Management**](https://aiccs.console.aliyun.com/patter/list) > **Configuration** > **Input and Output Parameters** interface and click to add an input parameter.
-     * ### Queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
+     * - Before calling this operation, make sure that you have added input parameters for the chatbot.
+     * - If you have not added input parameters for your chatbot, click Add Input Parameter on the **Dialog Flow Management** > **Configuration** > **Input and Output Parameters** page.
+     * ### QPS limits
+     * - Call frequency per user: No throttling.
+     * - API frequency: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
+     * [**Script management**](https://aiccs.console.aliyun.com/patter/list)
      *
      * @param request - ListRobotParamsRequest
      *
@@ -9823,7 +9905,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ListRoles to obtain the list of all roles under a tenant.
+     * Queries a list of all roles for a tenant.
      *
      * @param request - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9858,7 +9940,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke ListRoles to obtain the list of all roles under a tenant.
+     * Queries a list of all roles for a tenant.
      *
      * @param request - ListRolesRequest
      *
@@ -10164,8 +10246,8 @@ class Aiccs extends OpenApiClient
      * Performs full-duplex large language model operations.
      *
      * @remarks
-     * - This operation can be called only during an intelligent outbound call. When you call this operation, set the **CallId** request parameter to the unique receipt ID of the ongoing call.
-     * - **CallId** is the **CallId** parameter returned by the [LlmSmartCallFullDuplex](https://help.aliyun.com/document_detail/2718012.html) operation.
+     * - This API operation can only be successfully called during an intelligent outbound call. When calling this operation, note that the **CallId** request parameter must be set to the unique receipt ID of the ongoing call.
+     * - The **CallId** is the **CallId** response parameter returned when you call the [LlmSmartCallFullDuplex](https://help.aliyun.com/document_detail/2718012.html) operation.
      *
      * @param request - LlmFullDuplexCallOperateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10215,8 +10297,8 @@ class Aiccs extends OpenApiClient
      * Performs full-duplex large language model operations.
      *
      * @remarks
-     * - This operation can be called only during an intelligent outbound call. When you call this operation, set the **CallId** request parameter to the unique receipt ID of the ongoing call.
-     * - **CallId** is the **CallId** parameter returned by the [LlmSmartCallFullDuplex](https://help.aliyun.com/document_detail/2718012.html) operation.
+     * - This API operation can only be successfully called during an intelligent outbound call. When calling this operation, note that the **CallId** request parameter must be set to the unique receipt ID of the ongoing call.
+     * - The **CallId** is the **CallId** response parameter returned when you call the [LlmSmartCallFullDuplex](https://help.aliyun.com/document_detail/2718012.html) operation.
      *
      * @param request - LlmFullDuplexCallOperateRequest
      *
@@ -10234,11 +10316,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Intelligent outbound call based on an LLM.
+     * Initiates an intelligent outbound call based on a large language model.
      *
      * @remarks
-     * - Each API invocation supports adding only one called number. If you have multiple called numbers, invoke the API multiple times.
-     * - Before initiating an intelligent call based on an LLM, ensure that you have created an LLM application in the [Application Management](https://aiccs.console.aliyun.com/engine/llmApp) interface and have successfully requested a real number in the Voice Service [Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
+     * - You can add only one called number per API call. To add multiple called numbers, call the API multiple times.
+     * - Before initiating an intelligent call based on a large language model, make sure that you have created a large language model application on the [Large Language Model Application Management](https://aiccs.console.aliyun.com/engine/llmApp) page and have successfully applied for a real number on the [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) page of Voice Service.
      *
      * @param tmpReq - LlmSmartCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10339,11 +10421,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Intelligent outbound call based on an LLM.
+     * Initiates an intelligent outbound call based on a large language model.
      *
      * @remarks
-     * - Each API invocation supports adding only one called number. If you have multiple called numbers, invoke the API multiple times.
-     * - Before initiating an intelligent call based on an LLM, ensure that you have created an LLM application in the [Application Management](https://aiccs.console.aliyun.com/engine/llmApp) interface and have successfully requested a real number in the Voice Service [Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
+     * - You can add only one called number per API call. To add multiple called numbers, call the API multiple times.
+     * - Before initiating an intelligent call based on a large language model, make sure that you have created a large language model application on the [Large Language Model Application Management](https://aiccs.console.aliyun.com/engine/llmApp) page and have successfully applied for a real number on the [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) page of Voice Service.
      *
      * @param request - LlmSmartCallRequest
      *
@@ -10361,7 +10443,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiates a smart call to an encrypted number using a large language model.
+     * Initiates an intelligent call to an encrypted number based on a large language model.
      *
      * @param tmpReq - LlmSmartCallEncryptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10442,7 +10524,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiates a smart call to an encrypted number using a large language model.
+     * Initiates an intelligent call to an encrypted number based on a large language model.
      *
      * @param request - LlmSmartCallEncryptRequest
      *
@@ -10463,14 +10545,14 @@ class Aiccs extends OpenApiClient
      * Initiates a full-duplex Artificial Intelligence Cloud Call Service call with support for personalized configurations.
      *
      * @remarks
-     * ## Operation description
-     * - Before calling this operation, make sure that you have configured the ASR callback URL.
-     * - This operation is available only to users whose UIDs are added to the whitelist.
-     * - The request rate limit for a single user is 100 QPS.
-     * - `CalledNumber` and `CallerNumber` are required parameters that specify the called number and the calling number, respectively.
-     * - Optional parameters such as `StartWordParam`, `TtsVoiceCode`, `TtsSpeed`, and `TtsVolume` allow you to customize the call experience. If these parameters are not specified, the default settings of the application are used.
-     * - The `SessionTimeout` parameter specifies the maximum call duration in seconds. The call is automatically ended when the specified duration is exceeded. For the default value and valid range, refer to the relevant documentation.
-     * - The `OutId` field can be used to track a unique identifier in an external system. The value must be 1 to 32 bytes in length.
+     * ## Request description
+     * - Before calling this operation, ensure that the ASR callback URL is configured.
+     * - This operation is only available to specific users in the UID whitelist.
+     * - The request frequency limit for a single user is 100 QPS.
+     * - `CalledNumber` and `CallerNumber` are required parameters, which represent the called number and the caller display number, respectively.
+     * - Optional parameters such as `StartWordParam`, `TtsVoiceCode`, `TtsSpeed`, and `TtsVolume` allow you to customize the call experience. If these parameters are not provided, the default settings of the application are used.
+     * - The `SessionTimeout` parameter is used to set the maximum call duration in seconds. The call is automatically ended when this duration is exceeded. For the default value and valid range, refer to the specific documentation.
+     * - The `OutId` field can be used to track a unique identifier in an external system. The length is limited to 1 to 32 bytes.
      *
      * @param tmpReq - LlmSmartCallFullDuplexRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10550,14 +10632,14 @@ class Aiccs extends OpenApiClient
      * Initiates a full-duplex Artificial Intelligence Cloud Call Service call with support for personalized configurations.
      *
      * @remarks
-     * ## Operation description
-     * - Before calling this operation, make sure that you have configured the ASR callback URL.
-     * - This operation is available only to users whose UIDs are added to the whitelist.
-     * - The request rate limit for a single user is 100 QPS.
-     * - `CalledNumber` and `CallerNumber` are required parameters that specify the called number and the calling number, respectively.
-     * - Optional parameters such as `StartWordParam`, `TtsVoiceCode`, `TtsSpeed`, and `TtsVolume` allow you to customize the call experience. If these parameters are not specified, the default settings of the application are used.
-     * - The `SessionTimeout` parameter specifies the maximum call duration in seconds. The call is automatically ended when the specified duration is exceeded. For the default value and valid range, refer to the relevant documentation.
-     * - The `OutId` field can be used to track a unique identifier in an external system. The value must be 1 to 32 bytes in length.
+     * ## Request description
+     * - Before calling this operation, ensure that the ASR callback URL is configured.
+     * - This operation is only available to specific users in the UID whitelist.
+     * - The request frequency limit for a single user is 100 QPS.
+     * - `CalledNumber` and `CallerNumber` are required parameters, which represent the called number and the caller display number, respectively.
+     * - Optional parameters such as `StartWordParam`, `TtsVoiceCode`, `TtsSpeed`, and `TtsVolume` allow you to customize the call experience. If these parameters are not provided, the default settings of the application are used.
+     * - The `SessionTimeout` parameter is used to set the maximum call duration in seconds. The call is automatically ended when this duration is exceeded. For the default value and valid range, refer to the specific documentation.
+     * - The `OutId` field can be used to track a unique identifier in an external system. The length is limited to 1 to 32 bytes.
      *
      * @param request - LlmSmartCallFullDuplexRequest
      *
@@ -10575,7 +10657,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke MakeCall to initiate a call.
+     * Initiates a hotline call.
      *
      * @param request - MakeCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10634,7 +10716,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke MakeCall to initiate a call.
+     * Initiates a hotline call.
      *
      * @param request - MakeCallRequest
      *
@@ -10652,7 +10734,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * You can invoke MakeDoubleCall to initiate a call by using the server-side software development kit (SDK).
+     * Initiates a call through the server-side SDK.
      *
      * @param request - MakeDoubleCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10711,7 +10793,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * You can invoke MakeDoubleCall to initiate a call by using the server-side software development kit (SDK).
+     * Initiates a call through the server-side SDK.
      *
      * @param request - MakeDoubleCallRequest
      *
@@ -10903,11 +10985,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the details of voice call tasks by page.
+     * Performs a paged query on call task details.
      *
      * @remarks
-     * - Before querying voice call task details, make sure that you have created a voice call task.
-     * - If you have not created a voice call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+     * - Before querying call task details, make sure that you have created a call task.
+     * - If you have not created a call task, you can create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
      *
      * @param tmpReq - QueryAiCallDetailPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11028,11 +11110,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the details of voice call tasks by page.
+     * Performs a paged query on call task details.
      *
      * @remarks
-     * - Before querying voice call task details, make sure that you have created a voice call task.
-     * - If you have not created a voice call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+     * - Before querying call task details, make sure that you have created a call task.
+     * - If you have not created a call task, you can create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
      *
      * @param request - QueryAiCallDetailPageRequest
      *
@@ -11288,12 +11370,12 @@ class Aiccs extends OpenApiClient
      * Queries the details of a specified agent, including basic information, branch information, and version information.
      *
      * @remarks
-     * ## Operation description
+     * ## Request description
      * - This operation queries the details of a communication agent.
-     * - If both `BranchId` and `VersionId` are empty, the latest published version configuration of the currently active branch is returned. If the active branch has only a draft version, no configuration is returned.
-     * - If only `BranchId` has a value, the latest published version configuration of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
-     * - If both `BranchId` and `VersionId` have values, the configuration of the specified version is returned.
-     * - When `BranchDeployStatus = 1` (branch is deployed and online) and `VersionPublishStatus = 1` (version is published), the branch configuration is the one used by imported outbound call tasks.
+     * - If both BranchId and VersionId are empty, the configuration of the latest published version of the current active branch is returned. If the active branch has only a draft version, no configuration is returned.
+     * - If only BranchId is specified, the configuration of the latest published version of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
+     * - If both BranchId and VersionId are specified, the configuration of the specified version is returned.
+     * - If BranchDeployStatus = 1 (the branch is deployed and online) and VersionPublishStatus = 1 (the version is published), the branch configuration is used by currently imported outbound call tasks.
      *
      * @param request - QueryAiVoiceAgentDetailNewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11343,12 +11425,12 @@ class Aiccs extends OpenApiClient
      * Queries the details of a specified agent, including basic information, branch information, and version information.
      *
      * @remarks
-     * ## Operation description
+     * ## Request description
      * - This operation queries the details of a communication agent.
-     * - If both `BranchId` and `VersionId` are empty, the latest published version configuration of the currently active branch is returned. If the active branch has only a draft version, no configuration is returned.
-     * - If only `BranchId` has a value, the latest published version configuration of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
-     * - If both `BranchId` and `VersionId` have values, the configuration of the specified version is returned.
-     * - When `BranchDeployStatus = 1` (branch is deployed and online) and `VersionPublishStatus = 1` (version is published), the branch configuration is the one used by imported outbound call tasks.
+     * - If both BranchId and VersionId are empty, the configuration of the latest published version of the current active branch is returned. If the active branch has only a draft version, no configuration is returned.
+     * - If only BranchId is specified, the configuration of the latest published version of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
+     * - If both BranchId and VersionId are specified, the configuration of the specified version is returned.
+     * - If BranchDeployStatus = 1 (the branch is deployed and online) and VersionPublishStatus = 1 (the version is published), the branch configuration is used by currently imported outbound call tasks.
      *
      * @param request - QueryAiVoiceAgentDetailNewRequest
      *
@@ -11369,9 +11451,9 @@ class Aiccs extends OpenApiClient
      * Queries the details of a call.
      *
      * @remarks
-     * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
-     * - Before calling this operation, make sure that you have created a call task and imported callee data.
-     * - If you do not have a created call task, create a call task and import callee data on the **Call Task Management** page, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - You can call this operation to query call details. You can also view call details on the **Call task management** > **Details** > **Execution records** > **Completed** > **Call details** page.
+     * - Before you call this operation, make sure that you have created a call task and imported the called numbers.
+     * - If you do not have a call task, you can create a call task and import called numbers on the **Call task management** page, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import called numbers.
      *
      * @param request - QueryConversationDetailInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11433,9 +11515,9 @@ class Aiccs extends OpenApiClient
      * Queries the details of a call.
      *
      * @remarks
-     * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
-     * - Before calling this operation, make sure that you have created a call task and imported callee data.
-     * - If you do not have a created call task, create a call task and import callee data on the **Call Task Management** page, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - You can call this operation to query call details. You can also view call details on the **Call task management** > **Details** > **Execution records** > **Completed** > **Call details** page.
+     * - Before you call this operation, make sure that you have created a call task and imported the called numbers.
+     * - If you do not have a call task, you can create a call task and import called numbers on the **Call task management** page, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import called numbers.
      *
      * @param request - QueryConversationDetailInfoRequest
      *
@@ -11453,12 +11535,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the details of a call task and call conversation information.
+     * Queries the details of call tasks and call records.
      *
      * @remarks
-     * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
-     * - Before calling this operation, make sure that you have created a call task and imported callee data.
-     * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - You can call this operation to query call details. You can also view call details on the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
+     * - Before calling this operation, make sure that you have created a call task and imported the called numbers.
+     * - If you do not have a call task, you can create a call task and import called numbers on the **Call Task Management** page, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import called numbers.
      *
      * @param request - QueryConversationDetailInfoNewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11521,12 +11603,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the details of a call task and call conversation information.
+     * Queries the details of call tasks and call records.
      *
      * @remarks
-     * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
-     * - Before calling this operation, make sure that you have created a call task and imported callee data.
-     * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - You can call this operation to query call details. You can also view call details on the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
+     * - Before calling this operation, make sure that you have created a call task and imported the called numbers.
+     * - If you do not have a call task, you can create a call task and import called numbers on the **Call Task Management** page, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import called numbers.
      *
      * @param request - QueryConversationDetailInfoNewRequest
      *
@@ -11544,7 +11626,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke QueryHotlineInQueue to obtain hotline agent data for a skill group by skill group ID.
+     * Queries the agent data of a hotline skill group based on the skill group ID.
      *
      * @param request - QueryHotlineInQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11579,7 +11661,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke QueryHotlineInQueue to obtain hotline agent data for a skill group by skill group ID.
+     * Queries the agent data of a hotline skill group based on the skill group ID.
      *
      * @param request - QueryHotlineInQueueRequest
      *
@@ -11743,6 +11825,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Queries outbound call tasks.
+     *
      * @param request - QueryOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11836,6 +11920,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Queries outbound call tasks.
+     *
      * @param request - QueryOutboundTaskRequest
      *
      * @returns QueryOutboundTaskResponse
@@ -11943,6 +12029,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Queries the details of outbound tasks.
+     *
      * @param request - QueryTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12036,6 +12124,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Queries the details of outbound tasks.
+     *
      * @param request - QueryTaskDetailRequest
      *
      * @returns QueryTaskDetailResponse
@@ -12306,16 +12396,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Remove agent accounts from a skill group by specifying the skill group and agent IDs.
+     * Removes agent accounts from a skill group by specifying the skill group ID and agent IDs.
      *
      * @remarks
-     * - If you need to provide agent or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-     * - You can invoke [ListAgentBySkillGroupId](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-listagentbyskillgroupid) to retrieve agent information under a skill group and verify whether the removal aligns with your expectations.
-     * - If you accidentally remove an agent, you can invoke [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update the agent data and reassign the skill group to the agent.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 50 times/second.
-     * - API-wide invocation frequency: 100 times/second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - To obtain the agent and skill group information, refer to the instructions in the [Request parameters](#api-detail-35) section.
+     * - You can call the [ListAgentBySkillGroupId](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-listagentbyskillgroupid) operation to query the agents in the skill group and verify whether the removal meets your expectations.
+     * - If an agent is removed by mistake, you can call the [UpdateAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) operation to update the agent data and reassign the skill group to the agent.
+     * ### QPS limits
+     * - Rate limit per user: 50 calls per second.
+     * - Rate limit per API: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param tmpReq - RemoveAgentFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12368,16 +12458,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Remove agent accounts from a skill group by specifying the skill group and agent IDs.
+     * Removes agent accounts from a skill group by specifying the skill group ID and agent IDs.
      *
      * @remarks
-     * - If you need to provide agent or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-     * - You can invoke [ListAgentBySkillGroupId](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-listagentbyskillgroupid) to retrieve agent information under a skill group and verify whether the removal aligns with your expectations.
-     * - If you accidentally remove an agent, you can invoke [UpdateAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) to update the agent data and reassign the skill group to the agent.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 50 times/second.
-     * - API-wide invocation frequency: 100 times/second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - To obtain the agent and skill group information, refer to the instructions in the [Request parameters](#api-detail-35) section.
+     * - You can call the [ListAgentBySkillGroupId](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-listagentbyskillgroupid) operation to query the agents in the skill group and verify whether the removal meets your expectations.
+     * - If an agent is removed by mistake, you can call the [UpdateAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-updateagent) operation to update the agent data and reassign the skill group to the agent.
+     * ### QPS limits
+     * - Rate limit per user: 50 calls per second.
+     * - Rate limit per API: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - RemoveAgentFromSkillGroupRequest
      *
@@ -12399,13 +12489,13 @@ class Aiccs extends OpenApiClient
      *
      * @remarks
      * - Deletion is a sensitive operation. Proceed with caution.
-     * - Before deletion, confirm the AICCS instance ID and the skill group ID to be deleted. Refer to the guidance in [Request Parameters](#api-detail-35) for details on how to obtain them.
-     * - After deletion, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to verify the skill group status.
-     * - If you accidentally delete a skill group, you can recreate it by invoking the [CreateSkillGroup](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup) API.
-     * ### Queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 1000 queries per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before deleting a skill group, confirm the AICCS instance ID and the ID of the skill group to be deleted. For more information about how to obtain these IDs, see the instructions in the [request parameters](#api-detail-35) section.
+     * - After deletion, you can call the [QuerySkillGroups](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) operation to query skill groups and verify the deletion.
+     * - If a skill group is deleted by mistake, you can call the [CreateSkillGroup](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup) operation to recreate the skill group.
+     * ### QPS limits
+     * - Rate limit per user: no limit.
+     * - API rate limit: 1,000 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - RemoveSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12456,13 +12546,13 @@ class Aiccs extends OpenApiClient
      *
      * @remarks
      * - Deletion is a sensitive operation. Proceed with caution.
-     * - Before deletion, confirm the AICCS instance ID and the skill group ID to be deleted. Refer to the guidance in [Request Parameters](#api-detail-35) for details on how to obtain them.
-     * - After deletion, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to verify the skill group status.
-     * - If you accidentally delete a skill group, you can recreate it by invoking the [CreateSkillGroup](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup) API.
-     * ### Queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 1000 queries per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - Before deleting a skill group, confirm the AICCS instance ID and the ID of the skill group to be deleted. For more information about how to obtain these IDs, see the instructions in the [request parameters](#api-detail-35) section.
+     * - After deletion, you can call the [QuerySkillGroups](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) operation to query skill groups and verify the deletion.
+     * - If a skill group is deleted by mistake, you can call the [CreateSkillGroup](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-createskillgroup) operation to recreate the skill group.
+     * ### QPS limits
+     * - Rate limit per user: no limit.
+     * - API rate limit: 1,000 calls per second.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - RemoveSkillGroupRequest
      *
@@ -12480,7 +12570,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the ResetHotlineNumber API to reset the inbound (IVR flow) and outbound (effective scope) configuration information of a hotline number.
+     * Resets the inbound (IVR flow) and outbound (effective scope) configurations of a hotline number.
      *
      * @param tmpReq - ResetHotlineNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12565,7 +12655,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the ResetHotlineNumber API to reset the inbound (IVR flow) and outbound (effective scope) configuration information of a hotline number.
+     * Resets the inbound (IVR flow) and outbound (effective scope) configurations of a hotline number.
      *
      * @param request - ResetHotlineNumberRequest
      *
@@ -12583,6 +12673,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Restarts an outbound task based on the outbound task ID.
+     *
      * @param request - RestartOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12624,6 +12716,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Restarts an outbound task based on the outbound task ID.
+     *
      * @param request - RestartOutboundTaskRequest
      *
      * @returns RestartOutboundTaskResponse
@@ -12751,15 +12845,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiates an intelligent interactive voice response call based on the China-only caller ID, called number, and intelligent outbound call audio file.
+     * Initiates an intelligent interactive voice response call based on the called display number, the called number, and the intelligent outbound call audio file.
      *
      * @remarks
-     * - The following characters cannot appear in the intelligent interactive voice response SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.
+     * - The following characters cannot appear in the SendCcoSmartCall callback for intelligent interactive voice response: `@ = : "" $ { } ^ * ￥`.
      * - After you invoke this operation, the **Data** response parameter returns the unique receipt ID for this call, which can be used to invoke the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) operation.
-     * ### QPS limit
-     * - Per-user call frequency: No throttling.
-     * - API frequency: 100 calls per second.
-     * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
+     * ### QPS limits
+     * - Invoke frequency per user: Not limited.
+     * - API frequency: 100 invocations per second.
+     * > If the total number of invocations from multiple users exceeds the API frequency limit, throttling is also triggered.
      *
      * @param request - SendCcoSmartCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12922,15 +13016,15 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiates an intelligent interactive voice response call based on the China-only caller ID, called number, and intelligent outbound call audio file.
+     * Initiates an intelligent interactive voice response call based on the called display number, the called number, and the intelligent outbound call audio file.
      *
      * @remarks
-     * - The following characters cannot appear in the intelligent interactive voice response SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.
+     * - The following characters cannot appear in the SendCcoSmartCall callback for intelligent interactive voice response: `@ = : "" $ { } ^ * ￥`.
      * - After you invoke this operation, the **Data** response parameter returns the unique receipt ID for this call, which can be used to invoke the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) operation.
-     * ### QPS limit
-     * - Per-user call frequency: No throttling.
-     * - API frequency: 100 calls per second.
-     * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
+     * ### QPS limits
+     * - Invoke frequency per user: Not limited.
+     * - API frequency: 100 invocations per second.
+     * > If the total number of invocations from multiple users exceeds the API frequency limit, throttling is also triggered.
      *
      * @param request - SendCcoSmartCallRequest
      *
@@ -12948,11 +13042,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiates a specified action during an Intelligent Outbound Call, applicable only to scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+     * Initiates a specified action during an intelligent outbound call. This operation is used only in scenarios such as parallel transfer to a human agent, where the agent can monitor the man-machine dialogue.
      *
      * @remarks
-     * - This API can be successfully invoked only during an ongoing Intelligent Outbound Call. When invoking it, note that the **CallId** in the request parameters must be set to the unique receipt ID of the active call.
-     * - The **CallId** is the **Data** parameter returned when you invoke the [SendCcoSmartCall](https://help.aliyun.com/document_detail/2718012.html) API.
+     * - This API operation can be called successfully only during an intelligent outbound call. When you call this operation, note that you must set the **CallId** request parameter to the unique receipt ID of the ongoing call.
+     * - You can obtain the **CallId** from the **Data** response parameter returned when you call the [SendCcoSmartCall](https://api.aliyun.com/document/aiccs/2019-10-15/SendCcoSmartCall) operation.
      *
      * @param request - SendCcoSmartCallOperateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13015,11 +13109,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiates a specified action during an Intelligent Outbound Call, applicable only to scenarios such as parallel transfer to a human agent or allowing a human agent to listen in on the man-machine dialogue.
+     * Initiates a specified action during an intelligent outbound call. This operation is used only in scenarios such as parallel transfer to a human agent, where the agent can monitor the man-machine dialogue.
      *
      * @remarks
-     * - This API can be successfully invoked only during an ongoing Intelligent Outbound Call. When invoking it, note that the **CallId** in the request parameters must be set to the unique receipt ID of the active call.
-     * - The **CallId** is the **Data** parameter returned when you invoke the [SendCcoSmartCall](https://help.aliyun.com/document_detail/2718012.html) API.
+     * - This API operation can be called successfully only during an intelligent outbound call. When you call this operation, note that you must set the **CallId** request parameter to the unique receipt ID of the ongoing call.
+     * - You can obtain the **CallId** from the **Data** response parameter returned when you call the [SendCcoSmartCall](https://api.aliyun.com/document/aiccs/2019-10-15/SendCcoSmartCall) operation.
      *
      * @param request - SendCcoSmartCallOperateRequest
      *
@@ -13272,13 +13366,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiate an outbound call based on the instance ID, agent account name, hotline outbound caller number, and callee number.
+     * Initiates an outbound call based on the instance ID, agent account name, caller number, and callee number.
      *
      * @remarks
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * ### QPS limits
+     * - Call frequency per user: Unlimited.
+     * - API rate limit: 100 calls per second.
+     * > Throttling is also triggered if the total number of calls from multiple users exceeds the API rate limit.
      *
      * @param request - StartCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13333,13 +13427,13 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Initiate an outbound call based on the instance ID, agent account name, hotline outbound caller number, and callee number.
+     * Initiates an outbound call based on the instance ID, agent account name, caller number, and callee number.
      *
      * @remarks
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * ### QPS limits
+     * - Call frequency per user: Unlimited.
+     * - API rate limit: 100 calls per second.
+     * > Throttling is also triggered if the total number of calls from multiple users exceeds the API rate limit.
      *
      * @param request - StartCallRequest
      *
@@ -13357,7 +13451,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke StartCallV2 to initiate an outbound call V2.
+     * Initiates an outbound call.
      *
      * @param request - StartCallV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13416,7 +13510,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke StartCallV2 to initiate an outbound call V2.
+     * Initiates an outbound call.
      *
      * @param request - StartCallV2Request
      *
@@ -13673,16 +13767,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Start a successfully created Intelligent Contact Robot calling job.
+     * Starts a successfully created outbound call task for the Artificial Intelligence Cloud Call Service chatbot.
      *
      * @remarks
-     * - You can invoke this API to start a successfully created Intelligent Contact Robot calling job, or manually start the job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
-     * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
-     * - If you do not have a successfully created Intelligent Contact Robot outbound calling job, you can click to create a job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or create one by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
-     * ### queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - You can call this operation to start a successfully created outbound call task for the Artificial Intelligence Cloud Call Service chatbot. You can also manually start the task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
+     * - Before calling this operation, ensure that you have a successfully created outbound call task for the Artificial Intelligence Cloud Call Service chatbot.
+     * - If you do not have a successfully created outbound call task, you can click Create Task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or call the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) operation to create one.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - StartTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13737,16 +13831,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Start a successfully created Intelligent Contact Robot calling job.
+     * Starts a successfully created outbound call task for the Artificial Intelligence Cloud Call Service chatbot.
      *
      * @remarks
-     * - You can invoke this API to start a successfully created Intelligent Contact Robot calling job, or manually start the job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
-     * - Before invoking this API, ensure that you already have a successfully created Intelligent Contact Robot calling job.
-     * - If you do not have a successfully created Intelligent Contact Robot outbound calling job, you can click to create a job on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or create one by using the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) API.
-     * ### queries per second (QPS) Limit
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 500 queries per second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - You can call this operation to start a successfully created outbound call task for the Artificial Intelligence Cloud Call Service chatbot. You can also manually start the task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page.
+     * - Before calling this operation, ensure that you have a successfully created outbound call task for the Artificial Intelligence Cloud Call Service chatbot.
+     * - If you do not have a successfully created outbound call task, you can click Create Task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or call the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) operation to create one.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 500 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - StartTaskRequest
      *
@@ -13841,14 +13935,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Pause an outbound calling job by instance ID and job ID.
+     * Pauses an outbound call task based on the instance ID and task ID.
      *
      * @remarks
-     * After pausing an outbound calling job, you can invoke the [StartAiOutboundTask](https://help.aliyun.com/document_detail/2718027.html) API to restart it.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 20 times/second.
-     * - API invocation frequency: 20 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * After you pause an outbound call task, you can call the [StartAiOutboundTask](https://help.aliyun.com/document_detail/2718027.html) operation to restart the task.
+     * ### QPS limits
+     * - Call frequency per user: 20 calls per second.
+     * - API frequency: 20 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is also triggered.
      *
      * @param request - StopAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13891,14 +13985,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Pause an outbound calling job by instance ID and job ID.
+     * Pauses an outbound call task based on the instance ID and task ID.
      *
      * @remarks
-     * After pausing an outbound calling job, you can invoke the [StartAiOutboundTask](https://help.aliyun.com/document_detail/2718027.html) API to restart it.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 20 times/second.
-     * - API invocation frequency: 20 times/second.
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * After you pause an outbound call task, you can call the [StartAiOutboundTask](https://help.aliyun.com/document_detail/2718027.html) operation to restart the task.
+     * ### QPS limits
+     * - Call frequency per user: 20 calls per second.
+     * - API frequency: 20 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is also triggered.
      *
      * @param request - StopAiOutboundTaskRequest
      *
@@ -14003,7 +14097,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Submits a recording notes task.
+     * Submits an audio note task.
      *
      * @param request - SubmitAudioNoteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14054,7 +14148,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Submits a recording notes task.
+     * Submits an audio note task.
      *
      * @param request - SubmitAudioNoteRequest
      *
@@ -14072,14 +14166,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Pause hotline service when an agent takes a short break.
+     * Pauses the hotline service when an agent takes a break.
      *
      * @remarks
-     * If the break ends and you need to resume hotline service, you can invoke the [StartHotlineService](https://help.aliyun.com/document_detail/2718045.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * To resume the hotline service after a break, call the [StartHotlineService](https://help.aliyun.com/document_detail/2718045.html) operation.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is also triggered.
      *
      * @param request - SuspendHotlineServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14130,14 +14224,14 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Pause hotline service when an agent takes a short break.
+     * Pauses the hotline service when an agent takes a break.
      *
      * @remarks
-     * If the break ends and you need to resume hotline service, you can invoke the [StartHotlineService](https://help.aliyun.com/document_detail/2718045.html) API.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API frequency: 100 queries per second (QPS).
-     * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+     * To resume the hotline service after a break, call the [StartHotlineService](https://help.aliyun.com/document_detail/2718045.html) operation.
+     * ### QPS limits
+     * - Call frequency per user: Not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is also triggered.
      *
      * @param request - SuspendHotlineServiceRequest
      *
@@ -14155,6 +14249,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Pauses an outbound call task based on the task ID.
+     *
      * @param request - SuspendOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14196,6 +14292,8 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * Pauses an outbound call task based on the task ID.
+     *
      * @param request - SuspendOutboundTaskRequest
      *
      * @returns SuspendOutboundTaskResponse
@@ -14372,7 +14470,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the TransferCallToSkillGroup API to execute a single-step or two-step transfer to a skill group.
+     * Transfers a call to a skill group by using a single-step or two-step transfer.
      *
      * @param request - TransferCallToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14447,7 +14545,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke the TransferCallToSkillGroup API to execute a single-step or two-step transfer to a skill group.
+     * Transfers a call to a skill group by using a single-step or two-step transfer.
      *
      * @param request - TransferCallToSkillGroupRequest
      *
@@ -14465,16 +14563,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Modify agent information in the Cloud Customer Service System based on the instance ID and agent account name. You can modify the agent\\"s display name and the skill groups to which the agent belongs.
+     * Updates the agent information in the Cloud Customer Service System based on the instance ID and agent account name. You can update the display name and skill groups of the agent.
      *
      * @remarks
-     * - Before invoking this API, we recommend that you confirm your Artificial Intelligence Cloud Call Service (AICCS) instance ID. For guidance on how to obtain it, see the description of [Request Parameters](#api-detail-35).
-     * - After the update, you can invoke the [GetAgent](https://help.aliyun.com/document_detail/2717961.html) API to confirm whether the update meets your expectations.
-     * > Currently, only the display name and assigned skill groups can be modified.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API-wide invocation frequency: 100 queries per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - Before you call this operation, make sure that you have obtained the AICCS instance ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * - After the update, you can call the [GetAgent](https://help.aliyun.com/document_detail/2717961.html) operation to check whether the update meets your expectations.
+     * > Currently, only the display name and skill groups can be updated.
+     * ### QPS limits
+     * - Call frequency per user: not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - UpdateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14533,16 +14631,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Modify agent information in the Cloud Customer Service System based on the instance ID and agent account name. You can modify the agent\\"s display name and the skill groups to which the agent belongs.
+     * Updates the agent information in the Cloud Customer Service System based on the instance ID and agent account name. You can update the display name and skill groups of the agent.
      *
      * @remarks
-     * - Before invoking this API, we recommend that you confirm your Artificial Intelligence Cloud Call Service (AICCS) instance ID. For guidance on how to obtain it, see the description of [Request Parameters](#api-detail-35).
-     * - After the update, you can invoke the [GetAgent](https://help.aliyun.com/document_detail/2717961.html) API to confirm whether the update meets your expectations.
-     * > Currently, only the display name and assigned skill groups can be modified.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: No rate limiting.
-     * - API-wide invocation frequency: 100 queries per second.
-     * > Throttling is triggered if the total invocations from multiple users exceed the API-wide frequency limit.
+     * - Before you call this operation, make sure that you have obtained the AICCS instance ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * - After the update, you can call the [GetAgent](https://help.aliyun.com/document_detail/2717961.html) operation to check whether the update meets your expectations.
+     * > Currently, only the display name and skill groups can be updated.
+     * ### QPS limits
+     * - Call frequency per user: not limited.
+     * - API frequency: 100 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency limit, throttling is triggered.
      *
      * @param request - UpdateAgentRequest
      *
@@ -14563,7 +14661,7 @@ class Aiccs extends OpenApiClient
      * Updates the configuration of a voice call task.
      *
      * @remarks
-     * Before updating the configuration of a call task, make sure that the task is in the Stopped state.
+     * Before you update the configuration of a voice call task, ensure that the task is stopped.
      *
      * @param tmpReq - UpdateAiCallTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14711,7 +14809,7 @@ class Aiccs extends OpenApiClient
      * Updates the configuration of a voice call task.
      *
      * @remarks
-     * Before updating the configuration of a call task, make sure that the task is in the Stopped state.
+     * Before you update the configuration of a voice call task, ensure that the task is stopped.
      *
      * @param request - UpdateAiCallTaskRequest
      *
@@ -14850,16 +14948,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Update the department name based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department ID.
+     * Updates the department name based on the AICCS instance ID and department ID.
      *
      * @remarks
-     * - This API supports updating only the department name and does not support updating the department ID.
-     * - Before invoking this API, we recommend that you confirm the AICCS instance ID and department ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
-     * - After the update is complete, you can invoke the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API to confirm whether the department information matches your expectations.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API-wide invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - This operation only supports updating the department name and does not support updating the department ID.
+     * - Before you call this operation, make sure that you have obtained the AICCS instance ID and department ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * - After the update is complete, you can call the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) operation to check whether the department information meets your expectations.
+     * ### QPS limit
+     * - Calls per second per user: 100.
+     * - API calls per second: 100.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - UpdateDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14906,16 +15004,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Update the department name based on the Artificial Intelligence Cloud Call Service (AICCS) instance ID and department ID.
+     * Updates the department name based on the AICCS instance ID and department ID.
      *
      * @remarks
-     * - This API supports updating only the department name and does not support updating the department ID.
-     * - Before invoking this API, we recommend that you confirm the AICCS instance ID and department ID. For guidance on how to obtain them, see the instructions in [Request Parameters](#api-detail-35).
-     * - After the update is complete, you can invoke the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) API to confirm whether the department information matches your expectations.
-     * ### Queries per second (QPS) limits
-     * - Per-user invocation frequency: 100 times/second.
-     * - API-wide invocation frequency: 100 times/second.
-     * > If the total invocations from multiple users exceed the API-wide frequency limit, throttling will be triggered.
+     * - This operation only supports updating the department name and does not support updating the department ID.
+     * - Before you call this operation, make sure that you have obtained the AICCS instance ID and department ID. For more information, see the instructions in the [Request parameters](#api-detail-35) section.
+     * - After the update is complete, you can call the [GetAllDepartment](https://help.aliyun.com/document_detail/2717975.html) operation to check whether the department information meets your expectations.
+     * ### QPS limit
+     * - Calls per second per user: 100.
+     * - API calls per second: 100.
+     * > If the total number of calls from multiple users exceeds the API rate limit, throttling is triggered.
      *
      * @param request - UpdateDepartmentRequest
      *
@@ -15267,7 +15365,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke UpdateOuterAccount to update an external account based on the external account ID.
+     * Updates an external account by external account ID.
      *
      * @param request - UpdateOuterAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15302,7 +15400,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Invoke UpdateOuterAccount to update an external account based on the external account ID.
+     * Updates an external account by external account ID.
      *
      * @param request - UpdateOuterAccountRequest
      *
@@ -15320,16 +15418,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Update the skill group information in the Cloud Customer Service System based on the AICCS instance ID and skill group ID. This API supports updating the skill group description and display name.
+     * Updates the skill group information in the Cloud Customer Service System based on the AICCS instance ID and skill group ID. You can update the description and display name of the skill group.
      *
      * @remarks
-     * - This API does not support updating the skill group ID or skill group name.
-     * - After the update, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to query the skill group information.
-     * - If you need to provide the AICCS instance ID and skill group ID, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-     * ### Queries per second (QPS) limit
-     * - Per-user call frequency: No rate limiting.
-     * - API call frequency: 1000 calls per second.
-     * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - This operation does not support updating the skill group ID or skill group name.
+     * - After the update, you can call the [QuerySkillGroups](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) operation to query the skill group information.
+     * - To obtain the AICCS instance ID and skill group ID, refer to the instructions in the [Request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 1,000 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is triggered.
      *
      * @param request - UpdateSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15388,16 +15486,16 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Update the skill group information in the Cloud Customer Service System based on the AICCS instance ID and skill group ID. This API supports updating the skill group description and display name.
+     * Updates the skill group information in the Cloud Customer Service System based on the AICCS instance ID and skill group ID. You can update the description and display name of the skill group.
      *
      * @remarks
-     * - This API does not support updating the skill group ID or skill group name.
-     * - After the update, you can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API to query the skill group information.
-     * - If you need to provide the AICCS instance ID and skill group ID, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-     * ### Queries per second (QPS) limit
-     * - Per-user call frequency: No rate limiting.
-     * - API call frequency: 1000 calls per second.
-     * > If the total calls from multiple users exceed the API frequency limit, throttling will be triggered.
+     * - This operation does not support updating the skill group ID or skill group name.
+     * - After the update, you can call the [QuerySkillGroups](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) operation to query the skill group information.
+     * - To obtain the AICCS instance ID and skill group ID, refer to the instructions in the [Request parameters](#api-detail-35) section.
+     * ### QPS limits
+     * - Call frequency per user: Not throttled.
+     * - API frequency: 1,000 calls per second.
+     * > If the total number of calls from multiple users exceeds the API frequency, throttling is triggered.
      *
      * @param request - UpdateSkillGroupRequest
      *

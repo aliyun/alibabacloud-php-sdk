@@ -1,3 +1,7 @@
+2026-11-27 Version: 5.4.5
+- Update API QueryConversationDetailInfoNew: add response parameters Body.Data.FrozenSkills.
+
+
 2026-09-24 Version: 5.4.4
 - Update API PageQueryAgentListNew: add request parameters InboundConfigurableOnly.
 - Update API PageQueryAgentListNew: add request parameters ServiceDirection.

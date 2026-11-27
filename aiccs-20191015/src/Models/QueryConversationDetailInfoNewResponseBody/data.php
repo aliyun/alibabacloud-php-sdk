@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoNewResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoNewResponseBody\data\frozenSkills;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoNewResponseBody\data\outputTags;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoNewResponseBody\data\variables;
 
@@ -69,6 +70,11 @@ class data extends Model
      * @var string
      */
     public $failedReason;
+
+    /**
+     * @var frozenSkills[]
+     */
+    public $frozenSkills;
 
     /**
      * @var string
@@ -157,6 +163,7 @@ class data extends Model
         'duration' => 'Duration',
         'encryptionType' => 'EncryptionType',
         'failedReason' => 'FailedReason',
+        'frozenSkills' => 'FrozenSkills',
         'hangupDirection' => 'HangupDirection',
         'importedTime' => 'ImportedTime',
         'majorIntent' => 'MajorIntent',
@@ -176,6 +183,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->frozenSkills)) {
+            Model::validateArray($this->frozenSkills);
+        }
         if (\is_array($this->outputTags)) {
             Model::validateArray($this->outputTags);
         }
@@ -234,6 +244,17 @@ class data extends Model
 
         if (null !== $this->failedReason) {
             $res['FailedReason'] = $this->failedReason;
+        }
+
+        if (null !== $this->frozenSkills) {
+            if (\is_array($this->frozenSkills)) {
+                $res['FrozenSkills'] = [];
+                $n1 = 0;
+                foreach ($this->frozenSkills as $item1) {
+                    $res['FrozenSkills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->hangupDirection) {
@@ -367,6 +388,17 @@ class data extends Model
 
         if (isset($map['FailedReason'])) {
             $model->failedReason = $map['FailedReason'];
+        }
+
+        if (isset($map['FrozenSkills'])) {
+            if (!empty($map['FrozenSkills'])) {
+                $model->frozenSkills = [];
+                $n1 = 0;
+                foreach ($map['FrozenSkills'] as $item1) {
+                    $model->frozenSkills[$n1] = frozenSkills::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['HangupDirection'])) {
