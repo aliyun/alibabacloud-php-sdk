@@ -1473,15 +1473,15 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Cancels an SQL Pattern comparison report.
+     * Cancels an SQL pattern comparison report.
      *
      * @remarks
-     * Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
-     * - `PENDING`: Waiting to be generated.
-     * - `RUNNING`: Being generated.
+     * Cancels a specified SQL pattern comparison report. You can cancel reports in the following states:
+     * - `PENDING`: Pending generation.
+     * - `RUNNING`: Generation in progress.
      * > - Only reports with `CancelAvailable` set to `true` can be canceled.
-     * > - Reports that are completed, failed, or expired cannot be canceled.
-     * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+     * > - Completed, failed, or expired reports cannot be canceled.
+     * > - If you repeatedly cancel an already canceled report, `Canceled` still returns `true`, and `CancelTime` remains the time of the first cancellation.
      * > - Reports are isolated by instance and Alibaba Cloud account.
      *
      * @param request - CancelSqlPatternCompareReportRequest
@@ -1529,15 +1529,15 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Cancels an SQL Pattern comparison report.
+     * Cancels an SQL pattern comparison report.
      *
      * @remarks
-     * Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
-     * - `PENDING`: Waiting to be generated.
-     * - `RUNNING`: Being generated.
+     * Cancels a specified SQL pattern comparison report. You can cancel reports in the following states:
+     * - `PENDING`: Pending generation.
+     * - `RUNNING`: Generation in progress.
      * > - Only reports with `CancelAvailable` set to `true` can be canceled.
-     * > - Reports that are completed, failed, or expired cannot be canceled.
-     * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+     * > - Completed, failed, or expired reports cannot be canceled.
+     * > - If you repeatedly cancel an already canceled report, `Canceled` still returns `true`, and `CancelTime` remains the time of the first cancellation.
      * > - Reports are isolated by instance and Alibaba Cloud account.
      *
      * @param request - CancelSqlPatternCompareReportRequest
@@ -1755,7 +1755,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Disables log synchronization to Simple Log Service (SLS).
+     * Disables log synchronization to Simple Log Service.
      *
      * @remarks
      * - Central public endpoint: `adb.aliyuncs.com`.
@@ -1807,7 +1807,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Disables log synchronization to Simple Log Service (SLS).
+     * Disables log synchronization to Simple Log Service.
      *
      * @remarks
      * - Central public endpoint: `adb.aliyuncs.com`.
@@ -3923,11 +3923,11 @@ class Adb extends OpenApiClient
      * Creates a semantic view.
      *
      * @remarks
-     * 创建语义视图。调用前请确认已满足以下条件：
-     * 1. 已创建 ADB 集群，可通过 DescribeDBClusters 获取集群 ID（DBClusterId）。
-     * 2. 集群中已存在 Super 类型的数据库账号，可通过 CreateAccount 创建。
-     * 3. 当前 RAM 用户已绑定到该数据库账号：BindAccount 仅支持绑定数据库普通账号；若目标账号为 Super 类型，建议通过 CreateAccount 的 RamUserList 参数完成绑定。
-     * 4. SchemaName 指定的数据库已存在。
+     * Creates a semantic view. Before calling this operation, ensure that the following conditions are met:
+     * 1. An ADB cluster is created. You can call DescribeDBClusters to obtain the cluster ID (DBClusterId).
+     * 2. A Super database account exists in the cluster. You can call CreateAccount to create one.
+     * 3. The current RAM user is bound to the database account. BindAccount only supports binding regular database accounts. If the target account is a Super account, bind the RAM user by using the RamUserList parameter of CreateAccount.
+     * 4. The database specified by SchemaName already exists.
      *
      * @param request - CreateSemanticViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3981,11 +3981,11 @@ class Adb extends OpenApiClient
      * Creates a semantic view.
      *
      * @remarks
-     * 创建语义视图。调用前请确认已满足以下条件：
-     * 1. 已创建 ADB 集群，可通过 DescribeDBClusters 获取集群 ID（DBClusterId）。
-     * 2. 集群中已存在 Super 类型的数据库账号，可通过 CreateAccount 创建。
-     * 3. 当前 RAM 用户已绑定到该数据库账号：BindAccount 仅支持绑定数据库普通账号；若目标账号为 Super 类型，建议通过 CreateAccount 的 RamUserList 参数完成绑定。
-     * 4. SchemaName 指定的数据库已存在。
+     * Creates a semantic view. Before calling this operation, ensure that the following conditions are met:
+     * 1. An ADB cluster is created. You can call DescribeDBClusters to obtain the cluster ID (DBClusterId).
+     * 2. A Super database account exists in the cluster. You can call CreateAccount to create one.
+     * 3. The current RAM user is bound to the database account. BindAccount only supports binding regular database accounts. If the target account is a Super account, bind the RAM user by using the RamUserList parameter of CreateAccount.
+     * 4. The database specified by SchemaName already exists.
      *
      * @param request - CreateSemanticViewRequest
      *
@@ -5130,7 +5130,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes the specified semantic view.
+     * Deletes a specified semantic view.
      *
      * @param request - DeleteSemanticViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5177,7 +5177,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes the specified semantic view.
+     * Deletes a specified semantic view.
      *
      * @param request - DeleteSemanticViewRequest
      *
@@ -8300,10 +8300,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Returns the details of a specific cluster.
+     * Queries the details of a specified cluster.
      *
      * @remarks
-     * To find the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8342,10 +8342,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Returns the details of a specific cluster.
+     * Queries the details of a specified cluster.
      *
      * @remarks
-     * To find the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterAttributeRequest
      *
@@ -20704,7 +20704,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes the tags of a knowledge base document.
+     * Deletes tags from a knowledge base document.
      *
      * @param request - RemoveKnowledgeTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20755,7 +20755,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes the tags of a knowledge base document.
+     * Deletes tags from a knowledge base document.
      *
      * @param request - RemoveKnowledgeTagsRequest
      *
@@ -20773,7 +20773,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes authorized users of a knowledge base document.
+     * Deletes authorized users from a knowledge base document.
      *
      * @param request - RemoveKnowledgeUploadUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20824,7 +20824,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes authorized users of a knowledge base document.
+     * Deletes authorized users from a knowledge base document.
      *
      * @param request - RemoveKnowledgeUploadUserRequest
      *
@@ -22045,7 +22045,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Submits a reparse task for a knowledge base file.
+     * Submits a task to reparse a knowledge base file.
      *
      * @param request - TriggerKnowledgeFileParseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22092,7 +22092,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Submits a reparse task for a knowledge base file.
+     * Submits a task to reparse a knowledge base file.
      *
      * @param request - TriggerKnowledgeFileParseRequest
      *

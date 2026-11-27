@@ -181,6 +181,21 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
+     * @var int
+     */
+    public $routingControllerNodeCountFree;
+
+    /**
+     * @var int
+     */
+    public $routingControllerNodeCountPaid;
+
+    /**
+     * @var string
+     */
+    public $routingControllerNodeSize;
+
+    /**
      * @var string
      */
     public $secondaryVSwitchId;
@@ -284,6 +299,9 @@ class DBCluster extends Model
         'reservedNodeCount' => 'ReservedNodeCount',
         'reservedNodeSize' => 'ReservedNodeSize',
         'resourceGroupId' => 'ResourceGroupId',
+        'routingControllerNodeCountFree' => 'RoutingControllerNodeCountFree',
+        'routingControllerNodeCountPaid' => 'RoutingControllerNodeCountPaid',
+        'routingControllerNodeSize' => 'RoutingControllerNodeSize',
         'secondaryVSwitchId' => 'SecondaryVSwitchId',
         'secondaryZoneId' => 'SecondaryZoneId',
         'storageResource' => 'StorageResource',
@@ -451,6 +469,18 @@ class DBCluster extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->routingControllerNodeCountFree) {
+            $res['RoutingControllerNodeCountFree'] = $this->routingControllerNodeCountFree;
+        }
+
+        if (null !== $this->routingControllerNodeCountPaid) {
+            $res['RoutingControllerNodeCountPaid'] = $this->routingControllerNodeCountPaid;
+        }
+
+        if (null !== $this->routingControllerNodeSize) {
+            $res['RoutingControllerNodeSize'] = $this->routingControllerNodeSize;
         }
 
         if (null !== $this->secondaryVSwitchId) {
@@ -659,6 +689,18 @@ class DBCluster extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['RoutingControllerNodeCountFree'])) {
+            $model->routingControllerNodeCountFree = $map['RoutingControllerNodeCountFree'];
+        }
+
+        if (isset($map['RoutingControllerNodeCountPaid'])) {
+            $model->routingControllerNodeCountPaid = $map['RoutingControllerNodeCountPaid'];
+        }
+
+        if (isset($map['RoutingControllerNodeSize'])) {
+            $model->routingControllerNodeSize = $map['RoutingControllerNodeSize'];
         }
 
         if (isset($map['SecondaryVSwitchId'])) {
