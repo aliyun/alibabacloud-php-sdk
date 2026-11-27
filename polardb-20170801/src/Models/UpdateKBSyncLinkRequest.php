@@ -11,6 +11,16 @@ class UpdateKBSyncLinkRequest extends Model
     /**
      * @var string
      */
+    public $aiTableMcpEndpoint;
+
+    /**
+     * @var int
+     */
+    public $chatMemberStaleTtlSeconds;
+
+    /**
+     * @var string
+     */
     public $clientId;
 
     /**
@@ -46,7 +56,22 @@ class UpdateKBSyncLinkRequest extends Model
     /**
      * @var string
      */
+    public $selectionMode;
+
+    /**
+     * @var string
+     */
+    public $selectionRules;
+
+    /**
+     * @var string
+     */
     public $sheetMcpEndpoint;
+
+    /**
+     * @var bool
+     */
+    public $sourceDeleteSyncEnabled;
 
     /**
      * @var bool
@@ -73,6 +98,8 @@ class UpdateKBSyncLinkRequest extends Model
      */
     public $userRefreshToken;
     protected $_name = [
+        'aiTableMcpEndpoint' => 'AiTableMcpEndpoint',
+        'chatMemberStaleTtlSeconds' => 'ChatMemberStaleTtlSeconds',
         'clientId' => 'ClientId',
         'clientSecret' => 'ClientSecret',
         'feishuChatMemberStaleTtlSeconds' => 'FeishuChatMemberStaleTtlSeconds',
@@ -80,7 +107,10 @@ class UpdateKBSyncLinkRequest extends Model
         'linkId' => 'LinkId',
         'mcpEndpoint' => 'McpEndpoint',
         'regionId' => 'RegionId',
+        'selectionMode' => 'SelectionMode',
+        'selectionRules' => 'SelectionRules',
         'sheetMcpEndpoint' => 'SheetMcpEndpoint',
+        'sourceDeleteSyncEnabled' => 'SourceDeleteSyncEnabled',
         'syncEnabled' => 'SyncEnabled',
         'syncIntervalMinutes' => 'SyncIntervalMinutes',
         'userAccessToken' => 'UserAccessToken',
@@ -96,6 +126,14 @@ class UpdateKBSyncLinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiTableMcpEndpoint) {
+            $res['AiTableMcpEndpoint'] = $this->aiTableMcpEndpoint;
+        }
+
+        if (null !== $this->chatMemberStaleTtlSeconds) {
+            $res['ChatMemberStaleTtlSeconds'] = $this->chatMemberStaleTtlSeconds;
+        }
+
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
@@ -124,8 +162,20 @@ class UpdateKBSyncLinkRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->selectionMode) {
+            $res['SelectionMode'] = $this->selectionMode;
+        }
+
+        if (null !== $this->selectionRules) {
+            $res['SelectionRules'] = $this->selectionRules;
+        }
+
         if (null !== $this->sheetMcpEndpoint) {
             $res['SheetMcpEndpoint'] = $this->sheetMcpEndpoint;
+        }
+
+        if (null !== $this->sourceDeleteSyncEnabled) {
+            $res['SourceDeleteSyncEnabled'] = $this->sourceDeleteSyncEnabled;
         }
 
         if (null !== $this->syncEnabled) {
@@ -159,6 +209,14 @@ class UpdateKBSyncLinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiTableMcpEndpoint'])) {
+            $model->aiTableMcpEndpoint = $map['AiTableMcpEndpoint'];
+        }
+
+        if (isset($map['ChatMemberStaleTtlSeconds'])) {
+            $model->chatMemberStaleTtlSeconds = $map['ChatMemberStaleTtlSeconds'];
+        }
+
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
@@ -187,8 +245,20 @@ class UpdateKBSyncLinkRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['SelectionMode'])) {
+            $model->selectionMode = $map['SelectionMode'];
+        }
+
+        if (isset($map['SelectionRules'])) {
+            $model->selectionRules = $map['SelectionRules'];
+        }
+
         if (isset($map['SheetMcpEndpoint'])) {
             $model->sheetMcpEndpoint = $map['SheetMcpEndpoint'];
+        }
+
+        if (isset($map['SourceDeleteSyncEnabled'])) {
+            $model->sourceDeleteSyncEnabled = $map['SourceDeleteSyncEnabled'];
         }
 
         if (isset($map['SyncEnabled'])) {

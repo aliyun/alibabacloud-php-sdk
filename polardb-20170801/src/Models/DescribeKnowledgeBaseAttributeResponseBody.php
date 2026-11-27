@@ -59,6 +59,11 @@ class DescribeKnowledgeBaseAttributeResponseBody extends Model
     public $shardCount;
 
     /**
+     * @var bool
+     */
+    public $sourceDeleteSyncEnabled;
+
+    /**
      * @var string
      */
     public $status;
@@ -83,6 +88,7 @@ class DescribeKnowledgeBaseAttributeResponseBody extends Model
         'requestId' => 'RequestId',
         'searchMode' => 'SearchMode',
         'shardCount' => 'ShardCount',
+        'sourceDeleteSyncEnabled' => 'SourceDeleteSyncEnabled',
         'status' => 'Status',
         'totalDocs' => 'TotalDocs',
         'totalSizeBytes' => 'TotalSizeBytes',
@@ -134,6 +140,10 @@ class DescribeKnowledgeBaseAttributeResponseBody extends Model
 
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
+        }
+
+        if (null !== $this->sourceDeleteSyncEnabled) {
+            $res['SourceDeleteSyncEnabled'] = $this->sourceDeleteSyncEnabled;
         }
 
         if (null !== $this->status) {
@@ -197,6 +207,10 @@ class DescribeKnowledgeBaseAttributeResponseBody extends Model
 
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
+        }
+
+        if (isset($map['SourceDeleteSyncEnabled'])) {
+            $model->sourceDeleteSyncEnabled = $map['SourceDeleteSyncEnabled'];
         }
 
         if (isset($map['Status'])) {

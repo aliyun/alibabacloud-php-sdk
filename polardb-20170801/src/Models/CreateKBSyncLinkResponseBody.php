@@ -46,6 +46,16 @@ class CreateKBSyncLinkResponseBody extends Model
     /**
      * @var string
      */
+    public $selectionMode;
+
+    /**
+     * @var string
+     */
+    public $selectionRules;
+
+    /**
+     * @var string
+     */
     public $sourceDir;
 
     /**
@@ -57,6 +67,11 @@ class CreateKBSyncLinkResponseBody extends Model
      * @var string
      */
     public $syncStatus;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'clientId' => 'ClientId',
         'creationTime' => 'CreationTime',
@@ -65,9 +80,12 @@ class CreateKBSyncLinkResponseBody extends Model
         'linkId' => 'LinkId',
         'linkName' => 'LinkName',
         'requestId' => 'RequestId',
+        'selectionMode' => 'SelectionMode',
+        'selectionRules' => 'SelectionRules',
         'sourceDir' => 'SourceDir',
         'syncIntervalMinutes' => 'SyncIntervalMinutes',
         'syncStatus' => 'SyncStatus',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -106,6 +124,14 @@ class CreateKBSyncLinkResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->selectionMode) {
+            $res['SelectionMode'] = $this->selectionMode;
+        }
+
+        if (null !== $this->selectionRules) {
+            $res['SelectionRules'] = $this->selectionRules;
+        }
+
         if (null !== $this->sourceDir) {
             $res['SourceDir'] = $this->sourceDir;
         }
@@ -116,6 +142,10 @@ class CreateKBSyncLinkResponseBody extends Model
 
         if (null !== $this->syncStatus) {
             $res['SyncStatus'] = $this->syncStatus;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -157,6 +187,14 @@ class CreateKBSyncLinkResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
+        if (isset($map['SelectionMode'])) {
+            $model->selectionMode = $map['SelectionMode'];
+        }
+
+        if (isset($map['SelectionRules'])) {
+            $model->selectionRules = $map['SelectionRules'];
+        }
+
         if (isset($map['SourceDir'])) {
             $model->sourceDir = $map['SourceDir'];
         }
@@ -167,6 +205,10 @@ class CreateKBSyncLinkResponseBody extends Model
 
         if (isset($map['SyncStatus'])) {
             $model->syncStatus = $map['SyncStatus'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

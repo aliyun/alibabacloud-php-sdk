@@ -32,12 +32,18 @@ class UpdateKnowledgeBaseRequest extends Model
      * @var string
      */
     public $searchMode;
+
+    /**
+     * @var bool
+     */
+    public $sourceDeleteSyncEnabled;
     protected $_name = [
         'description' => 'Description',
         'knowledgeBaseId' => 'KnowledgeBaseId',
         'name' => 'Name',
         'regionId' => 'RegionId',
         'searchMode' => 'SearchMode',
+        'sourceDeleteSyncEnabled' => 'SourceDeleteSyncEnabled',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class UpdateKnowledgeBaseRequest extends Model
 
         if (null !== $this->searchMode) {
             $res['SearchMode'] = $this->searchMode;
+        }
+
+        if (null !== $this->sourceDeleteSyncEnabled) {
+            $res['SourceDeleteSyncEnabled'] = $this->sourceDeleteSyncEnabled;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class UpdateKnowledgeBaseRequest extends Model
 
         if (isset($map['SearchMode'])) {
             $model->searchMode = $map['SearchMode'];
+        }
+
+        if (isset($map['SourceDeleteSyncEnabled'])) {
+            $model->sourceDeleteSyncEnabled = $map['SourceDeleteSyncEnabled'];
         }
 
         return $model;

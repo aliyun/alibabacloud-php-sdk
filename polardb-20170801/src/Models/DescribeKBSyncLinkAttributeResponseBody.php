@@ -52,6 +52,21 @@ class DescribeKBSyncLinkAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $selectionMode;
+
+    /**
+     * @var string
+     */
+    public $selectionRules;
+
+    /**
+     * @var bool
+     */
+    public $sourceDeleteSyncEnabled;
+
+    /**
+     * @var string
+     */
     public $sourceDir;
 
     /**
@@ -72,6 +87,9 @@ class DescribeKBSyncLinkAttributeResponseBody extends Model
         'linkId' => 'LinkId',
         'linkName' => 'LinkName',
         'requestId' => 'RequestId',
+        'selectionMode' => 'SelectionMode',
+        'selectionRules' => 'SelectionRules',
+        'sourceDeleteSyncEnabled' => 'SourceDeleteSyncEnabled',
         'sourceDir' => 'SourceDir',
         'syncIntervalMinutes' => 'SyncIntervalMinutes',
         'syncStatus' => 'SyncStatus',
@@ -118,6 +136,18 @@ class DescribeKBSyncLinkAttributeResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->selectionMode) {
+            $res['SelectionMode'] = $this->selectionMode;
+        }
+
+        if (null !== $this->selectionRules) {
+            $res['SelectionRules'] = $this->selectionRules;
+        }
+
+        if (null !== $this->sourceDeleteSyncEnabled) {
+            $res['SourceDeleteSyncEnabled'] = $this->sourceDeleteSyncEnabled;
         }
 
         if (null !== $this->sourceDir) {
@@ -173,6 +203,18 @@ class DescribeKBSyncLinkAttributeResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SelectionMode'])) {
+            $model->selectionMode = $map['SelectionMode'];
+        }
+
+        if (isset($map['SelectionRules'])) {
+            $model->selectionRules = $map['SelectionRules'];
+        }
+
+        if (isset($map['SourceDeleteSyncEnabled'])) {
+            $model->sourceDeleteSyncEnabled = $map['SourceDeleteSyncEnabled'];
         }
 
         if (isset($map['SourceDir'])) {

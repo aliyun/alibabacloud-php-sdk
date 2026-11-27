@@ -21,11 +21,29 @@ class UpdateKBSyncLinkResponseBody extends Model
     /**
      * @var string
      */
+    public $selectionMode;
+
+    /**
+     * @var string
+     */
+    public $selectionRules;
+
+    /**
+     * @var string
+     */
     public $syncSchedule;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'linkId' => 'LinkId',
         'requestId' => 'RequestId',
+        'selectionMode' => 'SelectionMode',
+        'selectionRules' => 'SelectionRules',
         'syncSchedule' => 'SyncSchedule',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -44,8 +62,20 @@ class UpdateKBSyncLinkResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->selectionMode) {
+            $res['SelectionMode'] = $this->selectionMode;
+        }
+
+        if (null !== $this->selectionRules) {
+            $res['SelectionRules'] = $this->selectionRules;
+        }
+
         if (null !== $this->syncSchedule) {
             $res['SyncSchedule'] = $this->syncSchedule;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -67,8 +97,20 @@ class UpdateKBSyncLinkResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
+        if (isset($map['SelectionMode'])) {
+            $model->selectionMode = $map['SelectionMode'];
+        }
+
+        if (isset($map['SelectionRules'])) {
+            $model->selectionRules = $map['SelectionRules'];
+        }
+
         if (isset($map['SyncSchedule'])) {
             $model->syncSchedule = $map['SyncSchedule'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

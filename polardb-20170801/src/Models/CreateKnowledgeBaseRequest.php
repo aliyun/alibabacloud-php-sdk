@@ -37,6 +37,11 @@ class CreateKnowledgeBaseRequest extends Model
      * @var string
      */
     public $searchMode;
+
+    /**
+     * @var bool
+     */
+    public $sourceDeleteSyncEnabled;
     protected $_name = [
         'description' => 'Description',
         'knowledgeBaseType' => 'KnowledgeBaseType',
@@ -44,6 +49,7 @@ class CreateKnowledgeBaseRequest extends Model
         'name' => 'Name',
         'regionId' => 'RegionId',
         'searchMode' => 'SearchMode',
+        'sourceDeleteSyncEnabled' => 'SourceDeleteSyncEnabled',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class CreateKnowledgeBaseRequest extends Model
 
         if (null !== $this->searchMode) {
             $res['SearchMode'] = $this->searchMode;
+        }
+
+        if (null !== $this->sourceDeleteSyncEnabled) {
+            $res['SourceDeleteSyncEnabled'] = $this->sourceDeleteSyncEnabled;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class CreateKnowledgeBaseRequest extends Model
 
         if (isset($map['SearchMode'])) {
             $model->searchMode = $map['SearchMode'];
+        }
+
+        if (isset($map['SourceDeleteSyncEnabled'])) {
+            $model->sourceDeleteSyncEnabled = $map['SourceDeleteSyncEnabled'];
         }
 
         return $model;

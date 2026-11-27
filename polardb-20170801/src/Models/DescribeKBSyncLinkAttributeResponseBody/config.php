@@ -11,6 +11,11 @@ class config extends Model
     /**
      * @var int
      */
+    public $chatMemberStaleTtlSeconds;
+
+    /**
+     * @var int
+     */
     public $feishuChatMemberStaleTtlSeconds;
 
     /**
@@ -18,6 +23,7 @@ class config extends Model
      */
     public $userId;
     protected $_name = [
+        'chatMemberStaleTtlSeconds' => 'ChatMemberStaleTtlSeconds',
         'feishuChatMemberStaleTtlSeconds' => 'FeishuChatMemberStaleTtlSeconds',
         'userId' => 'UserId',
     ];
@@ -30,6 +36,10 @@ class config extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chatMemberStaleTtlSeconds) {
+            $res['ChatMemberStaleTtlSeconds'] = $this->chatMemberStaleTtlSeconds;
+        }
+
         if (null !== $this->feishuChatMemberStaleTtlSeconds) {
             $res['FeishuChatMemberStaleTtlSeconds'] = $this->feishuChatMemberStaleTtlSeconds;
         }
@@ -49,6 +59,10 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChatMemberStaleTtlSeconds'])) {
+            $model->chatMemberStaleTtlSeconds = $map['ChatMemberStaleTtlSeconds'];
+        }
+
         if (isset($map['FeishuChatMemberStaleTtlSeconds'])) {
             $model->feishuChatMemberStaleTtlSeconds = $map['FeishuChatMemberStaleTtlSeconds'];
         }
