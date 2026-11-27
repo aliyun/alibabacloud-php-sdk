@@ -11,6 +11,11 @@ class resourceIds extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $kvcsId;
 
     /**
@@ -18,6 +23,7 @@ class resourceIds extends Model
      */
     public $vscId;
     protected $_name = [
+        'instanceId' => 'InstanceId',
         'kvcsId' => 'KvcsId',
         'vscId' => 'VscId',
     ];
@@ -30,6 +36,10 @@ class resourceIds extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->kvcsId) {
             $res['KvcsId'] = $this->kvcsId;
         }
@@ -49,6 +59,10 @@ class resourceIds extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['KvcsId'])) {
             $model->kvcsId = $map['KvcsId'];
         }

@@ -21,6 +21,11 @@ class detachResults extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $kvcsId;
 
     /**
@@ -35,6 +40,7 @@ class detachResults extends Model
     protected $_name = [
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'instanceId' => 'InstanceId',
         'kvcsId' => 'KvcsId',
         'status' => 'Status',
         'vscId' => 'VscId',
@@ -54,6 +60,10 @@ class detachResults extends Model
 
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->kvcsId) {
@@ -85,6 +95,10 @@ class detachResults extends Model
 
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['KvcsId'])) {

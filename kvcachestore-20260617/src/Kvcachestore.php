@@ -73,11 +73,11 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Mounts multiple KVCache instances to the virtualization side.
+     * Mounts multiple KVCache instances to the virtualization side in batches.
      *
      * @remarks
      * This operation is asynchronous. A return value of Attaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query the mount records. When the record status changes to Attached, the mounting is complete.
-     * * The KVCacheStore must be in the Available or InUse state to be mounted.
+     * * The KVCacheStore must be in the Available or InUse state before it can be mounted.
      *
      * @param request - AttachKVCacheStoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -132,11 +132,11 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Mounts multiple KVCache instances to the virtualization side.
+     * Mounts multiple KVCache instances to the virtualization side in batches.
      *
      * @remarks
      * This operation is asynchronous. A return value of Attaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query the mount records. When the record status changes to Attached, the mounting is complete.
-     * * The KVCacheStore must be in the Available or InUse state to be mounted.
+     * * The KVCacheStore must be in the Available or InUse state before it can be mounted.
      *
      * @param request - AttachKVCacheStoreRequest
      *
@@ -444,10 +444,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Unmounts multiple KVCache instances from the virtualization stack.
+     * Detaches multiple KVCache instances from the virtualization side.
      *
      * @remarks
-     * This operation is asynchronous. A return value of Detaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query mount records. If no record is found for the specified KvcsId and VscId, the unmount operation is complete.
+     * This operation is asynchronous. A return value of Detaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query the mount records. If no record is found for the specified KvcsId and VscId, the detach operation is complete.
      *
      * @param request - DetachKVCacheStoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -494,10 +494,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Unmounts multiple KVCache instances from the virtualization stack.
+     * Detaches multiple KVCache instances from the virtualization side.
      *
      * @remarks
-     * This operation is asynchronous. A return value of Detaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query mount records. If no record is found for the specified KvcsId and VscId, the unmount operation is complete.
+     * This operation is asynchronous. A return value of Detaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query the mount records. If no record is found for the specified KvcsId and VscId, the detach operation is complete.
      *
      * @param request - DetachKVCacheStoreRequest
      *
