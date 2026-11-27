@@ -1,3 +1,9 @@
+2026-11-27 Version: 2.0.3
+- Update API CreateImageCache: add request parameters EnableBaseImageCacheMatch.
+- Update API CreateImageCache: add request parameters Type.
+- Update API GetImageCache: add response parameters Body.Type.
+
+
 2026-03-02 Version: 2.0.2
 - Update API CreateImageCache: add request parameters Platform.
 - Update API GetImageCache: add response parameters Body.Platform.

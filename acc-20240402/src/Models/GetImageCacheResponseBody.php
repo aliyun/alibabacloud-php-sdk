@@ -85,6 +85,11 @@ class GetImageCacheResponseBody extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'createTime' => 'CreateTime',
         'events' => 'Events',
@@ -101,6 +106,7 @@ class GetImageCacheResponseBody extends Model
         'size' => 'Size',
         'status' => 'Status',
         'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -204,6 +210,10 @@ class GetImageCacheResponseBody extends Model
             }
         }
 
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -294,6 +304,10 @@ class GetImageCacheResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

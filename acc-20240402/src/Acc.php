@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\Acc\V20240402\Models\GetImageCacheRequest;
 use AlibabaCloud\SDK\Acc\V20240402\Models\GetImageCacheResponse;
 use AlibabaCloud\SDK\Acc\V20240402\Models\ListImageCachesRequest;
 use AlibabaCloud\SDK\Acc\V20240402\Models\ListImageCachesResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -24,6 +25,9 @@ class Acc extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'acc';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-2-pop' => 'acc.aliyuncs.com',
@@ -92,7 +96,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 创建镜像缓存.
+     * Creates an image cache to accelerate the pulling of container images when creating ACS pods.
      *
      * @param tmpReq - CreateImageCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -120,6 +124,10 @@ class Acc extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->enableBaseImageCacheMatch) {
+            @$query['EnableBaseImageCacheMatch'] = $request->enableBaseImageCacheMatch;
         }
 
         if (null !== $request->imageCacheName) {
@@ -154,6 +162,10 @@ class Acc extends OpenApiClient
             @$query['Tags'] = $request->tags;
         }
 
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -173,7 +185,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 创建镜像缓存.
+     * Creates an image cache to accelerate the pulling of container images when creating ACS pods.
      *
      * @param request - CreateImageCacheRequest
      *
@@ -191,7 +203,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 删除镜像缓存.
+     * Deletes an image cache.
      *
      * @param request - DeleteImageCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -238,7 +250,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 删除镜像缓存.
+     * Deletes an image cache.
      *
      * @param request - DeleteImageCacheRequest
      *
@@ -256,7 +268,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 查询镜像缓存.
+     * Queries the details of an image cache.
      *
      * @param request - GetImageCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -299,7 +311,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 查询镜像缓存.
+     * Queries the details of an image cache.
      *
      * @param request - GetImageCacheRequest
      *
@@ -317,7 +329,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 查询镜像缓存.
+     * Queries the details of image caches.
      *
      * @param request - ListImageCachesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -384,7 +396,7 @@ class Acc extends OpenApiClient
     }
 
     /**
-     * 查询镜像缓存.
+     * Queries the details of image caches.
      *
      * @param request - ListImageCachesRequest
      *

@@ -22,6 +22,11 @@ class CreateImageCacheShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $enableBaseImageCacheMatch;
+
+    /**
      * @var string
      */
     public $imageCacheName;
@@ -60,9 +65,15 @@ class CreateImageCacheShrinkRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'acrRegistryInfos' => 'AcrRegistryInfos',
         'clientToken' => 'ClientToken',
+        'enableBaseImageCacheMatch' => 'EnableBaseImageCacheMatch',
         'imageCacheName' => 'ImageCacheName',
         'imageRegistryCredentials' => 'ImageRegistryCredentials',
         'images' => 'Images',
@@ -71,6 +82,7 @@ class CreateImageCacheShrinkRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -106,6 +118,10 @@ class CreateImageCacheShrinkRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->enableBaseImageCacheMatch) {
+            $res['EnableBaseImageCacheMatch'] = $this->enableBaseImageCacheMatch;
         }
 
         if (null !== $this->imageCacheName) {
@@ -161,6 +177,10 @@ class CreateImageCacheShrinkRequest extends Model
             }
         }
 
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -185,6 +205,10 @@ class CreateImageCacheShrinkRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['EnableBaseImageCacheMatch'])) {
+            $model->enableBaseImageCacheMatch = $map['EnableBaseImageCacheMatch'];
         }
 
         if (isset($map['ImageCacheName'])) {
@@ -238,6 +262,10 @@ class CreateImageCacheShrinkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
