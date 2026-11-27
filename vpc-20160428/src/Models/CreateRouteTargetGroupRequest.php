@@ -21,6 +21,16 @@ class CreateRouteTargetGroupRequest extends Model
     public $configMode;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -57,6 +67,8 @@ class CreateRouteTargetGroupRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'configMode' => 'ConfigMode',
+        'dryRun' => 'DryRun',
+        'ipVersion' => 'IpVersion',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'routeTargetGroupDescription' => 'RouteTargetGroupDescription',
@@ -86,6 +98,14 @@ class CreateRouteTargetGroupRequest extends Model
 
         if (null !== $this->configMode) {
             $res['ConfigMode'] = $this->configMode;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         if (null !== $this->regionId) {
@@ -147,6 +167,14 @@ class CreateRouteTargetGroupRequest extends Model
 
         if (isset($map['ConfigMode'])) {
             $model->configMode = $map['ConfigMode'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         if (isset($map['RegionId'])) {

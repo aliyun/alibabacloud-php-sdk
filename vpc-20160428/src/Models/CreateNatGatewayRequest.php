@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest\accessMode;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest\ipv6Config;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest\tag;
 
 class CreateNatGatewayRequest extends Model
@@ -64,6 +65,11 @@ class CreateNatGatewayRequest extends Model
      * @var string
      */
     public $ipv4Prefix;
+
+    /**
+     * @var ipv6Config
+     */
+    public $ipv6Config;
 
     /**
      * @var string
@@ -156,6 +162,7 @@ class CreateNatGatewayRequest extends Model
         'instanceChargeType' => 'InstanceChargeType',
         'internetChargeType' => 'InternetChargeType',
         'ipv4Prefix' => 'Ipv4Prefix',
+        'ipv6Config' => 'Ipv6Config',
         'name' => 'Name',
         'natIp' => 'NatIp',
         'natType' => 'NatType',
@@ -178,6 +185,9 @@ class CreateNatGatewayRequest extends Model
     {
         if (null !== $this->accessMode) {
             $this->accessMode->validate();
+        }
+        if (null !== $this->ipv6Config) {
+            $this->ipv6Config->validate();
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -230,6 +240,10 @@ class CreateNatGatewayRequest extends Model
 
         if (null !== $this->ipv4Prefix) {
             $res['Ipv4Prefix'] = $this->ipv4Prefix;
+        }
+
+        if (null !== $this->ipv6Config) {
+            $res['Ipv6Config'] = null !== $this->ipv6Config ? $this->ipv6Config->toArray($noStream) : $this->ipv6Config;
         }
 
         if (null !== $this->name) {
@@ -356,6 +370,10 @@ class CreateNatGatewayRequest extends Model
 
         if (isset($map['Ipv4Prefix'])) {
             $model->ipv4Prefix = $map['Ipv4Prefix'];
+        }
+
+        if (isset($map['Ipv6Config'])) {
+            $model->ipv6Config = ipv6Config::fromMap($map['Ipv6Config']);
         }
 
         if (isset($map['Name'])) {

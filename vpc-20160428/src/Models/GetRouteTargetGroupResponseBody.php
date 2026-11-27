@@ -23,6 +23,11 @@ class GetRouteTargetGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -72,6 +77,7 @@ class GetRouteTargetGroupResponseBody extends Model
     protected $_name = [
         'configMode' => 'ConfigMode',
         'createTime' => 'CreateTime',
+        'ipVersion' => 'IpVersion',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -104,6 +110,10 @@ class GetRouteTargetGroupResponseBody extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         if (null !== $this->regionId) {
@@ -177,6 +187,10 @@ class GetRouteTargetGroupResponseBody extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         if (isset($map['RegionId'])) {

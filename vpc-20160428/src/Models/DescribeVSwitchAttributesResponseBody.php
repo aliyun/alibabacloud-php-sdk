@@ -33,6 +33,11 @@ class DescribeVSwitchAttributesResponseBody extends Model
     /**
      * @var bool
      */
+    public $enableDns64;
+
+    /**
+     * @var bool
+     */
     public $enabledIpv6;
 
     /**
@@ -114,6 +119,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
         'cidrBlock' => 'CidrBlock',
         'creationTime' => 'CreationTime',
         'description' => 'Description',
+        'enableDns64' => 'EnableDns64',
         'enabledIpv6' => 'EnabledIpv6',
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
         'ipv6Only' => 'Ipv6Only',
@@ -160,6 +166,10 @@ class DescribeVSwitchAttributesResponseBody extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableDns64) {
+            $res['EnableDns64'] = $this->enableDns64;
         }
 
         if (null !== $this->enabledIpv6) {
@@ -251,6 +261,10 @@ class DescribeVSwitchAttributesResponseBody extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableDns64'])) {
+            $model->enableDns64 = $map['EnableDns64'];
         }
 
         if (isset($map['EnabledIpv6'])) {

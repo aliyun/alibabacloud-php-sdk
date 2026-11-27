@@ -15,6 +15,16 @@ class UpdateRouteTargetGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -40,6 +50,8 @@ class UpdateRouteTargetGroupRequest extends Model
     public $routeTargetMemberList;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipVersion' => 'IpVersion',
         'regionId' => 'RegionId',
         'routeTargetGroupDescription' => 'RouteTargetGroupDescription',
         'routeTargetGroupId' => 'RouteTargetGroupId',
@@ -60,6 +72,14 @@ class UpdateRouteTargetGroupRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         if (null !== $this->regionId) {
@@ -102,6 +122,14 @@ class UpdateRouteTargetGroupRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         if (isset($map['RegionId'])) {

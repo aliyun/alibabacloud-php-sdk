@@ -143,6 +143,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpCidrRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpCidrResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatRateLimitRuleRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatRateLimitRuleResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNetworkAclRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNetworkAclResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionOccupancyOrderRequest;
@@ -561,6 +563,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpCidrsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpCidrsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatRateLimitRulesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatRateLimitRulesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPhysicalConnectionFeaturesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPhysicalConnectionFeaturesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPrefixListsRequest;
@@ -877,7 +881,6 @@ class Vpc extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
             'eu-west-1-oxs' => 'vpc-nebula.cn-shenzhen-cloudstone.aliyuncs.com',
             'rus-west-1-pop' => 'vpc.aliyuncs.com',
-            'cn-nanjing' => 'vpc-smarthosting.cn-hangzhou-cloudstone.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vpc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1389,7 +1392,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Adds an Elastic IP Address (EIP) to a specified Internet Shared Bandwidth instance.
+     * Adds an elastic IP address (EIP) to a specified shared bandwidth instance.
      *
      * @param request - AddGlobalAccelerationInstanceIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1452,7 +1455,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Adds an Elastic IP Address (EIP) to a specified Internet Shared Bandwidth instance.
+     * Adds an elastic IP address (EIP) to a specified shared bandwidth instance.
      *
      * @param request - AddGlobalAccelerationInstanceIpRequest
      *
@@ -1671,10 +1674,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Adds traffic mirror sources to a traffic mirror session.
+     * Adds one or more traffic mirror sources to a traffic mirror session.
      *
      * @remarks
-     * - The **AddSourcesToTrafficMirrorSession** operation is asynchronous. After you call this operation, the system returns a request ID, but the traffic mirror sources are not added yet. The system is still adding the traffic mirror sources in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the traffic mirror sources:
+     * - The **AddSourcesToTrafficMirrorSession** operation is asynchronous. The system returns a request ID, but the traffic mirror sources are not immediately added. The addition task is still running in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the addition status of the traffic mirror sources:
      *     - If the traffic mirror session is in the **Modifying** state, the traffic mirror sources are being added.
      *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources are added.
      * - You cannot call the **AddSourcesToTrafficMirrorSession** operation to concurrently add traffic mirror sources to the same traffic mirror session.
@@ -1748,10 +1751,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Adds traffic mirror sources to a traffic mirror session.
+     * Adds one or more traffic mirror sources to a traffic mirror session.
      *
      * @remarks
-     * - The **AddSourcesToTrafficMirrorSession** operation is asynchronous. After you call this operation, the system returns a request ID, but the traffic mirror sources are not added yet. The system is still adding the traffic mirror sources in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the traffic mirror sources:
+     * - The **AddSourcesToTrafficMirrorSession** operation is asynchronous. The system returns a request ID, but the traffic mirror sources are not immediately added. The addition task is still running in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the addition status of the traffic mirror sources:
      *     - If the traffic mirror session is in the **Modifying** state, the traffic mirror sources are being added.
      *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources are added.
      * - You cannot call the **AddSourcesToTrafficMirrorSession** operation to concurrently add traffic mirror sources to the same traffic mirror session.
@@ -5125,10 +5128,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Creates an Internet Shared Bandwidth instance by calling the CreateCommonBandwidthPackage operation.
+     * Creates an Internet Shared Bandwidth instance.
      *
      * @remarks
-     * <props="china"><ph>This operation supports only the creation of pay-as-you-go Internet Shared Bandwidth instances. To create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>
+     * <props="china"><ph>This operation only supports creating pay-as-you-go Internet Shared Bandwidth instances. For information about how to create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>
      *
      * @param request - CreateCommonBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5227,10 +5230,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Creates an Internet Shared Bandwidth instance by calling the CreateCommonBandwidthPackage operation.
+     * Creates an Internet Shared Bandwidth instance.
      *
      * @remarks
-     * <props="china"><ph>This operation supports only the creation of pay-as-you-go Internet Shared Bandwidth instances. To create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>
+     * <props="china"><ph>This operation only supports creating pay-as-you-go Internet Shared Bandwidth instances. For information about how to create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>
      *
      * @param request - CreateCommonBandwidthPackageRequest
      *
@@ -7987,9 +7990,9 @@ class Vpc extends OpenApiClient
      *
      * @remarks
      * When you call this operation, take note of the following items:
-     * - When you create a NAT gateway for the first time, the system automatically creates a service-linked role named AliyunServiceRoleForNatgw and attaches an access policy named AliyunServiceRolePolicyForNatgw to the role. This grants the NAT gateway the permissions to access other cloud resources. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
-     * - After an enhanced Internet NAT gateway is created, the system automatically adds a route entry whose destination CIDR block is 0.0.0.0/0 and whose next hop is the NAT gateway to the route table of the VPC. This routes traffic to the NAT gateway.
-     * - **CreateNatGateway** is an asynchronous operation. The system first returns the instance ID of the NAT gateway (Internet NAT gateway or VPC NAT gateway), but the NAT gateway instance is not yet created, and the creation task is still running in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the NAT gateway.
+     * - When you create a NAT gateway for the first time, the system automatically creates a service-linked role named AliyunServiceRoleForNatgw and associates an access policy named AliyunServiceRolePolicyForNatgw with the role. This grants the NAT gateway the permissions to access other cloud resources. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+     * - After an enhanced Internet NAT gateway is created, the system automatically adds a route entry whose destination CIDR block is 0.0.0.0/0 and next hop is the NAT gateway to the route table of the VPC. This route entry is used to route traffic to the NAT gateway.
+     * - The **CreateNatGateway** operation is asynchronous. The system first returns the instance ID of the NAT gateway (Internet NAT gateway or VPC NAT gateway), but the NAT gateway instance is not yet created and the creation task is still running in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the NAT gateway.
      *     - If the NAT gateway is in the **Creating** state, the NAT gateway is being created. In this state, you can only perform query operations.
      *     - If the NAT gateway is in the **Available** state, the NAT gateway is created.
      *
@@ -8012,6 +8015,10 @@ class Vpc extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->accessMode) {
             $request->accessModeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accessMode, 'AccessMode', 'json');
+        }
+
+        if (null !== $tmpReq->ipv6Config) {
+            $request->ipv6ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ipv6Config, 'Ipv6Config', 'json');
         }
 
         $query = [];
@@ -8057,6 +8064,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->ipv4Prefix) {
             @$query['Ipv4Prefix'] = $request->ipv4Prefix;
+        }
+
+        if (null !== $request->ipv6ConfigShrink) {
+            @$query['Ipv6Config'] = $request->ipv6ConfigShrink;
         }
 
         if (null !== $request->name) {
@@ -8146,9 +8157,9 @@ class Vpc extends OpenApiClient
      *
      * @remarks
      * When you call this operation, take note of the following items:
-     * - When you create a NAT gateway for the first time, the system automatically creates a service-linked role named AliyunServiceRoleForNatgw and attaches an access policy named AliyunServiceRolePolicyForNatgw to the role. This grants the NAT gateway the permissions to access other cloud resources. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
-     * - After an enhanced Internet NAT gateway is created, the system automatically adds a route entry whose destination CIDR block is 0.0.0.0/0 and whose next hop is the NAT gateway to the route table of the VPC. This routes traffic to the NAT gateway.
-     * - **CreateNatGateway** is an asynchronous operation. The system first returns the instance ID of the NAT gateway (Internet NAT gateway or VPC NAT gateway), but the NAT gateway instance is not yet created, and the creation task is still running in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the NAT gateway.
+     * - When you create a NAT gateway for the first time, the system automatically creates a service-linked role named AliyunServiceRoleForNatgw and associates an access policy named AliyunServiceRolePolicyForNatgw with the role. This grants the NAT gateway the permissions to access other cloud resources. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+     * - After an enhanced Internet NAT gateway is created, the system automatically adds a route entry whose destination CIDR block is 0.0.0.0/0 and next hop is the NAT gateway to the route table of the VPC. This route entry is used to route traffic to the NAT gateway.
+     * - The **CreateNatGateway** operation is asynchronous. The system first returns the instance ID of the NAT gateway (Internet NAT gateway or VPC NAT gateway), but the NAT gateway instance is not yet created and the creation task is still running in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the NAT gateway.
      *     - If the NAT gateway is in the **Creating** state, the NAT gateway is being created. In this state, you can only perform query operations.
      *     - If the NAT gateway is in the **Available** state, the NAT gateway is created.
      *
@@ -8399,6 +8410,113 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNatIpCidrWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a rate limiting rule to throttle traffic from specified source CIDR blocks.
+     *
+     * @remarks
+     * This operation creates a rate limiting rule for an enhanced Internet NAT gateway or a VPC NAT gateway. The term NAT gateway in this document refers to both types unless otherwise specified.
+     * When you call this operation to add a rate limiting rule, take note of the following items:
+     * - The CreateNatRateLimitRule operation is asynchronous. The system returns a rate limiting rule ID, but the rule is not immediately added. The addition task is still running in the background.
+     *   - If the rule is in the Creating state, the source IP address rate limiting rule is being created. In this state, you can only perform query operations.
+     *   - If the rule is in the Available state, the source IP address rate limiting rule is created.
+     *
+     * @param request - CreateNatRateLimitRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNatRateLimitRuleResponse
+     *
+     * @param CreateNatRateLimitRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateNatRateLimitRuleResponse
+     */
+    public function createNatRateLimitRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bandwidthLimit) {
+            @$query['BandwidthLimit'] = $request->bandwidthLimit;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
+        }
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->ruleDescription) {
+            @$query['RuleDescription'] = $request->ruleDescription;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sourceCIDRs) {
+            @$query['SourceCIDRs'] = $request->sourceCIDRs;
+        }
+
+        if (null !== $request->tunnelIndex) {
+            @$query['TunnelIndex'] = $request->tunnelIndex;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNatRateLimitRule',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNatRateLimitRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a rate limiting rule to throttle traffic from specified source CIDR blocks.
+     *
+     * @remarks
+     * This operation creates a rate limiting rule for an enhanced Internet NAT gateway or a VPC NAT gateway. The term NAT gateway in this document refers to both types unless otherwise specified.
+     * When you call this operation to add a rate limiting rule, take note of the following items:
+     * - The CreateNatRateLimitRule operation is asynchronous. The system returns a rate limiting rule ID, but the rule is not immediately added. The addition task is still running in the background.
+     *   - If the rule is in the Creating state, the source IP address rate limiting rule is being created. In this state, you can only perform query operations.
+     *   - If the rule is in the Available state, the source IP address rate limiting rule is created.
+     *
+     * @param request - CreateNatRateLimitRuleRequest
+     *
+     * @returns CreateNatRateLimitRuleResponse
+     *
+     * @param CreateNatRateLimitRuleRequest $request
+     *
+     * @return CreateNatRateLimitRuleResponse
+     */
+    public function createNatRateLimitRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNatRateLimitRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -9099,22 +9217,22 @@ class Vpc extends OpenApiClient
      * Creates a custom route entry on a vRouter or a Virtual Border Router (VBR).
      *
      * @remarks
-     * - The **CreateRouteEntry** operation is asynchronous. The system returns an instance ID, but custom route entry creation is not yet complete and a background task is still running. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the creation status of custom route entry:
+     * - The **CreateRouteEntry** operation is asynchronous. After you send the request, the system returns an instance ID, but custom route entry is not immediately created. A background task is still running. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of custom route entry:
      *     - If custom route entry is in the **Creating** state, custom route entry is being created.
      *     - If custom route entry is in the **Created** state, custom route entry is created.
-     * - The **CreateRouteEntry** operation does not support concurrent creation of custom route entries in the same VPC or on the same VBR.
-     * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
+     * - You cannot use the **CreateRouteEntry** operation to concurrently create custom route entries in the same VPC or on the same VBR.
+     * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in case of concurrency. Retry the request as needed.
      * **When you use this operation to add a custom route entry to the route table of a vRouter, take note of the following items:**
-     * > If the route entry to be added is a prefix list route, the route quota is calculated based on whether the sum of the number of existing routes and the maximum number of route entries for the prefix list route exceeds the route quota limit.
+     * > When the route to be added is a prefix list route, the route quota is calculated based on whether the sum of the number of existing routes and the maximum number of route entries for the prefix list route exceeds the route quota limit.
      * - A route table can contain at most 200 custom route entries.
      * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as the CIDR block of a vSwitch in the VPC. The destination CIDR block can contain the CIDR block of the vSwitch, but cannot be contained by the CIDR block of the vSwitch.
      * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
      * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
      * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).
-     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a 32-bit subnet mask.
-     * - You can point more than one custom routing entry to the same next hop (**NextHopId**).
+     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.
+     * - Multiple custom route entries can point to the same next hop (**NextHopId**).
      * - The next hop (**NextHopId**) of a custom route entry must be in the same VPC as the route table.
-     * - You can use the **NextHopList** parameter settings to configure equal-cost multi-path (ECMP) routing:
+     * - You can configure equal-cost multi-path (ECMP) routing through the **NextHopList** parameter settings:
      *   * When you add a regular (non-ECMP) custom route, you must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
      *
      *   * When you add an ECMP route, you must specify the **DestinationCidrBlock** and **NextHopList** parameters, and you cannot specify the **NextHopType** and **NextHopId** parameters.
@@ -9124,19 +9242,19 @@ class Vpc extends OpenApiClient
      * - The **NextHopList** parameter is not supported.
      *
      * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
-     * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. A configuration fault may prevent normal access and use of cloud services.</notice>
+     * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
      *
      * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).
      *
-     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a 32-bit subnet mask.
+     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.
      *
-     * - You can point more than one custom routing entry to the same next hop (**NextHopId**).
+     * - Multiple custom route entries can point to the same next hop (**NextHopId**).
      *
      * - The next hop (**NextHopId**) of a custom route entry must be a vRouter interface associated with the VBR.
      *
-     * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to overdue payments.
+     * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to an overdue payment.
      *
-     * - Only regular (non-ECMP) routing is supported. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
+     * - Only regular (non-ECMP) routes can be added. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
      *
      * @param request - CreateRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9230,22 +9348,22 @@ class Vpc extends OpenApiClient
      * Creates a custom route entry on a vRouter or a Virtual Border Router (VBR).
      *
      * @remarks
-     * - The **CreateRouteEntry** operation is asynchronous. The system returns an instance ID, but custom route entry creation is not yet complete and a background task is still running. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the creation status of custom route entry:
+     * - The **CreateRouteEntry** operation is asynchronous. After you send the request, the system returns an instance ID, but custom route entry is not immediately created. A background task is still running. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of custom route entry:
      *     - If custom route entry is in the **Creating** state, custom route entry is being created.
      *     - If custom route entry is in the **Created** state, custom route entry is created.
-     * - The **CreateRouteEntry** operation does not support concurrent creation of custom route entries in the same VPC or on the same VBR.
-     * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
+     * - You cannot use the **CreateRouteEntry** operation to concurrently create custom route entries in the same VPC or on the same VBR.
+     * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in case of concurrency. Retry the request as needed.
      * **When you use this operation to add a custom route entry to the route table of a vRouter, take note of the following items:**
-     * > If the route entry to be added is a prefix list route, the route quota is calculated based on whether the sum of the number of existing routes and the maximum number of route entries for the prefix list route exceeds the route quota limit.
+     * > When the route to be added is a prefix list route, the route quota is calculated based on whether the sum of the number of existing routes and the maximum number of route entries for the prefix list route exceeds the route quota limit.
      * - A route table can contain at most 200 custom route entries.
      * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as the CIDR block of a vSwitch in the VPC. The destination CIDR block can contain the CIDR block of the vSwitch, but cannot be contained by the CIDR block of the vSwitch.
      * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
      * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
      * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).
-     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a 32-bit subnet mask.
-     * - You can point more than one custom routing entry to the same next hop (**NextHopId**).
+     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.
+     * - Multiple custom route entries can point to the same next hop (**NextHopId**).
      * - The next hop (**NextHopId**) of a custom route entry must be in the same VPC as the route table.
-     * - You can use the **NextHopList** parameter settings to configure equal-cost multi-path (ECMP) routing:
+     * - You can configure equal-cost multi-path (ECMP) routing through the **NextHopList** parameter settings:
      *   * When you add a regular (non-ECMP) custom route, you must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
      *
      *   * When you add an ECMP route, you must specify the **DestinationCidrBlock** and **NextHopList** parameters, and you cannot specify the **NextHopType** and **NextHopId** parameters.
@@ -9255,19 +9373,19 @@ class Vpc extends OpenApiClient
      * - The **NextHopList** parameter is not supported.
      *
      * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
-     * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. A configuration fault may prevent normal access and use of cloud services.</notice>
+     * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
      *
      * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).
      *
-     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a 32-bit subnet mask.
+     * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.
      *
-     * - You can point more than one custom routing entry to the same next hop (**NextHopId**).
+     * - Multiple custom route entries can point to the same next hop (**NextHopId**).
      *
      * - The next hop (**NextHopId**) of a custom route entry must be a vRouter interface associated with the VBR.
      *
-     * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to overdue payments.
+     * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to an overdue payment.
      *
-     * - Only regular (non-ECMP) routing is supported. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
+     * - Only regular (non-ECMP) routes can be added. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
      *
      * @param request - CreateRouteEntryRequest
      *
@@ -9401,12 +9519,12 @@ class Vpc extends OpenApiClient
      * Creates a route target group instance.
      *
      * @remarks
-     * - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the routing target group instance is not yet created. The creation task continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
-     *     - If the routing target group is in the **Pending** state, the routing target group is being created.
-     *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
-     * - **Active/standby mode**: When you create a routing target group, configure primary and secondary instances that are in different zones and of the same type.
-     * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks are successful.
-     * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
+     * - The **CreateRouteTargetGroup** operation is asynchronous. The system returns an instance ID, but the routing target group instance is not yet created and the background creation node is still in progress. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
+     *     - When the routing target group is in the **Pending** state, it indicates that the routing target group is being created.
+     *     - When the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the routing target group is created.
+     * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are of the same type and located in different zones.
+     * - **Primary instance**: The weight is 100. It carries all traffic under normal circumstances and takes effect when the health check is normal.
+     * - **Secondary instance**: The weight is 0. It takes over traffic after the primary instance fails and serves as disaster recovery and backup.
      *
      * @param request - CreateRouteTargetGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9428,6 +9546,14 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->configMode) {
             @$query['ConfigMode'] = $request->configMode;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
 
         if (null !== $request->regionId) {
@@ -9480,12 +9606,12 @@ class Vpc extends OpenApiClient
      * Creates a route target group instance.
      *
      * @remarks
-     * - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the routing target group instance is not yet created. The creation task continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
-     *     - If the routing target group is in the **Pending** state, the routing target group is being created.
-     *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
-     * - **Active/standby mode**: When you create a routing target group, configure primary and secondary instances that are in different zones and of the same type.
-     * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks are successful.
-     * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
+     * - The **CreateRouteTargetGroup** operation is asynchronous. The system returns an instance ID, but the routing target group instance is not yet created and the background creation node is still in progress. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
+     *     - When the routing target group is in the **Pending** state, it indicates that the routing target group is being created.
+     *     - When the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the routing target group is created.
+     * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are of the same type and located in different zones.
+     * - **Primary instance**: The weight is 100. It carries all traffic under normal circumstances and takes effect when the health check is normal.
+     * - **Secondary instance**: The weight is 0. It takes over traffic after the primary instance fails and serves as disaster recovery and backup.
      *
      * @param request - CreateRouteTargetGroupRequest
      *
@@ -9700,14 +9826,14 @@ class Vpc extends OpenApiClient
      *
      * @remarks
      * This operation adds an SNAT entry to an enhanced Internet NAT gateway or a VPC NAT gateway. The term **NAT gateway** in this document refers to both types unless otherwise specified.
-     * Note the following information when you call this operation to add an SNAT entry:
-     * - The **CreateSnatEntry** operation is asynchronous. The system first returns an SNAT entry ID, but the SNAT entry is not yet added. The addition task is still running in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the SNAT entry:
-     *     - If the SNAT entry is in the **Pending** state, the SNAT entry is being added. In this state, you can only perform query operations.
-     *     - If the SNAT entry is in the **Available** state, the SNAT entry is added.
+     * When you call this operation to create an SNAT entry, note the following items:
+     * - The **CreateSnatEntry** operation is asynchronous. The system returns an SNAT entry ID, but the SNAT entry is not immediately created. The creation task is still running in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the SNAT entry:
+     *     - If the SNAT entry is in the **Pending** state, the SNAT entry is being created. In this state, you can only perform query operations.
+     *     - If the SNAT entry is in the **Available** state, the SNAT entry is created.
      * - The vSwitch and ECS instance specified in the SNAT entry must belong to the VPC to which the NAT gateway belongs.
      * - Each vSwitch and ECS instance can belong to only one SNAT entry.
      *
-     * - If a high-availability virtual IP address (HaVip) is associated with the vSwitch, you cannot add an SNAT entry.
+     * - If a high-availability virtual IP address (HAVIP) exists in the vSwitch, you cannot create an SNAT entry.
      *
      * @param request - CreateSnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9733,6 +9859,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->eipAffinity) {
             @$query['EipAffinity'] = $request->eipAffinity;
+        }
+
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
 
         if (null !== $request->networkInterfaceId) {
@@ -9802,14 +9932,14 @@ class Vpc extends OpenApiClient
      *
      * @remarks
      * This operation adds an SNAT entry to an enhanced Internet NAT gateway or a VPC NAT gateway. The term **NAT gateway** in this document refers to both types unless otherwise specified.
-     * Note the following information when you call this operation to add an SNAT entry:
-     * - The **CreateSnatEntry** operation is asynchronous. The system first returns an SNAT entry ID, but the SNAT entry is not yet added. The addition task is still running in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the SNAT entry:
-     *     - If the SNAT entry is in the **Pending** state, the SNAT entry is being added. In this state, you can only perform query operations.
-     *     - If the SNAT entry is in the **Available** state, the SNAT entry is added.
+     * When you call this operation to create an SNAT entry, note the following items:
+     * - The **CreateSnatEntry** operation is asynchronous. The system returns an SNAT entry ID, but the SNAT entry is not immediately created. The creation task is still running in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the SNAT entry:
+     *     - If the SNAT entry is in the **Pending** state, the SNAT entry is being created. In this state, you can only perform query operations.
+     *     - If the SNAT entry is in the **Available** state, the SNAT entry is created.
      * - The vSwitch and ECS instance specified in the SNAT entry must belong to the VPC to which the NAT gateway belongs.
      * - Each vSwitch and ECS instance can belong to only one SNAT entry.
      *
-     * - If a high-availability virtual IP address (HaVip) is associated with the vSwitch, you cannot add an SNAT entry.
+     * - If a high-availability virtual IP address (HAVIP) exists in the vSwitch, you cannot create an SNAT entry.
      *
      * @param request - CreateSnatEntryRequest
      *
@@ -10292,7 +10422,7 @@ class Vpc extends OpenApiClient
      * Creates a traffic mirror session.
      *
      * @remarks
-     * The **CreateTrafficMirrorSession** operation is asynchronous. The system returns an instance ID, but the traffic mirror session is not immediately created. The creation task continues to run in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the creation status of the traffic mirror session:
+     * The **CreateTrafficMirrorSession** operation is asynchronous. After you call this operation, the system returns an instance ID, but the traffic mirror session is not yet created and the creation task is still running in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the creation status of the traffic mirror session:
      * - If the traffic mirror session is in the **Creating** state, the traffic mirror session is being created.
      * - If the traffic mirror session is in the **Created** state, the traffic mirror session is created.
      *
@@ -10408,7 +10538,7 @@ class Vpc extends OpenApiClient
      * Creates a traffic mirror session.
      *
      * @remarks
-     * The **CreateTrafficMirrorSession** operation is asynchronous. The system returns an instance ID, but the traffic mirror session is not immediately created. The creation task continues to run in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the creation status of the traffic mirror session:
+     * The **CreateTrafficMirrorSession** operation is asynchronous. After you call this operation, the system returns an instance ID, but the traffic mirror session is not yet created and the creation task is still running in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the creation status of the traffic mirror session:
      * - If the traffic mirror session is in the **Creating** state, the traffic mirror session is being created.
      * - If the traffic mirror session is in the **Created** state, the traffic mirror session is created.
      *
@@ -11696,16 +11826,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Creates an IPsec-VPN connection to associate with a transit router instance.
+     * Creates an IPsec-VPN connection to be associated with a transit router instance by calling the CreateVpnAttachment operation.
      *
      * @remarks
      * >Notice:
-     * - In the scenario where an IPsec-VPN connection is associated with a transit router, the IPsec-VPN connection is upgraded to the dual-tunnel mode. When you create an IPsec-VPN connection, apart from the required parameters, you can only configure the following request parameters related to the dual-tunnel mode: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, the **Tags** array, **ResourceGroupId**, the **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Instructions for dual-tunnel IPsec-VPN connections associated with transit routers](https://help.aliyun.com/document_detail/2853535.html).
-     * - By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with any resource. You can call the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation to associate the IPsec-VPN connection with a transit router instance. After the association, the system assigns a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to view the IP address.
+     * - When you bindIPsec-VPN connections to a transit router, the connections have been upgraded to dual-tunnel mode. When you create an IPsec-VPN connection, in addition to the required parameters, only the following request parameters for dual-tunnel mode are supported: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, **Tags** array, **ResourceGroupId**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Dual-tunnel IPsec-VPN connections bound to a transit router](https://help.aliyun.com/document_detail/2853535.html).
+     * - An IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not bound to any resource by default. You can call the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation to bind the IPsec-VPN connection to a transit router instance. After the IPsec-VPN connection is bound to a transit router instance, the system assigns a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to view the gateway IP address.
      * ### Before you begin
-     * Before you create an IPsec-VPN connection, make sure that you have created a customer gateway in the region where the IPsec-VPN connection resides. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
-     *
-     * If you want to add BGP configurations to the IPsec-VPN connection, make sure that an autonomous system number (ASN) is added to the customer gateway.
+     * Before you create an IPsec-VPN connection, make sure that you have created a customer gateway in the region where the IPsec-VPN connection will be deployed. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+     * If you want to add BGP configurations to the IPsec-VPN connection, make sure that an autonomous system number has been added to the customer gateway.
      *
      * @param request - CreateVpnAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11845,16 +11974,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Creates an IPsec-VPN connection to associate with a transit router instance.
+     * Creates an IPsec-VPN connection to be associated with a transit router instance by calling the CreateVpnAttachment operation.
      *
      * @remarks
      * >Notice:
-     * - In the scenario where an IPsec-VPN connection is associated with a transit router, the IPsec-VPN connection is upgraded to the dual-tunnel mode. When you create an IPsec-VPN connection, apart from the required parameters, you can only configure the following request parameters related to the dual-tunnel mode: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, the **Tags** array, **ResourceGroupId**, the **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Instructions for dual-tunnel IPsec-VPN connections associated with transit routers](https://help.aliyun.com/document_detail/2853535.html).
-     * - By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with any resource. You can call the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation to associate the IPsec-VPN connection with a transit router instance. After the association, the system assigns a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to view the IP address.
+     * - When you bindIPsec-VPN connections to a transit router, the connections have been upgraded to dual-tunnel mode. When you create an IPsec-VPN connection, in addition to the required parameters, only the following request parameters for dual-tunnel mode are supported: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, **Tags** array, **ResourceGroupId**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Dual-tunnel IPsec-VPN connections bound to a transit router](https://help.aliyun.com/document_detail/2853535.html).
+     * - An IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not bound to any resource by default. You can call the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation to bind the IPsec-VPN connection to a transit router instance. After the IPsec-VPN connection is bound to a transit router instance, the system assigns a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to view the gateway IP address.
      * ### Before you begin
-     * Before you create an IPsec-VPN connection, make sure that you have created a customer gateway in the region where the IPsec-VPN connection resides. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
-     *
-     * If you want to add BGP configurations to the IPsec-VPN connection, make sure that an autonomous system number (ASN) is added to the customer gateway.
+     * Before you create an IPsec-VPN connection, make sure that you have created a customer gateway in the region where the IPsec-VPN connection will be deployed. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+     * If you want to add BGP configurations to the IPsec-VPN connection, make sure that an autonomous system number has been added to the customer gateway.
      *
      * @param request - CreateVpnAttachmentRequest
      *
@@ -14703,11 +14831,11 @@ class Vpc extends OpenApiClient
      * Deletes an IPv6 gateway.
      *
      * @remarks
-     * Before you delete an IPv6 gateway, delete the IPv6 egress-only rules first. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
-     * - The **DeleteIpv6Gateway** operation is asynchronous. After a request is sent, the system returns a request ID. However, the IPv6 gateway is not yet deleted. The deletion task is still running in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the deletion status of the IPv6 gateway:
+     * Before you delete an IPv6 gateway, delete the IPv6 egress-only rules. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+     * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID, but the IPv6 gateway is not immediately deleted. The deletion task is still running in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the deletion status of the IPv6 gateway:
      *     - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
      *     - If the specified IPv6 gateway cannot be found, the IPv6 gateway is deleted.
-     * - The **DeleteIpv6Gateway** operation does not support concurrent deletion of the same IPv6 gateway.
+     * - You cannot call the **DeleteIpv6Gateway** operation to concurrently delete the same IPv6 gateway.
      *
      * @param request - DeleteIpv6GatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14781,11 +14909,11 @@ class Vpc extends OpenApiClient
      * Deletes an IPv6 gateway.
      *
      * @remarks
-     * Before you delete an IPv6 gateway, delete the IPv6 egress-only rules first. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
-     * - The **DeleteIpv6Gateway** operation is asynchronous. After a request is sent, the system returns a request ID. However, the IPv6 gateway is not yet deleted. The deletion task is still running in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the deletion status of the IPv6 gateway:
+     * Before you delete an IPv6 gateway, delete the IPv6 egress-only rules. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+     * - The **DeleteIpv6Gateway** operation is asynchronous. After you send the request, the system returns a request ID, but the IPv6 gateway is not immediately deleted. The deletion task is still running in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the deletion status of the IPv6 gateway:
      *     - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
      *     - If the specified IPv6 gateway cannot be found, the IPv6 gateway is deleted.
-     * - The **DeleteIpv6Gateway** operation does not support concurrent deletion of the same IPv6 gateway.
+     * - You cannot call the **DeleteIpv6Gateway** operation to concurrently delete the same IPv6 gateway.
      *
      * @param request - DeleteIpv6GatewayRequest
      *
@@ -15984,9 +16112,9 @@ class Vpc extends OpenApiClient
      * Deletes a route target group instance.
      *
      * @remarks
-     * - **DeleteRouteTargetGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the route target group is not yet deleted. The deletion task continues to run in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+     * - The **DeleteRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the route target group is not immediately deleted. The deletion task is still running in the background. You can call the ListRouteTargetGroup operation to query the deletion status of the route target group:
      *     - If the route target group is in the **Deleting** state, the route target group is being deleted.
-     *     - If the specified route target group cannot be found, the route target group is deleted.
+     *     - If the specified route target group cannot be queried, the route target group is deleted.
      *
      * @param request - DeleteRouteTargetGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16004,6 +16132,10 @@ class Vpc extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->forceDelete) {
@@ -16044,9 +16176,9 @@ class Vpc extends OpenApiClient
      * Deletes a route target group instance.
      *
      * @remarks
-     * - **DeleteRouteTargetGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the route target group is not yet deleted. The deletion task continues to run in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+     * - The **DeleteRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the route target group is not immediately deleted. The deletion task is still running in the background. You can call the ListRouteTargetGroup operation to query the deletion status of the route target group:
      *     - If the route target group is in the **Deleting** state, the route target group is being deleted.
-     *     - If the specified route target group cannot be found, the route target group is deleted.
+     *     - If the specified route target group cannot be queried, the route target group is deleted.
      *
      * @param request - DeleteRouteTargetGroupRequest
      *
@@ -21506,7 +21638,7 @@ class Vpc extends OpenApiClient
      * Queries the details of NAT gateways that meet specified conditions in a specified region.
      *
      * @remarks
-     * This operation queries the details of Internet NAT gateways and VPC NAT gateways. The term NAT gateway in this document refers to both types unless otherwise specified.
+     * This operation queries the details of Internet NAT gateways and VPC NAT gateways. The term NAT gateway in this document refers to both types.
      *
      * @param request - DescribeNatGatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21624,7 +21756,7 @@ class Vpc extends OpenApiClient
      * Queries the details of NAT gateways that meet specified conditions in a specified region.
      *
      * @remarks
-     * This operation queries the details of Internet NAT gateways and VPC NAT gateways. The term NAT gateway in this document refers to both types unless otherwise specified.
+     * This operation queries the details of Internet NAT gateways and VPC NAT gateways. The term NAT gateway in this document refers to both types.
      *
      * @param request - DescribeNatGatewaysRequest
      *
@@ -22123,7 +22255,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the available regions.
+     * Queries available regions by calling the DescribeRegions operation.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22182,7 +22314,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the available regions.
+     * Queries available regions by calling the DescribeRegions operation.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -25882,6 +26014,9 @@ class Vpc extends OpenApiClient
     /**
      * Shuts down ClassicLink.
      *
+     * @remarks
+     * 目前该接口已标记为弃用。
+     *
      * @deprecated OpenAPI DisableVpcClassicLink is deprecated
      *
      * @param request - DisableVpcClassicLinkRequest
@@ -25947,6 +26082,9 @@ class Vpc extends OpenApiClient
     // Deprecated
     /**
      * Shuts down ClassicLink.
+     *
+     * @remarks
+     * 目前该接口已标记为弃用。
      *
      * @deprecated OpenAPI DisableVpcClassicLink is deprecated
      *
@@ -26494,6 +26632,9 @@ class Vpc extends OpenApiClient
     /**
      * Enables ClassicLink.
      *
+     * @remarks
+     * 目前该接口已标记为弃用。
+     *
      * @deprecated OpenAPI EnableVpcClassicLink is deprecated
      *
      * @param request - EnableVpcClassicLinkRequest
@@ -26559,6 +26700,9 @@ class Vpc extends OpenApiClient
     // Deprecated
     /**
      * Enables ClassicLink.
+     *
+     * @remarks
+     * 目前该接口已标记为弃用。
      *
      * @deprecated OpenAPI EnableVpcClassicLink is deprecated
      *
@@ -26922,10 +27066,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the details of a NAT gateway instance.
+     * Queries the details of a NAT gateway.
      *
      * @remarks
-     * This operation queries the details of an Internet NAT gateway or a VPC NAT gateway. The term "NAT gateway" in this document refers to both Internet NAT gateways and VPC NAT gateways.
+     * This operation queries the details of an Internet NAT gateway or a VPC NAT gateway. The term "NAT gateway" in this document refers to both types unless otherwise specified.
      *
      * @param request - GetNatGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26988,10 +27132,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the details of a NAT gateway instance.
+     * Queries the details of a NAT gateway.
      *
      * @remarks
-     * This operation queries the details of an Internet NAT gateway or a VPC NAT gateway. The term "NAT gateway" in this document refers to both Internet NAT gateways and VPC NAT gateways.
+     * This operation queries the details of an Internet NAT gateway or a VPC NAT gateway. The term "NAT gateway" in this document refers to both types unless otherwise specified.
      *
      * @param request - GetNatGatewayAttributeRequest
      *
@@ -29097,6 +29241,95 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Queries the list of rate limiting rules.
+     *
+     * @param request - ListNatRateLimitRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNatRateLimitRulesResponse
+     *
+     * @param ListNatRateLimitRulesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListNatRateLimitRulesResponse
+     */
+    public function listNatRateLimitRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sourceCIDR) {
+            @$query['SourceCIDR'] = $request->sourceCIDR;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNatRateLimitRules',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNatRateLimitRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of rate limiting rules.
+     *
+     * @param request - ListNatRateLimitRulesRequest
+     *
+     * @returns ListNatRateLimitRulesResponse
+     *
+     * @param ListNatRateLimitRulesRequest $request
+     *
+     * @return ListNatRateLimitRulesResponse
+     */
+    public function listNatRateLimitRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNatRateLimitRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the device-level capabilities supported by an Express Connect circuit.
      *
      * @param request - ListPhysicalConnectionFeaturesRequest
@@ -29481,10 +29714,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Lists route target groups.
+     * Queries route target groups.
      *
      * @remarks
-     * Queries the list of route target groups.
+     * Queries route target groups.
      *
      * @param request - ListRouteTargetGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29502,6 +29735,10 @@ class Vpc extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
 
         if (null !== $request->maxResults) {
@@ -29555,10 +29792,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Lists route target groups.
+     * Queries route target groups.
      *
      * @remarks
-     * Queries the list of route target groups.
+     * Queries route target groups.
      *
      * @param request - ListRouteTargetGroupsRequest
      *
@@ -33314,7 +33551,7 @@ class Vpc extends OpenApiClient
      * Modifies the attributes of a NAT gateway.
      *
      * @remarks
-     * The NAT gateways supported by this operation include Internet NAT gateways and VPC NAT gateways. The term "NAT gateway" in this document refers to both types without distinction.
+     * The NAT gateways involved in this operation include Internet NAT gateways and VPC NAT gateways. The term "NAT gateway" in this document refers to both types unless otherwise specified.
      *
      * @param tmpReq - ModifyNatGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33331,6 +33568,10 @@ class Vpc extends OpenApiClient
         $tmpReq->validate();
         $request = new ModifyNatGatewayAttributeShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ipv6Config) {
+            $request->ipv6ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ipv6Config, 'Ipv6Config', 'json');
+        }
+
         if (null !== $tmpReq->logDelivery) {
             $request->logDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->logDelivery, 'LogDelivery', 'json');
         }
@@ -33350,6 +33591,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->icmpReplyEnabled) {
             @$query['IcmpReplyEnabled'] = $request->icmpReplyEnabled;
+        }
+
+        if (null !== $request->ipv6ConfigShrink) {
+            @$query['Ipv6Config'] = $request->ipv6ConfigShrink;
         }
 
         if (null !== $request->logDeliveryShrink) {
@@ -33406,7 +33651,7 @@ class Vpc extends OpenApiClient
      * Modifies the attributes of a NAT gateway.
      *
      * @remarks
-     * The NAT gateways supported by this operation include Internet NAT gateways and VPC NAT gateways. The term "NAT gateway" in this document refers to both types without distinction.
+     * The NAT gateways involved in this operation include Internet NAT gateways and VPC NAT gateways. The term "NAT gateway" in this document refers to both types unless otherwise specified.
      *
      * @param request - ModifyNatGatewayAttributeRequest
      *
@@ -35124,13 +35369,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified vSwitch.
+     * Modifies the configurations of a specified vSwitch.
      *
      * @remarks
-     * - **ModifyVSwitchAttribute** is an asynchronous operation. After you call this operation, the system returns a request ID, but the vSwitch configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the modification status of the vSwitch:
-     *     - If the vSwitch is in the **Pending** state, the configuration is being modified.
+     * - The **ModifyVSwitchAttribute** operation is asynchronous. The system returns a request ID, but the configurations of the vSwitch are not immediately modified. The modification task is still running in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the modification status of the vSwitch:
+     *     - If the vSwitch is in the **Pending** state, the configurations of the vSwitch are being modified.
      *     - If the vSwitch is in the **Available** state, the vSwitch is available.
-     * - **ModifyVSwitchAttribute** does not support concurrent modifications to the same vSwitch.
+     * - The **ModifyVSwitchAttribute** operation does not support concurrent modifications to the configurations of the same vSwitch.
      *
      * @param request - ModifyVSwitchAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35148,6 +35393,10 @@ class Vpc extends OpenApiClient
         $query = [];
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableDns64) {
+            @$query['EnableDns64'] = $request->enableDns64;
         }
 
         if (null !== $request->enableIPv6) {
@@ -35213,13 +35462,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified vSwitch.
+     * Modifies the configurations of a specified vSwitch.
      *
      * @remarks
-     * - **ModifyVSwitchAttribute** is an asynchronous operation. After you call this operation, the system returns a request ID, but the vSwitch configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the modification status of the vSwitch:
-     *     - If the vSwitch is in the **Pending** state, the configuration is being modified.
+     * - The **ModifyVSwitchAttribute** operation is asynchronous. The system returns a request ID, but the configurations of the vSwitch are not immediately modified. The modification task is still running in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the modification status of the vSwitch:
+     *     - If the vSwitch is in the **Pending** state, the configurations of the vSwitch are being modified.
      *     - If the vSwitch is in the **Available** state, the vSwitch is available.
-     * - **ModifyVSwitchAttribute** does not support concurrent modifications to the same vSwitch.
+     * - The **ModifyVSwitchAttribute** operation does not support concurrent modifications to the configurations of the same vSwitch.
      *
      * @param request - ModifyVSwitchAttributeRequest
      *
@@ -38096,7 +38345,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Removes an EIP from an Internet Shared Bandwidth instance.
+     * Removes an elastic IP address (EIP) from an Internet Shared Bandwidth instance.
      *
      * @param request - RemoveGlobalAccelerationInstanceIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38159,7 +38408,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Removes an EIP from an Internet Shared Bandwidth instance.
+     * Removes an elastic IP address (EIP) from an Internet Shared Bandwidth instance.
      *
      * @param request - RemoveGlobalAccelerationInstanceIpRequest
      *
@@ -38265,9 +38514,9 @@ class Vpc extends OpenApiClient
      * Removes traffic mirror sources from a traffic mirror session.
      *
      * @remarks
-     * - **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID, but the traffic mirror sources have not been removed yet. The removal task is still running in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the traffic mirror session:
+     * - **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After you call this operation, the system returns a request ID, but the traffic mirror sources are not immediately removed. The deletion task is still running in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the traffic mirror session:
      *     - If the traffic mirror session is in the **Modifying** state, the traffic mirror sources are being removed.
-     *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources have been removed.
+     *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources are removed.
      * - **RemoveSourcesFromTrafficMirrorSession** does not support concurrent removal of traffic mirror sources from the same traffic mirror session.
      *
      * @param request - RemoveSourcesFromTrafficMirrorSessionRequest
@@ -38342,9 +38591,9 @@ class Vpc extends OpenApiClient
      * Removes traffic mirror sources from a traffic mirror session.
      *
      * @remarks
-     * - **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID, but the traffic mirror sources have not been removed yet. The removal task is still running in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the traffic mirror session:
+     * - **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After you call this operation, the system returns a request ID, but the traffic mirror sources are not immediately removed. The deletion task is still running in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the traffic mirror session:
      *     - If the traffic mirror session is in the **Modifying** state, the traffic mirror sources are being removed.
-     *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources have been removed.
+     *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources are removed.
      * - **RemoveSourcesFromTrafficMirrorSession** does not support concurrent removal of traffic mirror sources from the same traffic mirror session.
      *
      * @param request - RemoveSourcesFromTrafficMirrorSessionRequest
@@ -39143,10 +39392,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Performs an active/standby switchover for a route target group.
+     * Performs a primary/secondary switchover for a route target group.
      *
      * @remarks
-     * Performs an active/standby switchover for a route target group.
+     * Performs a primary/secondary switchover for a route target group.
      *
      * @param request - SwitchActiveRouteTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39164,6 +39413,10 @@ class Vpc extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->regionId) {
@@ -39197,10 +39450,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Performs an active/standby switchover for a route target group.
+     * Performs a primary/secondary switchover for a route target group.
      *
      * @remarks
-     * Performs an active/standby switchover for a route target group.
+     * Performs a primary/secondary switchover for a route target group.
      *
      * @param request - SwitchActiveRouteTargetRequest
      *
@@ -41544,12 +41797,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Updates the information of a route target group instance, including the name, description, and disabled members.
+     * Updates the information about a route target group instance, including the name, description, and disabled members.
      *
      * @remarks
-     * - The **UpdateRouteTargetGroup** operation is asynchronous. The system returns a request ID, but the route target group is not yet updated. The update task is still running in the background. You can call the ListRouteTargetGroup operation to query the update status of the route target group:
-     *     - If the route target group is in the **Updating** state, the route target group is being updated.
-     *     - If the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the route target group is updated.
+     * - The **UpdateRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
+     *     - When the route target group is in the **Updating** state, the route target group is being updated.
+     *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the update is complete.
      *
      * @param request - UpdateRouteTargetGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41567,6 +41820,14 @@ class Vpc extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
 
         if (null !== $request->regionId) {
@@ -41608,12 +41869,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Updates the information of a route target group instance, including the name, description, and disabled members.
+     * Updates the information about a route target group instance, including the name, description, and disabled members.
      *
      * @remarks
-     * - The **UpdateRouteTargetGroup** operation is asynchronous. The system returns a request ID, but the route target group is not yet updated. The update task is still running in the background. You can call the ListRouteTargetGroup operation to query the update status of the route target group:
-     *     - If the route target group is in the **Updating** state, the route target group is being updated.
-     *     - If the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the route target group is updated.
+     * - The **UpdateRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
+     *     - When the route target group is in the **Updating** state, the route target group is being updated.
+     *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the update is complete.
      *
      * @param request - UpdateRouteTargetGroupRequest
      *

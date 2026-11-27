@@ -15,6 +15,11 @@ class ListRouteTargetGroupsRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -55,6 +60,7 @@ class ListRouteTargetGroupsRequest extends Model
     public $vpcId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'ipVersion' => 'IpVersion',
         'maxResults' => 'MaxResults',
         'memberId' => 'MemberId',
         'nextToken' => 'NextToken',
@@ -81,6 +87,10 @@ class ListRouteTargetGroupsRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         if (null !== $this->maxResults) {
@@ -142,6 +152,10 @@ class ListRouteTargetGroupsRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         if (isset($map['MaxResults'])) {

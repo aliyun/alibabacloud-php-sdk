@@ -16,6 +16,11 @@ class snatTableEntry extends Model
     /**
      * @var string
      */
+    public $matchType;
+
+    /**
+     * @var string
+     */
     public $natGatewayId;
 
     /**
@@ -57,8 +62,14 @@ class snatTableEntry extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $tunnelIndex;
     protected $_name = [
         'eipAffinity' => 'EipAffinity',
+        'matchType' => 'MatchType',
         'natGatewayId' => 'NatGatewayId',
         'networkInterfaceId' => 'NetworkInterfaceId',
         'snatEntryId' => 'SnatEntryId',
@@ -68,6 +79,7 @@ class snatTableEntry extends Model
         'sourceCIDR' => 'SourceCIDR',
         'sourceVSwitchId' => 'SourceVSwitchId',
         'status' => 'Status',
+        'tunnelIndex' => 'TunnelIndex',
     ];
 
     public function validate()
@@ -80,6 +92,10 @@ class snatTableEntry extends Model
         $res = [];
         if (null !== $this->eipAffinity) {
             $res['EipAffinity'] = $this->eipAffinity;
+        }
+
+        if (null !== $this->matchType) {
+            $res['MatchType'] = $this->matchType;
         }
 
         if (null !== $this->natGatewayId) {
@@ -118,6 +134,10 @@ class snatTableEntry extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->tunnelIndex) {
+            $res['TunnelIndex'] = $this->tunnelIndex;
+        }
+
         return $res;
     }
 
@@ -131,6 +151,10 @@ class snatTableEntry extends Model
         $model = new self();
         if (isset($map['EipAffinity'])) {
             $model->eipAffinity = $map['EipAffinity'];
+        }
+
+        if (isset($map['MatchType'])) {
+            $model->matchType = $map['MatchType'];
         }
 
         if (isset($map['NatGatewayId'])) {
@@ -167,6 +191,10 @@ class snatTableEntry extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['TunnelIndex'])) {
+            $model->tunnelIndex = $map['TunnelIndex'];
         }
 
         return $model;

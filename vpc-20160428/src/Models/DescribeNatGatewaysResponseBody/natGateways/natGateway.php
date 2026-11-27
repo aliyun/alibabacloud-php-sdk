@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGat
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\fullNatTableIds;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\ipLists;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\ipPrefixList;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\ipv6Config;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\natGatewayPrivateInfo;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\snatTableIds;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\tags;
@@ -107,6 +108,11 @@ class natGateway extends Model
     public $ipPrefixList;
 
     /**
+     * @var ipv6Config
+     */
+    public $ipv6Config;
+
+    /**
      * @var string
      */
     public $name;
@@ -199,6 +205,7 @@ class natGateway extends Model
         'internetChargeType' => 'InternetChargeType',
         'ipLists' => 'IpLists',
         'ipPrefixList' => 'IpPrefixList',
+        'ipv6Config' => 'Ipv6Config',
         'name' => 'Name',
         'natGatewayId' => 'NatGatewayId',
         'natGatewayPrivateInfo' => 'NatGatewayPrivateInfo',
@@ -232,6 +239,9 @@ class natGateway extends Model
         }
         if (null !== $this->ipPrefixList) {
             $this->ipPrefixList->validate();
+        }
+        if (null !== $this->ipv6Config) {
+            $this->ipv6Config->validate();
         }
         if (null !== $this->natGatewayPrivateInfo) {
             $this->natGatewayPrivateInfo->validate();
@@ -318,6 +328,10 @@ class natGateway extends Model
 
         if (null !== $this->ipPrefixList) {
             $res['IpPrefixList'] = null !== $this->ipPrefixList ? $this->ipPrefixList->toArray($noStream) : $this->ipPrefixList;
+        }
+
+        if (null !== $this->ipv6Config) {
+            $res['Ipv6Config'] = null !== $this->ipv6Config ? $this->ipv6Config->toArray($noStream) : $this->ipv6Config;
         }
 
         if (null !== $this->name) {
@@ -461,6 +475,10 @@ class natGateway extends Model
 
         if (isset($map['IpPrefixList'])) {
             $model->ipPrefixList = ipPrefixList::fromMap($map['IpPrefixList']);
+        }
+
+        if (isset($map['Ipv6Config'])) {
+            $model->ipv6Config = ipv6Config::fromMap($map['Ipv6Config']);
         }
 
         if (isset($map['Name'])) {

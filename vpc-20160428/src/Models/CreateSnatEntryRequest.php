@@ -26,6 +26,11 @@ class CreateSnatEntryRequest extends Model
     /**
      * @var string
      */
+    public $matchType;
+
+    /**
+     * @var string
+     */
     public $networkInterfaceId;
 
     /**
@@ -81,6 +86,7 @@ class CreateSnatEntryRequest extends Model
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'eipAffinity' => 'EipAffinity',
+        'matchType' => 'MatchType',
         'networkInterfaceId' => 'NetworkInterfaceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -112,6 +118,10 @@ class CreateSnatEntryRequest extends Model
 
         if (null !== $this->eipAffinity) {
             $res['EipAffinity'] = $this->eipAffinity;
+        }
+
+        if (null !== $this->matchType) {
+            $res['MatchType'] = $this->matchType;
         }
 
         if (null !== $this->networkInterfaceId) {
@@ -179,6 +189,10 @@ class CreateSnatEntryRequest extends Model
 
         if (isset($map['EipAffinity'])) {
             $model->eipAffinity = $map['EipAffinity'];
+        }
+
+        if (isset($map['MatchType'])) {
+            $model->matchType = $map['MatchType'];
         }
 
         if (isset($map['NetworkInterfaceId'])) {

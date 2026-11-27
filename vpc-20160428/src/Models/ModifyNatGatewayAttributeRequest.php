@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewayAttributeRequest\ipv6Config;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewayAttributeRequest\logDelivery;
 
 class ModifyNatGatewayAttributeRequest extends Model
@@ -28,6 +29,11 @@ class ModifyNatGatewayAttributeRequest extends Model
      * @var bool
      */
     public $icmpReplyEnabled;
+
+    /**
+     * @var ipv6Config
+     */
+    public $ipv6Config;
 
     /**
      * @var logDelivery
@@ -73,6 +79,7 @@ class ModifyNatGatewayAttributeRequest extends Model
         'eipBindMode' => 'EipBindMode',
         'enableSessionLog' => 'EnableSessionLog',
         'icmpReplyEnabled' => 'IcmpReplyEnabled',
+        'ipv6Config' => 'Ipv6Config',
         'logDelivery' => 'LogDelivery',
         'name' => 'Name',
         'natGatewayId' => 'NatGatewayId',
@@ -85,6 +92,9 @@ class ModifyNatGatewayAttributeRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->ipv6Config) {
+            $this->ipv6Config->validate();
+        }
         if (null !== $this->logDelivery) {
             $this->logDelivery->validate();
         }
@@ -108,6 +118,10 @@ class ModifyNatGatewayAttributeRequest extends Model
 
         if (null !== $this->icmpReplyEnabled) {
             $res['IcmpReplyEnabled'] = $this->icmpReplyEnabled;
+        }
+
+        if (null !== $this->ipv6Config) {
+            $res['Ipv6Config'] = null !== $this->ipv6Config ? $this->ipv6Config->toArray($noStream) : $this->ipv6Config;
         }
 
         if (null !== $this->logDelivery) {
@@ -167,6 +181,10 @@ class ModifyNatGatewayAttributeRequest extends Model
 
         if (isset($map['IcmpReplyEnabled'])) {
             $model->icmpReplyEnabled = $map['IcmpReplyEnabled'];
+        }
+
+        if (isset($map['Ipv6Config'])) {
+            $model->ipv6Config = ipv6Config::fromMap($map['Ipv6Config']);
         }
 
         if (isset($map['LogDelivery'])) {

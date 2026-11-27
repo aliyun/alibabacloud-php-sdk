@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\del
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\forwardTable;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\fullNatTable;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\ipList;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\ipv6Config;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\logDelivery;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\privateInfo;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\snatTable;
@@ -81,6 +82,11 @@ class GetNatGatewayAttributeResponseBody extends Model
      * @var ipList[]
      */
     public $ipList;
+
+    /**
+     * @var ipv6Config
+     */
+    public $ipv6Config;
 
     /**
      * @var logDelivery
@@ -165,6 +171,7 @@ class GetNatGatewayAttributeResponseBody extends Model
         'forwardTable' => 'ForwardTable',
         'fullNatTable' => 'FullNatTable',
         'ipList' => 'IpList',
+        'ipv6Config' => 'Ipv6Config',
         'logDelivery' => 'LogDelivery',
         'name' => 'Name',
         'natGatewayId' => 'NatGatewayId',
@@ -200,6 +207,9 @@ class GetNatGatewayAttributeResponseBody extends Model
         }
         if (\is_array($this->ipList)) {
             Model::validateArray($this->ipList);
+        }
+        if (null !== $this->ipv6Config) {
+            $this->ipv6Config->validate();
         }
         if (null !== $this->logDelivery) {
             $this->logDelivery->validate();
@@ -273,6 +283,10 @@ class GetNatGatewayAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->ipv6Config) {
+            $res['Ipv6Config'] = null !== $this->ipv6Config ? $this->ipv6Config->toArray($noStream) : $this->ipv6Config;
         }
 
         if (null !== $this->logDelivery) {
@@ -399,6 +413,10 @@ class GetNatGatewayAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Ipv6Config'])) {
+            $model->ipv6Config = ipv6Config::fromMap($map['Ipv6Config']);
         }
 
         if (isset($map['LogDelivery'])) {

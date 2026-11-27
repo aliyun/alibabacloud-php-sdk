@@ -17,6 +17,11 @@ class DeleteRouteTargetGroupRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $forceDelete;
 
     /**
@@ -35,6 +40,7 @@ class DeleteRouteTargetGroupRequest extends Model
     public $tag;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'forceDelete' => 'ForceDelete',
         'regionId' => 'RegionId',
         'routeTargetGroupId' => 'RouteTargetGroupId',
@@ -54,6 +60,10 @@ class DeleteRouteTargetGroupRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->forceDelete) {
@@ -92,6 +102,10 @@ class DeleteRouteTargetGroupRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ForceDelete'])) {

@@ -67,6 +67,11 @@ class CreateNatGatewayShrinkRequest extends Model
     /**
      * @var string
      */
+    public $ipv6ConfigShrink;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -155,6 +160,7 @@ class CreateNatGatewayShrinkRequest extends Model
         'instanceChargeType' => 'InstanceChargeType',
         'internetChargeType' => 'InternetChargeType',
         'ipv4Prefix' => 'Ipv4Prefix',
+        'ipv6ConfigShrink' => 'Ipv6Config',
         'name' => 'Name',
         'natIp' => 'NatIp',
         'natType' => 'NatType',
@@ -226,6 +232,10 @@ class CreateNatGatewayShrinkRequest extends Model
 
         if (null !== $this->ipv4Prefix) {
             $res['Ipv4Prefix'] = $this->ipv4Prefix;
+        }
+
+        if (null !== $this->ipv6ConfigShrink) {
+            $res['Ipv6Config'] = $this->ipv6ConfigShrink;
         }
 
         if (null !== $this->name) {
@@ -352,6 +362,10 @@ class CreateNatGatewayShrinkRequest extends Model
 
         if (isset($map['Ipv4Prefix'])) {
             $model->ipv4Prefix = $map['Ipv4Prefix'];
+        }
+
+        if (isset($map['Ipv6Config'])) {
+            $model->ipv6ConfigShrink = $map['Ipv6Config'];
         }
 
         if (isset($map['Name'])) {

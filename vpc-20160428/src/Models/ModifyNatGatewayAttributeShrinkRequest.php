@@ -31,6 +31,11 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $ipv6ConfigShrink;
+
+    /**
+     * @var string
+     */
     public $logDeliveryShrink;
 
     /**
@@ -72,6 +77,7 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
         'eipBindMode' => 'EipBindMode',
         'enableSessionLog' => 'EnableSessionLog',
         'icmpReplyEnabled' => 'IcmpReplyEnabled',
+        'ipv6ConfigShrink' => 'Ipv6Config',
         'logDeliveryShrink' => 'LogDelivery',
         'name' => 'Name',
         'natGatewayId' => 'NatGatewayId',
@@ -104,6 +110,10 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
 
         if (null !== $this->icmpReplyEnabled) {
             $res['IcmpReplyEnabled'] = $this->icmpReplyEnabled;
+        }
+
+        if (null !== $this->ipv6ConfigShrink) {
+            $res['Ipv6Config'] = $this->ipv6ConfigShrink;
         }
 
         if (null !== $this->logDeliveryShrink) {
@@ -163,6 +173,10 @@ class ModifyNatGatewayAttributeShrinkRequest extends Model
 
         if (isset($map['IcmpReplyEnabled'])) {
             $model->icmpReplyEnabled = $map['IcmpReplyEnabled'];
+        }
+
+        if (isset($map['Ipv6Config'])) {
+            $model->ipv6ConfigShrink = $map['Ipv6Config'];
         }
 
         if (isset($map['LogDelivery'])) {

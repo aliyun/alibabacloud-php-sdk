@@ -46,6 +46,11 @@ class natGatewayPrivateInfo extends Model
     /**
      * @var string
      */
+    public $privateIpv6Address;
+
+    /**
+     * @var string
+     */
     public $vswitchId;
     protected $_name = [
         'eniInstanceId' => 'EniInstanceId',
@@ -55,6 +60,7 @@ class natGatewayPrivateInfo extends Model
         'maxSessionEstablishRate' => 'MaxSessionEstablishRate',
         'maxSessionQuota' => 'MaxSessionQuota',
         'privateIpAddress' => 'PrivateIpAddress',
+        'privateIpv6Address' => 'PrivateIpv6Address',
         'vswitchId' => 'VswitchId',
     ];
 
@@ -92,6 +98,10 @@ class natGatewayPrivateInfo extends Model
 
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+
+        if (null !== $this->privateIpv6Address) {
+            $res['PrivateIpv6Address'] = $this->privateIpv6Address;
         }
 
         if (null !== $this->vswitchId) {
@@ -135,6 +145,10 @@ class natGatewayPrivateInfo extends Model
 
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+
+        if (isset($map['PrivateIpv6Address'])) {
+            $model->privateIpv6Address = $map['PrivateIpv6Address'];
         }
 
         if (isset($map['VswitchId'])) {

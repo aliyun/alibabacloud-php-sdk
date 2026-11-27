@@ -16,6 +16,11 @@ class ModifyVSwitchAttributeRequest extends Model
     /**
      * @var bool
      */
+    public $enableDns64;
+
+    /**
+     * @var bool
+     */
     public $enableIPv6;
 
     /**
@@ -69,6 +74,7 @@ class ModifyVSwitchAttributeRequest extends Model
     public $vpcIpv6CidrBlock;
     protected $_name = [
         'description' => 'Description',
+        'enableDns64' => 'EnableDns64',
         'enableIPv6' => 'EnableIPv6',
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
         'ipv6CidrMask' => 'Ipv6CidrMask',
@@ -92,6 +98,10 @@ class ModifyVSwitchAttributeRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableDns64) {
+            $res['EnableDns64'] = $this->enableDns64;
         }
 
         if (null !== $this->enableIPv6) {
@@ -151,6 +161,10 @@ class ModifyVSwitchAttributeRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableDns64'])) {
+            $model->enableDns64 = $map['EnableDns64'];
         }
 
         if (isset($map['EnableIPv6'])) {
