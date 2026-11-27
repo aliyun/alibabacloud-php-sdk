@@ -242,6 +242,14 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ProgressControlHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ProgressControlRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ProgressControlResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ProgressControlShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceRenderMessageHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceRenderMessageRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceRenderMessageResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceRenderMessageShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceToastMessageHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceToastMessageRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceToastMessageResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PushDeviceToastMessageShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeResponse;
@@ -287,6 +295,7 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -297,6 +306,9 @@ class AliGenie extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'AliGenie';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aligenie', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -6069,6 +6081,194 @@ class AliGenie extends OpenApiClient
         $headers = new ProgressControlHeaders([]);
 
         return $this->progressControlWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 推送设备全屏消息.
+     *
+     * @param tmpReq - PushDeviceRenderMessageRequest
+     * @param headers - PushDeviceRenderMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushDeviceRenderMessageResponse
+     *
+     * @param PushDeviceRenderMessageRequest $tmpReq
+     * @param PushDeviceRenderMessageHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return PushDeviceRenderMessageResponse
+     */
+    public function pushDeviceRenderMessageWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PushDeviceRenderMessageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->accessToken) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
+        }
+
+        $body = [];
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PushDeviceRenderMessage',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/pushDeviceRenderMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PushDeviceRenderMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 推送设备全屏消息.
+     *
+     * @param request - PushDeviceRenderMessageRequest
+     *
+     * @returns PushDeviceRenderMessageResponse
+     *
+     * @param PushDeviceRenderMessageRequest $request
+     *
+     * @return PushDeviceRenderMessageResponse
+     */
+    public function pushDeviceRenderMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PushDeviceRenderMessageHeaders([]);
+
+        return $this->pushDeviceRenderMessageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 推送设备提醒消息.
+     *
+     * @param tmpReq - PushDeviceToastMessageRequest
+     * @param headers - PushDeviceToastMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushDeviceToastMessageResponse
+     *
+     * @param PushDeviceToastMessageRequest $tmpReq
+     * @param PushDeviceToastMessageHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PushDeviceToastMessageResponse
+     */
+    public function pushDeviceToastMessageWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PushDeviceToastMessageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->accessToken) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
+        }
+
+        $body = [];
+        if (null !== $request->deviceInfoShrink) {
+            @$body['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PushDeviceToastMessage',
+            'version' => 'ssp_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ssp/pushDeviceToastMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PushDeviceToastMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 推送设备提醒消息.
+     *
+     * @param request - PushDeviceToastMessageRequest
+     *
+     * @returns PushDeviceToastMessageResponse
+     *
+     * @param PushDeviceToastMessageRequest $request
+     *
+     * @return PushDeviceToastMessageResponse
+     */
+    public function pushDeviceToastMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PushDeviceToastMessageHeaders([]);
+
+        return $this->pushDeviceToastMessageWithOptions($request, $headers, $runtime);
     }
 
     /**

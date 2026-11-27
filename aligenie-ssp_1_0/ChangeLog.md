@@ -1,3 +1,8 @@
+2026-11-27 Version: 1.3.0
+- Support API PushDeviceRenderMessage.
+- Support API PushDeviceToastMessage.
+
+
 2026-08-04 Version: 1.2.3
 - Generated php ssp_1.0 for AliGenie.
 
