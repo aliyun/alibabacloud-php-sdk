@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\deploymentConfig;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\deploymentConfig\containerConfiguration\registryConfig;
 
 class containerConfiguration extends Model
 {
@@ -39,6 +40,11 @@ class containerConfiguration extends Model
     public $mcpRuntimeMode;
 
     /**
+     * @var registryConfig
+     */
+    public $registryConfig;
+
+    /**
      * @var string
      */
     public $sourceType;
@@ -49,6 +55,7 @@ class containerConfiguration extends Model
         'image' => 'image',
         'imageRegistryType' => 'imageRegistryType',
         'mcpRuntimeMode' => 'mcpRuntimeMode',
+        'registryConfig' => 'registryConfig',
         'sourceType' => 'sourceType',
     ];
 
@@ -59,6 +66,9 @@ class containerConfiguration extends Model
         }
         if (\is_array($this->entrypoint)) {
             Model::validateArray($this->entrypoint);
+        }
+        if (null !== $this->registryConfig) {
+            $this->registryConfig->validate();
         }
         parent::validate();
     }
@@ -102,6 +112,10 @@ class containerConfiguration extends Model
 
         if (null !== $this->mcpRuntimeMode) {
             $res['mcpRuntimeMode'] = $this->mcpRuntimeMode;
+        }
+
+        if (null !== $this->registryConfig) {
+            $res['registryConfig'] = null !== $this->registryConfig ? $this->registryConfig->toArray($noStream) : $this->registryConfig;
         }
 
         if (null !== $this->sourceType) {
@@ -155,6 +169,10 @@ class containerConfiguration extends Model
 
         if (isset($map['mcpRuntimeMode'])) {
             $model->mcpRuntimeMode = $map['mcpRuntimeMode'];
+        }
+
+        if (isset($map['registryConfig'])) {
+            $model->registryConfig = registryConfig::fromMap($map['registryConfig']);
         }
 
         if (isset($map['sourceType'])) {

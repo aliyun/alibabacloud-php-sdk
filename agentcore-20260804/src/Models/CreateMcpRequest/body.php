@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest\body\auth;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest\body\deploymentConfig;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest\body\virtualConfig;
 
 class body extends Model
 {
@@ -69,6 +70,11 @@ class body extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var virtualConfig
+     */
+    public $virtualConfig;
     protected $_name = [
         'addresses' => 'addresses',
         'auth' => 'auth',
@@ -82,6 +88,7 @@ class body extends Model
         'protocol' => 'protocol',
         'swaggerConfig' => 'swaggerConfig',
         'type' => 'type',
+        'virtualConfig' => 'virtualConfig',
     ];
 
     public function validate()
@@ -97,6 +104,9 @@ class body extends Model
         }
         if (null !== $this->deploymentConfig) {
             $this->deploymentConfig->validate();
+        }
+        if (null !== $this->virtualConfig) {
+            $this->virtualConfig->validate();
         }
         parent::validate();
     }
@@ -164,6 +174,10 @@ class body extends Model
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->virtualConfig) {
+            $res['virtualConfig'] = null !== $this->virtualConfig ? $this->virtualConfig->toArray($noStream) : $this->virtualConfig;
         }
 
         return $res;
@@ -237,6 +251,10 @@ class body extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['virtualConfig'])) {
+            $model->virtualConfig = virtualConfig::fromMap($map['virtualConfig']);
         }
 
         return $model;

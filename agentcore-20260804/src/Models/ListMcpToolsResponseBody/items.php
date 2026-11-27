@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $definitionDigest;
+
+    /**
+     * @var string
+     */
     public $inputSchema;
 
     /**
@@ -28,6 +33,7 @@ class items extends Model
      */
     public $toolName;
     protected $_name = [
+        'definitionDigest' => 'definitionDigest',
         'inputSchema' => 'inputSchema',
         'outputSchema' => 'outputSchema',
         'toolDescription' => 'toolDescription',
@@ -42,6 +48,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->definitionDigest) {
+            $res['definitionDigest'] = $this->definitionDigest;
+        }
+
         if (null !== $this->inputSchema) {
             $res['inputSchema'] = $this->inputSchema;
         }
@@ -69,6 +79,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['definitionDigest'])) {
+            $model->definitionDigest = $map['definitionDigest'];
+        }
+
         if (isset($map['inputSchema'])) {
             $model->inputSchema = $map['inputSchema'];
         }

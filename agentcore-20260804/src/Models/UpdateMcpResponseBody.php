@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpResponseBody\data;
 
 class UpdateMcpResponseBody extends Model
 {
@@ -12,6 +13,11 @@ class UpdateMcpResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var int
@@ -34,6 +40,7 @@ class UpdateMcpResponseBody extends Model
     public $success;
     protected $_name = [
         'code' => 'code',
+        'data' => 'data',
         'httpStatusCode' => 'httpStatusCode',
         'message' => 'message',
         'requestId' => 'requestId',
@@ -42,6 +49,9 @@ class UpdateMcpResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
         parent::validate();
     }
 
@@ -50,6 +60,10 @@ class UpdateMcpResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->httpStatusCode) {
@@ -81,6 +95,10 @@ class UpdateMcpResponseBody extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
 
         if (isset($map['httpStatusCode'])) {

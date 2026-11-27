@@ -5,12 +5,15 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\appliedVirtualConfig;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\auth;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\deploymentConfig;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\lastValidation;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\marketSource;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\operation;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\originProbe;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\template;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\virtualConfig;
 
 class data extends Model
 {
@@ -18,6 +21,16 @@ class data extends Model
      * @var string[]
      */
     public $addresses;
+
+    /**
+     * @var int
+     */
+    public $appliedRevision;
+
+    /**
+     * @var appliedVirtualConfig
+     */
+    public $appliedVirtualConfig;
 
     /**
      * @var auth
@@ -60,6 +73,16 @@ class data extends Model
     public $functionName;
 
     /**
+     * @var lastValidation
+     */
+    public $lastValidation;
+
+    /**
+     * @var string
+     */
+    public $lastValidationId;
+
+    /**
      * @var marketSource
      */
     public $marketSource;
@@ -90,6 +113,11 @@ class data extends Model
     public $operation;
 
     /**
+     * @var string
+     */
+    public $operationTaskId;
+
+    /**
      * @var originProbe
      */
     public $originProbe;
@@ -112,6 +140,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $resolvedImageUri;
+
+    /**
+     * @var int
+     */
+    public $revision;
+
+    /**
+     * @var int
+     */
+    public $sourceCount;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -122,12 +165,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $statusReasonCode;
+
+    /**
+     * @var string
+     */
     public $swaggerConfig;
 
     /**
      * @var template
      */
     public $template;
+
+    /**
+     * @var int
+     */
+    public $toolCount;
 
     /**
      * @var string
@@ -148,8 +201,15 @@ class data extends Model
      * @var bool
      */
     public $usageActive;
+
+    /**
+     * @var virtualConfig
+     */
+    public $virtualConfig;
     protected $_name = [
         'addresses' => 'addresses',
+        'appliedRevision' => 'appliedRevision',
+        'appliedVirtualConfig' => 'appliedVirtualConfig',
         'auth' => 'auth',
         'backendMcpProtocol' => 'backendMcpProtocol',
         'createdAt' => 'createdAt',
@@ -158,30 +218,42 @@ class data extends Model
         'description' => 'description',
         'endpoint' => 'endpoint',
         'functionName' => 'functionName',
+        'lastValidation' => 'lastValidation',
+        'lastValidationId' => 'lastValidationId',
         'marketSource' => 'marketSource',
         'mcpServerConfig' => 'mcpServerConfig',
         'mcpServerId' => 'mcpServerId',
         'name' => 'name',
         'officialTag' => 'officialTag',
         'operation' => 'operation',
+        'operationTaskId' => 'operationTaskId',
         'originProbe' => 'originProbe',
         'originProtocolVersion' => 'originProtocolVersion',
         'permissionMode' => 'permissionMode',
         'protocol' => 'protocol',
+        'resolvedImageUri' => 'resolvedImageUri',
+        'revision' => 'revision',
+        'sourceCount' => 'sourceCount',
         'status' => 'status',
         'statusReason' => 'statusReason',
+        'statusReasonCode' => 'statusReasonCode',
         'swaggerConfig' => 'swaggerConfig',
         'template' => 'template',
+        'toolCount' => 'toolCount',
         'type' => 'type',
         'updatedAt' => 'updatedAt',
         'url' => 'url',
         'usageActive' => 'usageActive',
+        'virtualConfig' => 'virtualConfig',
     ];
 
     public function validate()
     {
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
+        }
+        if (null !== $this->appliedVirtualConfig) {
+            $this->appliedVirtualConfig->validate();
         }
         if (null !== $this->auth) {
             $this->auth->validate();
@@ -191,6 +263,9 @@ class data extends Model
         }
         if (null !== $this->deploymentConfig) {
             $this->deploymentConfig->validate();
+        }
+        if (null !== $this->lastValidation) {
+            $this->lastValidation->validate();
         }
         if (null !== $this->marketSource) {
             $this->marketSource->validate();
@@ -203,6 +278,9 @@ class data extends Model
         }
         if (null !== $this->template) {
             $this->template->validate();
+        }
+        if (null !== $this->virtualConfig) {
+            $this->virtualConfig->validate();
         }
         parent::validate();
     }
@@ -219,6 +297,14 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->appliedRevision) {
+            $res['appliedRevision'] = $this->appliedRevision;
+        }
+
+        if (null !== $this->appliedVirtualConfig) {
+            $res['appliedVirtualConfig'] = null !== $this->appliedVirtualConfig ? $this->appliedVirtualConfig->toArray($noStream) : $this->appliedVirtualConfig;
         }
 
         if (null !== $this->auth) {
@@ -260,6 +346,14 @@ class data extends Model
             $res['functionName'] = $this->functionName;
         }
 
+        if (null !== $this->lastValidation) {
+            $res['lastValidation'] = null !== $this->lastValidation ? $this->lastValidation->toArray($noStream) : $this->lastValidation;
+        }
+
+        if (null !== $this->lastValidationId) {
+            $res['lastValidationId'] = $this->lastValidationId;
+        }
+
         if (null !== $this->marketSource) {
             $res['marketSource'] = null !== $this->marketSource ? $this->marketSource->toArray($noStream) : $this->marketSource;
         }
@@ -284,6 +378,10 @@ class data extends Model
             $res['operation'] = null !== $this->operation ? $this->operation->toArray($noStream) : $this->operation;
         }
 
+        if (null !== $this->operationTaskId) {
+            $res['operationTaskId'] = $this->operationTaskId;
+        }
+
         if (null !== $this->originProbe) {
             $res['originProbe'] = null !== $this->originProbe ? $this->originProbe->toArray($noStream) : $this->originProbe;
         }
@@ -300,6 +398,18 @@ class data extends Model
             $res['protocol'] = $this->protocol;
         }
 
+        if (null !== $this->resolvedImageUri) {
+            $res['resolvedImageUri'] = $this->resolvedImageUri;
+        }
+
+        if (null !== $this->revision) {
+            $res['revision'] = $this->revision;
+        }
+
+        if (null !== $this->sourceCount) {
+            $res['sourceCount'] = $this->sourceCount;
+        }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -308,12 +418,20 @@ class data extends Model
             $res['statusReason'] = $this->statusReason;
         }
 
+        if (null !== $this->statusReasonCode) {
+            $res['statusReasonCode'] = $this->statusReasonCode;
+        }
+
         if (null !== $this->swaggerConfig) {
             $res['swaggerConfig'] = $this->swaggerConfig;
         }
 
         if (null !== $this->template) {
             $res['template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
+        }
+
+        if (null !== $this->toolCount) {
+            $res['toolCount'] = $this->toolCount;
         }
 
         if (null !== $this->type) {
@@ -330,6 +448,10 @@ class data extends Model
 
         if (null !== $this->usageActive) {
             $res['usageActive'] = $this->usageActive;
+        }
+
+        if (null !== $this->virtualConfig) {
+            $res['virtualConfig'] = null !== $this->virtualConfig ? $this->virtualConfig->toArray($noStream) : $this->virtualConfig;
         }
 
         return $res;
@@ -352,6 +474,14 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['appliedRevision'])) {
+            $model->appliedRevision = $map['appliedRevision'];
+        }
+
+        if (isset($map['appliedVirtualConfig'])) {
+            $model->appliedVirtualConfig = appliedVirtualConfig::fromMap($map['appliedVirtualConfig']);
         }
 
         if (isset($map['auth'])) {
@@ -393,6 +523,14 @@ class data extends Model
             $model->functionName = $map['functionName'];
         }
 
+        if (isset($map['lastValidation'])) {
+            $model->lastValidation = lastValidation::fromMap($map['lastValidation']);
+        }
+
+        if (isset($map['lastValidationId'])) {
+            $model->lastValidationId = $map['lastValidationId'];
+        }
+
         if (isset($map['marketSource'])) {
             $model->marketSource = marketSource::fromMap($map['marketSource']);
         }
@@ -417,6 +555,10 @@ class data extends Model
             $model->operation = operation::fromMap($map['operation']);
         }
 
+        if (isset($map['operationTaskId'])) {
+            $model->operationTaskId = $map['operationTaskId'];
+        }
+
         if (isset($map['originProbe'])) {
             $model->originProbe = originProbe::fromMap($map['originProbe']);
         }
@@ -433,6 +575,18 @@ class data extends Model
             $model->protocol = $map['protocol'];
         }
 
+        if (isset($map['resolvedImageUri'])) {
+            $model->resolvedImageUri = $map['resolvedImageUri'];
+        }
+
+        if (isset($map['revision'])) {
+            $model->revision = $map['revision'];
+        }
+
+        if (isset($map['sourceCount'])) {
+            $model->sourceCount = $map['sourceCount'];
+        }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
@@ -441,12 +595,20 @@ class data extends Model
             $model->statusReason = $map['statusReason'];
         }
 
+        if (isset($map['statusReasonCode'])) {
+            $model->statusReasonCode = $map['statusReasonCode'];
+        }
+
         if (isset($map['swaggerConfig'])) {
             $model->swaggerConfig = $map['swaggerConfig'];
         }
 
         if (isset($map['template'])) {
             $model->template = template::fromMap($map['template']);
+        }
+
+        if (isset($map['toolCount'])) {
+            $model->toolCount = $map['toolCount'];
         }
 
         if (isset($map['type'])) {
@@ -463,6 +625,10 @@ class data extends Model
 
         if (isset($map['usageActive'])) {
             $model->usageActive = $map['usageActive'];
+        }
+
+        if (isset($map['virtualConfig'])) {
+            $model->virtualConfig = virtualConfig::fromMap($map['virtualConfig']);
         }
 
         return $model;

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpRequest;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpRequest\body\auth;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpRequest\body\deploymentConfig;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpRequest\body\virtualConfig;
 
 class body extends Model
 {
@@ -41,6 +42,11 @@ class body extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $expectedRevision;
+
+    /**
      * @var string
      */
     public $originProtocolVersion;
@@ -59,6 +65,11 @@ class body extends Model
      * @var string
      */
     public $swaggerConfig;
+
+    /**
+     * @var virtualConfig
+     */
+    public $virtualConfig;
     protected $_name = [
         'addresses' => 'addresses',
         'auth' => 'auth',
@@ -66,10 +77,12 @@ class body extends Model
         'customTags' => 'customTags',
         'deploymentConfig' => 'deploymentConfig',
         'description' => 'description',
+        'expectedRevision' => 'expectedRevision',
         'originProtocolVersion' => 'originProtocolVersion',
         'permissionMode' => 'permissionMode',
         'protocol' => 'protocol',
         'swaggerConfig' => 'swaggerConfig',
+        'virtualConfig' => 'virtualConfig',
     ];
 
     public function validate()
@@ -85,6 +98,9 @@ class body extends Model
         }
         if (null !== $this->deploymentConfig) {
             $this->deploymentConfig->validate();
+        }
+        if (null !== $this->virtualConfig) {
+            $this->virtualConfig->validate();
         }
         parent::validate();
     }
@@ -130,6 +146,10 @@ class body extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->expectedRevision) {
+            $res['expectedRevision'] = $this->expectedRevision;
+        }
+
         if (null !== $this->originProtocolVersion) {
             $res['originProtocolVersion'] = $this->originProtocolVersion;
         }
@@ -144,6 +164,10 @@ class body extends Model
 
         if (null !== $this->swaggerConfig) {
             $res['swaggerConfig'] = $this->swaggerConfig;
+        }
+
+        if (null !== $this->virtualConfig) {
+            $res['virtualConfig'] = null !== $this->virtualConfig ? $this->virtualConfig->toArray($noStream) : $this->virtualConfig;
         }
 
         return $res;
@@ -195,6 +219,10 @@ class body extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['expectedRevision'])) {
+            $model->expectedRevision = $map['expectedRevision'];
+        }
+
         if (isset($map['originProtocolVersion'])) {
             $model->originProtocolVersion = $map['originProtocolVersion'];
         }
@@ -209,6 +237,10 @@ class body extends Model
 
         if (isset($map['swaggerConfig'])) {
             $model->swaggerConfig = $map['swaggerConfig'];
+        }
+
+        if (isset($map['virtualConfig'])) {
+            $model->virtualConfig = virtualConfig::fromMap($map['virtualConfig']);
         }
 
         return $model;

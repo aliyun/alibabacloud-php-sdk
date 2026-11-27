@@ -5,11 +5,13 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\appliedVirtualConfig;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\auth;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\deploymentConfig;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\marketSource;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\operation;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\originProbe;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\virtualConfig;
 
 class items extends Model
 {
@@ -17,6 +19,16 @@ class items extends Model
      * @var string[]
      */
     public $addresses;
+
+    /**
+     * @var int
+     */
+    public $appliedRevision;
+
+    /**
+     * @var appliedVirtualConfig
+     */
+    public $appliedVirtualConfig;
 
     /**
      * @var auth
@@ -59,6 +71,16 @@ class items extends Model
     public $functionName;
 
     /**
+     * @var string
+     */
+    public $lastValidationId;
+
+    /**
+     * @var string
+     */
+    public $lastValidationStatus;
+
+    /**
      * @var marketSource
      */
     public $marketSource;
@@ -84,6 +106,11 @@ class items extends Model
     public $operation;
 
     /**
+     * @var string
+     */
+    public $operationTaskId;
+
+    /**
      * @var originProbe
      */
     public $originProbe;
@@ -106,6 +133,21 @@ class items extends Model
     /**
      * @var string
      */
+    public $resolvedImageUri;
+
+    /**
+     * @var int
+     */
+    public $revision;
+
+    /**
+     * @var int
+     */
+    public $sourceCount;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -116,7 +158,17 @@ class items extends Model
     /**
      * @var string
      */
+    public $statusReasonCode;
+
+    /**
+     * @var string
+     */
     public $swaggerConfig;
+
+    /**
+     * @var int
+     */
+    public $toolCount;
 
     /**
      * @var string
@@ -132,8 +184,15 @@ class items extends Model
      * @var bool
      */
     public $usageActive;
+
+    /**
+     * @var virtualConfig
+     */
+    public $virtualConfig;
     protected $_name = [
         'addresses' => 'addresses',
+        'appliedRevision' => 'appliedRevision',
+        'appliedVirtualConfig' => 'appliedVirtualConfig',
         'auth' => 'auth',
         'backendMcpProtocol' => 'backendMcpProtocol',
         'createdAt' => 'createdAt',
@@ -142,27 +201,39 @@ class items extends Model
         'description' => 'description',
         'endpoint' => 'endpoint',
         'functionName' => 'functionName',
+        'lastValidationId' => 'lastValidationId',
+        'lastValidationStatus' => 'lastValidationStatus',
         'marketSource' => 'marketSource',
         'mcpServerId' => 'mcpServerId',
         'name' => 'name',
         'officialTag' => 'officialTag',
         'operation' => 'operation',
+        'operationTaskId' => 'operationTaskId',
         'originProbe' => 'originProbe',
         'originProtocolVersion' => 'originProtocolVersion',
         'permissionMode' => 'permissionMode',
         'protocol' => 'protocol',
+        'resolvedImageUri' => 'resolvedImageUri',
+        'revision' => 'revision',
+        'sourceCount' => 'sourceCount',
         'status' => 'status',
         'statusReason' => 'statusReason',
+        'statusReasonCode' => 'statusReasonCode',
         'swaggerConfig' => 'swaggerConfig',
+        'toolCount' => 'toolCount',
         'type' => 'type',
         'updatedAt' => 'updatedAt',
         'usageActive' => 'usageActive',
+        'virtualConfig' => 'virtualConfig',
     ];
 
     public function validate()
     {
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
+        }
+        if (null !== $this->appliedVirtualConfig) {
+            $this->appliedVirtualConfig->validate();
         }
         if (null !== $this->auth) {
             $this->auth->validate();
@@ -182,6 +253,9 @@ class items extends Model
         if (null !== $this->originProbe) {
             $this->originProbe->validate();
         }
+        if (null !== $this->virtualConfig) {
+            $this->virtualConfig->validate();
+        }
         parent::validate();
     }
 
@@ -197,6 +271,14 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->appliedRevision) {
+            $res['appliedRevision'] = $this->appliedRevision;
+        }
+
+        if (null !== $this->appliedVirtualConfig) {
+            $res['appliedVirtualConfig'] = null !== $this->appliedVirtualConfig ? $this->appliedVirtualConfig->toArray($noStream) : $this->appliedVirtualConfig;
         }
 
         if (null !== $this->auth) {
@@ -238,6 +320,14 @@ class items extends Model
             $res['functionName'] = $this->functionName;
         }
 
+        if (null !== $this->lastValidationId) {
+            $res['lastValidationId'] = $this->lastValidationId;
+        }
+
+        if (null !== $this->lastValidationStatus) {
+            $res['lastValidationStatus'] = $this->lastValidationStatus;
+        }
+
         if (null !== $this->marketSource) {
             $res['marketSource'] = null !== $this->marketSource ? $this->marketSource->toArray($noStream) : $this->marketSource;
         }
@@ -258,6 +348,10 @@ class items extends Model
             $res['operation'] = null !== $this->operation ? $this->operation->toArray($noStream) : $this->operation;
         }
 
+        if (null !== $this->operationTaskId) {
+            $res['operationTaskId'] = $this->operationTaskId;
+        }
+
         if (null !== $this->originProbe) {
             $res['originProbe'] = null !== $this->originProbe ? $this->originProbe->toArray($noStream) : $this->originProbe;
         }
@@ -274,6 +368,18 @@ class items extends Model
             $res['protocol'] = $this->protocol;
         }
 
+        if (null !== $this->resolvedImageUri) {
+            $res['resolvedImageUri'] = $this->resolvedImageUri;
+        }
+
+        if (null !== $this->revision) {
+            $res['revision'] = $this->revision;
+        }
+
+        if (null !== $this->sourceCount) {
+            $res['sourceCount'] = $this->sourceCount;
+        }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -282,8 +388,16 @@ class items extends Model
             $res['statusReason'] = $this->statusReason;
         }
 
+        if (null !== $this->statusReasonCode) {
+            $res['statusReasonCode'] = $this->statusReasonCode;
+        }
+
         if (null !== $this->swaggerConfig) {
             $res['swaggerConfig'] = $this->swaggerConfig;
+        }
+
+        if (null !== $this->toolCount) {
+            $res['toolCount'] = $this->toolCount;
         }
 
         if (null !== $this->type) {
@@ -296,6 +410,10 @@ class items extends Model
 
         if (null !== $this->usageActive) {
             $res['usageActive'] = $this->usageActive;
+        }
+
+        if (null !== $this->virtualConfig) {
+            $res['virtualConfig'] = null !== $this->virtualConfig ? $this->virtualConfig->toArray($noStream) : $this->virtualConfig;
         }
 
         return $res;
@@ -318,6 +436,14 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['appliedRevision'])) {
+            $model->appliedRevision = $map['appliedRevision'];
+        }
+
+        if (isset($map['appliedVirtualConfig'])) {
+            $model->appliedVirtualConfig = appliedVirtualConfig::fromMap($map['appliedVirtualConfig']);
         }
 
         if (isset($map['auth'])) {
@@ -359,6 +485,14 @@ class items extends Model
             $model->functionName = $map['functionName'];
         }
 
+        if (isset($map['lastValidationId'])) {
+            $model->lastValidationId = $map['lastValidationId'];
+        }
+
+        if (isset($map['lastValidationStatus'])) {
+            $model->lastValidationStatus = $map['lastValidationStatus'];
+        }
+
         if (isset($map['marketSource'])) {
             $model->marketSource = marketSource::fromMap($map['marketSource']);
         }
@@ -379,6 +513,10 @@ class items extends Model
             $model->operation = operation::fromMap($map['operation']);
         }
 
+        if (isset($map['operationTaskId'])) {
+            $model->operationTaskId = $map['operationTaskId'];
+        }
+
         if (isset($map['originProbe'])) {
             $model->originProbe = originProbe::fromMap($map['originProbe']);
         }
@@ -395,6 +533,18 @@ class items extends Model
             $model->protocol = $map['protocol'];
         }
 
+        if (isset($map['resolvedImageUri'])) {
+            $model->resolvedImageUri = $map['resolvedImageUri'];
+        }
+
+        if (isset($map['revision'])) {
+            $model->revision = $map['revision'];
+        }
+
+        if (isset($map['sourceCount'])) {
+            $model->sourceCount = $map['sourceCount'];
+        }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
@@ -403,8 +553,16 @@ class items extends Model
             $model->statusReason = $map['statusReason'];
         }
 
+        if (isset($map['statusReasonCode'])) {
+            $model->statusReasonCode = $map['statusReasonCode'];
+        }
+
         if (isset($map['swaggerConfig'])) {
             $model->swaggerConfig = $map['swaggerConfig'];
+        }
+
+        if (isset($map['toolCount'])) {
+            $model->toolCount = $map['toolCount'];
         }
 
         if (isset($map['type'])) {
@@ -417,6 +575,10 @@ class items extends Model
 
         if (isset($map['usageActive'])) {
             $model->usageActive = $map['usageActive'];
+        }
+
+        if (isset($map['virtualConfig'])) {
+            $model->virtualConfig = virtualConfig::fromMap($map['virtualConfig']);
         }
 
         return $model;

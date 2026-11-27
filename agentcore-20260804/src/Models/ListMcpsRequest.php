@@ -14,6 +14,11 @@ class ListMcpsRequest extends Model
     public $customTag;
 
     /**
+     * @var bool
+     */
+    public $includeVirtualConfig;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -39,16 +44,23 @@ class ListMcpsRequest extends Model
     public $searchType;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var bool
      */
     public $usageActive;
     protected $_name = [
         'customTag' => 'customTag',
+        'includeVirtualConfig' => 'includeVirtualConfig',
         'maxResults' => 'maxResults',
         'name' => 'name',
         'nextToken' => 'nextToken',
         'officialTag' => 'officialTag',
         'searchType' => 'searchType',
+        'type' => 'type',
         'usageActive' => 'usageActive',
     ];
 
@@ -62,6 +74,10 @@ class ListMcpsRequest extends Model
         $res = [];
         if (null !== $this->customTag) {
             $res['customTag'] = $this->customTag;
+        }
+
+        if (null !== $this->includeVirtualConfig) {
+            $res['includeVirtualConfig'] = $this->includeVirtualConfig;
         }
 
         if (null !== $this->maxResults) {
@@ -84,6 +100,10 @@ class ListMcpsRequest extends Model
             $res['searchType'] = $this->searchType;
         }
 
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+
         if (null !== $this->usageActive) {
             $res['usageActive'] = $this->usageActive;
         }
@@ -101,6 +121,10 @@ class ListMcpsRequest extends Model
         $model = new self();
         if (isset($map['customTag'])) {
             $model->customTag = $map['customTag'];
+        }
+
+        if (isset($map['includeVirtualConfig'])) {
+            $model->includeVirtualConfig = $map['includeVirtualConfig'];
         }
 
         if (isset($map['maxResults'])) {
@@ -121,6 +145,10 @@ class ListMcpsRequest extends Model
 
         if (isset($map['searchType'])) {
             $model->searchType = $map['searchType'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         if (isset($map['usageActive'])) {

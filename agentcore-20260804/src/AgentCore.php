@@ -15,6 +15,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchDeleteModelsShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchValidateVirtualMcpToolsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchValidateVirtualMcpToolsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchValidateVirtualMcpToolsShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BeginAssetUploadRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BeginAssetUploadResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BeginAssetUploadShrinkRequest;
@@ -262,6 +265,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetTeamRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetTeamResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetUserRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetUserResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetVirtualMcpToolValidationRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetVirtualMcpToolValidationResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceAcrRamAuthorizeUrlRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceAcrRamAuthorizeUrlResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest;
@@ -317,6 +322,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpMarketItemsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpMarketItemsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpReferencesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpReferencesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpToolsRequest;
@@ -793,6 +800,81 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Validates in batches whether the saved tool selections match the current tool definitions of the source MCPs based on a list of virtual MCP IDs.
+     *
+     * @remarks
+     * Compares the saved tools with the current tools of the source MCPs in batches based on a list of MCP IDs. After submission, GetMcp returns the validation details of the current MCP, and ListMcps returns the validation status of each MCP. You can also use the validationId to query the complete batch report. If the previous task of any MCP in the batch is in the PENDING, RUNNING, or PAUSED state, the entire batch returns a 409 error. You can re-validate immediately after the previous task reaches a terminal state.
+     *
+     * @param tmpReq - BatchValidateVirtualMcpToolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchValidateVirtualMcpToolsResponse
+     *
+     * @param string                              $workspaceId
+     * @param BatchValidateVirtualMcpToolsRequest $tmpReq
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchValidateVirtualMcpToolsResponse
+     */
+    public function batchValidateVirtualMcpToolsWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchValidateVirtualMcpToolsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchValidateVirtualMcpTools',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-servers/virtual-tools/validations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchValidateVirtualMcpToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Validates in batches whether the saved tool selections match the current tool definitions of the source MCPs based on a list of virtual MCP IDs.
+     *
+     * @remarks
+     * Compares the saved tools with the current tools of the source MCPs in batches based on a list of MCP IDs. After submission, GetMcp returns the validation details of the current MCP, and ListMcps returns the validation status of each MCP. You can also use the validationId to query the complete batch report. If the previous task of any MCP in the batch is in the PENDING, RUNNING, or PAUSED state, the entire batch returns a 409 error. You can re-validate immediately after the previous task reaches a terminal state.
+     *
+     * @param request - BatchValidateVirtualMcpToolsRequest
+     *
+     * @returns BatchValidateVirtualMcpToolsResponse
+     *
+     * @param string                              $workspaceId
+     * @param BatchValidateVirtualMcpToolsRequest $request
+     *
+     * @return BatchValidateVirtualMcpToolsResponse
+     */
+    public function batchValidateVirtualMcpTools($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchValidateVirtualMcpToolsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 申请知识库资产上传地址
      *
      * @remarks
@@ -876,10 +958,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, an actual size of 1 byte to 50 MiB, and the content type. By using the metadata and chunking configuration saved during acceptance, the system enters the pending state through a compare-and-swap (CAS) operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that remains the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the system resubmits the request by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete operation.
      *
      * @remarks
-     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, an actual size of 1 byte to 50 MiB, and the content type. By using the metadata and chunking configuration saved during acceptance, the system enters the pending state through a compare-and-swap (CAS) operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that remains the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the system resubmits the request by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete operation.
      *
      * @param tmpReq - CompleteAssetUploadRequest
      * @param headers - map
@@ -930,10 +1012,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, an actual size of 1 byte to 50 MiB, and the content type. By using the metadata and chunking configuration saved during acceptance, the system enters the pending state through a compare-and-swap (CAS) operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that remains the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the system resubmits the request by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete operation.
      *
      * @remarks
-     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, an actual size of 1 byte to 50 MiB, and the content type. By using the metadata and chunking configuration saved during acceptance, the system enters the pending state through a compare-and-swap (CAS) operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that remains the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the system resubmits the request by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete operation.
      *
      * @param request - CompleteAssetUploadRequest
      *
@@ -958,7 +1040,7 @@ class AgentCore extends OpenApiClient
      * Converts an MCP service to free-edit mode.
      *
      * @remarks
-     * Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
+     * Converts an MCP service installed from a marketplace template to free-edit mode to allow direct modification of the service configuration. After the conversion, the original source and tag information is retained, and the editing restrictions of the template are removed. The service no longer appears on the use case page corresponding to the template.
      *
      * @param request - ConvertMcpToFreeEditRequest
      * @param headers - map
@@ -1005,7 +1087,7 @@ class AgentCore extends OpenApiClient
      * Converts an MCP service to free-edit mode.
      *
      * @remarks
-     * Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
+     * Converts an MCP service installed from a marketplace template to free-edit mode to allow direct modification of the service configuration. After the conversion, the original source and tag information is retained, and the editing restrictions of the template are removed. The service no longer appears on the use case page corresponding to the template.
      *
      * @param request - ConvertMcpToFreeEditRequest
      *
@@ -2602,13 +2684,13 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
+     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or use the query API to confirm whether the service is ready.
      *
      * @remarks
      * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
      * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
-     * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+     * The clientToken parameter does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to create a new one.
      *
      * @param tmpReq - CreateMcpRequest
      * @param headers - map
@@ -2663,13 +2745,13 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
+     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or use the query API to confirm whether the service is ready.
      *
      * @remarks
      * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
      * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
-     * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+     * The clientToken parameter does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to create a new one.
      *
      * @param request - CreateMcpRequest
      *
@@ -3911,10 +3993,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server first authenticates the request, verifies tenant and resource ownership, and identifies DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For assets that are not yet deleted and are eligible for deletion, the control plane conditionally writes a tombstone. The response returns the registered processing status, which does not indicate that the physical data cleanup is complete.
      *
      * @remarks
-     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server first authenticates the request, verifies tenant and resource ownership, and identifies DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For assets that are not yet deleted and are eligible for deletion, the control plane conditionally writes a tombstone. The response returns the registered processing status, which does not indicate that the physical data cleanup is complete.
      *
      * @param request - DeleteAssetRequest
      * @param headers - map
@@ -3953,10 +4035,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server first authenticates the request, verifies tenant and resource ownership, and identifies DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For assets that are not yet deleted and are eligible for deletion, the control plane conditionally writes a tombstone. The response returns the registered processing status, which does not indicate that the physical data cleanup is complete.
      *
      * @remarks
-     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server first authenticates the request, verifies tenant and resource ownership, and identifies DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For assets that are not yet deleted and are eligible for deletion, the control plane conditionally writes a tombstone. The response returns the registered processing status, which does not indicate that the physical data cleanup is complete.
      *
      * @param request - DeleteAssetRequest
      *
@@ -4527,10 +4609,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without triggering redundant cleanup. After the deletion request is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer returns the resource. Physical data cleanup continues in the background.
      *
      * @remarks
-     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without triggering redundant cleanup. After the deletion request is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer returns the resource. Physical data cleanup continues in the background.
      *
      * @param request - DeleteKnowledgeBaseRequest
      * @param headers - map
@@ -4568,10 +4650,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without triggering redundant cleanup. After the deletion request is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer returns the resource. Physical data cleanup continues in the background.
      *
      * @remarks
-     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without triggering redundant cleanup. After the deletion request is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer returns the resource. Physical data cleanup continues in the background.
      *
      * @param request - DeleteKnowledgeBaseRequest
      *
@@ -6750,10 +6832,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     * Queries the asset management properties and current processing status. Poll the status parameter of this API until it returns COMPLETED or FAILED after uploading, rebuilding, or editing chunk content. For failure causes, see lastError. The publishedResultAvailable parameter indicates whether the published result is still available. This API does not accept a clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
      *
      * @remarks
-     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     * Queries the asset management properties and current processing status. Poll the status parameter of this API until it returns COMPLETED or FAILED after uploading, rebuilding, or editing chunk content. For failure causes, see lastError. The publishedResultAvailable parameter indicates whether the published result is still available. This API does not accept a clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
      *
      * @param request - GetAssetRequest
      * @param headers - map
@@ -6792,10 +6874,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     * Queries the asset management properties and current processing status. Poll the status parameter of this API until it returns COMPLETED or FAILED after uploading, rebuilding, or editing chunk content. For failure causes, see lastError. The publishedResultAvailable parameter indicates whether the published result is still available. This API does not accept a clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
      *
      * @remarks
-     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     * Queries the asset management properties and current processing status. Poll the status parameter of this API until it returns COMPLETED or FAILED after uploading, rebuilding, or editing chunk content. For failure causes, see lastError. The publishedResultAvailable parameter indicates whether the published result is still available. This API does not accept a clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
      *
      * @param request - GetAssetRequest
      *
@@ -6817,10 +6899,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     * Returns a time-limited download URL for the published original file of an asset by using a unified OSS public endpoint. Returns a status conflict if the asset is unpublished during initial processing. The published original file can still be downloaded during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
      *
      * @remarks
-     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     * Returns a time-limited download URL for the published original file of an asset by using a unified OSS public endpoint. Returns a status conflict if the asset is unpublished during initial processing. The published original file can still be downloaded during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
      *
      * @param request - GetAssetDownloadUrlRequest
      * @param headers - map
@@ -6859,10 +6941,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     * Returns a time-limited download URL for the published original file of an asset by using a unified OSS public endpoint. Returns a status conflict if the asset is unpublished during initial processing. The published original file can still be downloaded during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
      *
      * @remarks
-     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     * Returns a time-limited download URL for the published original file of an asset by using a unified OSS public endpoint. Returns a status conflict if the asset is unpublished during initial processing. The published original file can still be downloaded during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
      *
      * @param request - GetAssetDownloadUrlRequest
      *
@@ -7930,10 +8012,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. Retrieves the creation and deletion progress and failure causes through the status and lastError fields.
      *
      * @remarks
-     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. Retrieves the creation and deletion progress and failure causes through the status and lastError fields.
      *
      * @param request - GetKnowledgeBaseRequest
      * @param headers - map
@@ -7971,10 +8053,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. Retrieves the creation and deletion progress and failure causes through the status and lastError fields.
      *
      * @remarks
-     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. Retrieves the creation and deletion progress and failure causes through the status and lastError fields.
      *
      * @param request - GetKnowledgeBaseRequest
      *
@@ -9245,6 +9327,71 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Queries the execution status, detailed validation report, and failure causes of an asynchronous validation task for virtual MCP tools.
+     *
+     * @remarks
+     * Queries the status, report, and failure causes of an asynchronous validation task. You can continue to query the task before it finishes. PAUSED indicates that the task is paused. COMPLETED, PARTIAL_FAILED, FAILED, and CANCELED are terminal states. When querying a failed task, the API operation itself still succeeds. You can determine the task failure by checking data.status, failureCode, and failureMessage. The validation only returns a report and does not modify the gateway tool configurations.
+     *
+     * @param request - GetVirtualMcpToolValidationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVirtualMcpToolValidationResponse
+     *
+     * @param string                             $workspaceId
+     * @param string                             $validationId
+     * @param GetVirtualMcpToolValidationRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetVirtualMcpToolValidationResponse
+     */
+    public function getVirtualMcpToolValidationWithOptions($workspaceId, $validationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetVirtualMcpToolValidation',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-servers/virtual-tools/validations/' . Url::percentEncode($validationId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVirtualMcpToolValidationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the execution status, detailed validation report, and failure causes of an asynchronous validation task for virtual MCP tools.
+     *
+     * @remarks
+     * Queries the status, report, and failure causes of an asynchronous validation task. You can continue to query the task before it finishes. PAUSED indicates that the task is paused. COMPLETED, PARTIAL_FAILED, FAILED, and CANCELED are terminal states. When querying a failed task, the API operation itself still succeeds. You can determine the task failure by checking data.status, failureCode, and failureMessage. The validation only returns a report and does not modify the gateway tool configurations.
+     *
+     * @param request - GetVirtualMcpToolValidationRequest
+     *
+     * @returns GetVirtualMcpToolValidationResponse
+     *
+     * @param string                             $workspaceId
+     * @param string                             $validationId
+     * @param GetVirtualMcpToolValidationRequest $request
+     *
+     * @return GetVirtualMcpToolValidationResponse
+     */
+    public function getVirtualMcpToolValidation($workspaceId, $validationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVirtualMcpToolValidationWithOptions($workspaceId, $validationId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS workspace, AI Registry namespace, and current network policies.
      *
      * @remarks
@@ -10148,10 +10295,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     * Performs a paged query for undeleted assets in a knowledge base by file name prefix and processing status. Results are sorted in descending order by the most recent upload time, and then by assetId in descending order for assets with the same upload time. The upload time refers to the acceptance time of the latest new upload initiated by BeginAssetUpload. It is updated when you overwrite an upload, but remains unchanged for token replay or when you deduplicate sources. It does not represent the processing time. The list index is updated asynchronously and may experience slight delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Paging operations stop only when nextToken is empty. If a legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned, and a newly created knowledge base is required.
      *
      * @remarks
-     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     * Performs a paged query for undeleted assets in a knowledge base by file name prefix and processing status. Results are sorted in descending order by the most recent upload time, and then by assetId in descending order for assets with the same upload time. The upload time refers to the acceptance time of the latest new upload initiated by BeginAssetUpload. It is updated when you overwrite an upload, but remains unchanged for token replay or when you deduplicate sources. It does not represent the processing time. The list index is updated asynchronously and may experience slight delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Paging operations stop only when nextToken is empty. If a legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned, and a newly created knowledge base is required.
      *
      * @param request - ListAssetsRequest
      * @param headers - map
@@ -10207,10 +10354,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     * Performs a paged query for undeleted assets in a knowledge base by file name prefix and processing status. Results are sorted in descending order by the most recent upload time, and then by assetId in descending order for assets with the same upload time. The upload time refers to the acceptance time of the latest new upload initiated by BeginAssetUpload. It is updated when you overwrite an upload, but remains unchanged for token replay or when you deduplicate sources. It does not represent the processing time. The list index is updated asynchronously and may experience slight delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Paging operations stop only when nextToken is empty. If a legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned, and a newly created knowledge base is required.
      *
      * @remarks
-     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     * Performs a paged query for undeleted assets in a knowledge base by file name prefix and processing status. Results are sorted in descending order by the most recent upload time, and then by assetId in descending order for assets with the same upload time. The upload time refers to the acceptance time of the latest new upload initiated by BeginAssetUpload. It is updated when you overwrite an upload, but remains unchanged for token replay or when you deduplicate sources. It does not represent the processing time. The list index is updated asynchronously and may experience slight delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Paging operations stop only when nextToken is empty. If a legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned, and a newly created knowledge base is required.
      *
      * @param request - ListAssetsRequest
      *
@@ -11252,10 +11399,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each item returns the status and lastError fields, which can be used to track the progress of knowledge base creation and deletion and identify the causes of failures.
      *
      * @remarks
-     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each item returns the status and lastError fields, which can be used to track the progress of knowledge base creation and deletion and identify the causes of failures.
      *
      * @param request - ListKnowledgeBasesRequest
      * @param headers - map
@@ -11302,10 +11449,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each item returns the status and lastError fields, which can be used to track the progress of knowledge base creation and deletion and identify the causes of failures.
      *
      * @remarks
-     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each item returns the status and lastError fields, which can be used to track the progress of knowledge base creation and deletion and identify the causes of failures.
      *
      * @param request - ListKnowledgeBasesRequest
      *
@@ -11491,6 +11638,81 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Queries the list of virtual MCP or agent resources that reference a specified MCP service in the current workspace.
+     *
+     * @remarks
+     * Queries MCP references. Validation only returns a report and does not modify gateway tool configurations.
+     *
+     * @param request - ListMcpReferencesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcpReferencesResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $mcpServerId
+     * @param ListMcpReferencesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListMcpReferencesResponse
+     */
+    public function listMcpReferencesWithOptions($workspaceId, $mcpServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcpReferences',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-servers/' . Url::percentEncode($mcpServerId) . '/references',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcpReferencesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of virtual MCP or agent resources that reference a specified MCP service in the current workspace.
+     *
+     * @remarks
+     * Queries MCP references. Validation only returns a report and does not modify gateway tool configurations.
+     *
+     * @param request - ListMcpReferencesRequest
+     *
+     * @returns ListMcpReferencesResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $mcpServerId
+     * @param ListMcpReferencesRequest $request
+     *
+     * @return ListMcpReferencesResponse
+     */
+    public function listMcpReferences($workspaceId, $mcpServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMcpReferencesWithOptions($workspaceId, $mcpServerId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of tools exposed by a specified MCP service and their input and output schemas.
      *
      * @remarks
@@ -11566,10 +11788,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
+     * Performs a paged query to retrieve the MCP services and their configurations and status in a specified workspace with paging.
      *
      * @remarks
-     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
+     * Performs a paged query to retrieve the MCP services and their configurations and status in a specified workspace with paging.
      *
      * @param request - ListMcpsRequest
      * @param headers - map
@@ -11592,6 +11814,10 @@ class AgentCore extends OpenApiClient
             @$query['customTag'] = $request->customTag;
         }
 
+        if (null !== $request->includeVirtualConfig) {
+            @$query['includeVirtualConfig'] = $request->includeVirtualConfig;
+        }
+
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
         }
@@ -11610,6 +11836,10 @@ class AgentCore extends OpenApiClient
 
         if (null !== $request->searchType) {
             @$query['searchType'] = $request->searchType;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
 
         if (null !== $request->usageActive) {
@@ -11636,10 +11866,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
+     * Performs a paged query to retrieve the MCP services and their configurations and status in a specified workspace with paging.
      *
      * @remarks
-     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
+     * Performs a paged query to retrieve the MCP services and their configurations and status in a specified workspace with paging.
      *
      * @param request - ListMcpsRequest
      *
@@ -14254,10 +14484,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the following order: the current request, the knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results may be less than the topK value after filtering and permission verification. Phase I search provides eventual consistency. Newly published results can be searched after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
      *
      * @remarks
-     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the following order: the current request, the knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results may be less than the topK value after filtering and permission verification. Phase I search provides eventual consistency. Newly published results can be searched after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
      *
      * @param tmpReq - SearchKnowledgeBaseRequest
      * @param headers - map
@@ -14307,10 +14537,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the following order: the current request, the knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results may be less than the topK value after filtering and permission verification. Phase I search provides eventual consistency. Newly published results can be searched after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
      *
      * @remarks
-     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the following order: the current request, the knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results may be less than the topK value after filtering and permission verification. Phase I search provides eventual consistency. Newly published results can be searched after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
      *
      * @param request - SearchKnowledgeBaseRequest
      *
@@ -14973,10 +15203,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     * Updates the content or enabled status of a chunk by its logical sequence number. The opaque chunkToken returned by the query must be passed back. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published results, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when published results exist and are not deleted, including PENDING, PROCESSING, and FAILED states, without waiting for Function Compute. During this period, newly published results are not followed, rolled back, or appended to avoid version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. Target vectors are calculated asynchronously and complete results are published. You can query the current status, lastError, and publishedResultAvailable of the document by calling GetAsset. Content editing with the same clientToken idempotently replays the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
      *
      * @remarks
-     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     * Updates the content or enabled status of a chunk by its logical sequence number. The opaque chunkToken returned by the query must be passed back. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published results, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when published results exist and are not deleted, including PENDING, PROCESSING, and FAILED states, without waiting for Function Compute. During this period, newly published results are not followed, rolled back, or appended to avoid version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. Target vectors are calculated asynchronously and complete results are published. You can query the current status, lastError, and publishedResultAvailable of the document by calling GetAsset. Content editing with the same clientToken idempotently replays the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
      *
      * @param tmpReq - UpdateChunkRequest
      * @param headers - map
@@ -15034,10 +15264,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     * Updates the content or enabled status of a chunk by its logical sequence number. The opaque chunkToken returned by the query must be passed back. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published results, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when published results exist and are not deleted, including PENDING, PROCESSING, and FAILED states, without waiting for Function Compute. During this period, newly published results are not followed, rolled back, or appended to avoid version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. Target vectors are calculated asynchronously and complete results are published. You can query the current status, lastError, and publishedResultAvailable of the document by calling GetAsset. Content editing with the same clientToken idempotently replays the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
      *
      * @remarks
-     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     * Updates the content or enabled status of a chunk by its logical sequence number. The opaque chunkToken returned by the query must be passed back. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published results, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when published results exist and are not deleted, including PENDING, PROCESSING, and FAILED states, without waiting for Function Compute. During this period, newly published results are not followed, rolled back, or appended to avoid version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. Target vectors are calculated asynchronously and complete results are published. You can query the current status, lastError, and publishedResultAvailable of the document by calling GetAsset. Content editing with the same clientToken idempotently replays the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
      *
      * @param request - UpdateChunkRequest
      *
@@ -16222,7 +16452,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the MCP parameters based on a template.
+     * Updates MCP parameters based on a template.
      *
      * @remarks
      * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
@@ -16286,7 +16516,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the MCP parameters based on a template.
+     * Updates MCP parameters based on a template.
      *
      * @remarks
      * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
