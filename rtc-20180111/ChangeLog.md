@@ -1,3 +1,6 @@
+2026-11-27 Version: 5.3.6
+- Generated php 2018-01-11 for rtc.
+
 2026-11-27 Version: 5.4.0
 - Support API RtcSendSipDtmf.
 
