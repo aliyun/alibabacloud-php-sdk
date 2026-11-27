@@ -1,3 +1,6 @@
+2026-11-27 Version: 1.1.3
+- Generated php 2026-06-17 for Kvcachestore.
+
 2026-11-26 Version: 1.1.2
 - Update API ListKVCacheStoreAttachInfo: add response parameters Body.AttachInfos.$.ControlSn.
 - Update API ListKVCacheStoreAttachInfo: add response parameters Body.AttachInfos.$.Nguid.
