@@ -16,6 +16,11 @@ class ModifySandboxTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $defaultDisk;
+
+    /**
+     * @var string
+     */
     public $defaultMemory;
 
     /**
@@ -49,6 +54,7 @@ class ModifySandboxTemplateShrinkRequest extends Model
     public $templateId;
     protected $_name = [
         'defaultCpu' => 'DefaultCpu',
+        'defaultDisk' => 'DefaultDisk',
         'defaultMemory' => 'DefaultMemory',
         'image' => 'Image',
         'instanceName' => 'InstanceName',
@@ -68,6 +74,10 @@ class ModifySandboxTemplateShrinkRequest extends Model
         $res = [];
         if (null !== $this->defaultCpu) {
             $res['DefaultCpu'] = $this->defaultCpu;
+        }
+
+        if (null !== $this->defaultDisk) {
+            $res['DefaultDisk'] = $this->defaultDisk;
         }
 
         if (null !== $this->defaultMemory) {
@@ -111,6 +121,10 @@ class ModifySandboxTemplateShrinkRequest extends Model
         $model = new self();
         if (isset($map['DefaultCpu'])) {
             $model->defaultCpu = $map['DefaultCpu'];
+        }
+
+        if (isset($map['DefaultDisk'])) {
+            $model->defaultDisk = $map['DefaultDisk'];
         }
 
         if (isset($map['DefaultMemory'])) {

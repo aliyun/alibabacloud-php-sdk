@@ -16,6 +16,11 @@ class CreateSandboxTemplateRequest extends Model
     /**
      * @var string
      */
+    public $defaultDisk;
+
+    /**
+     * @var string
+     */
     public $defaultMemory;
 
     /**
@@ -54,6 +59,7 @@ class CreateSandboxTemplateRequest extends Model
     public $templateName;
     protected $_name = [
         'defaultCpu' => 'DefaultCpu',
+        'defaultDisk' => 'DefaultDisk',
         'defaultMemory' => 'DefaultMemory',
         'description' => 'Description',
         'image' => 'Image',
@@ -77,6 +83,10 @@ class CreateSandboxTemplateRequest extends Model
         $res = [];
         if (null !== $this->defaultCpu) {
             $res['DefaultCpu'] = $this->defaultCpu;
+        }
+
+        if (null !== $this->defaultDisk) {
+            $res['DefaultDisk'] = $this->defaultDisk;
         }
 
         if (null !== $this->defaultMemory) {
@@ -129,6 +139,10 @@ class CreateSandboxTemplateRequest extends Model
         $model = new self();
         if (isset($map['DefaultCpu'])) {
             $model->defaultCpu = $map['DefaultCpu'];
+        }
+
+        if (isset($map['DefaultDisk'])) {
+            $model->defaultDisk = $map['DefaultDisk'];
         }
 
         if (isset($map['DefaultMemory'])) {

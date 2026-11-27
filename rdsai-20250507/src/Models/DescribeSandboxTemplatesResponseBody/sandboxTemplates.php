@@ -21,6 +21,11 @@ class sandboxTemplates extends Model
     /**
      * @var string
      */
+    public $defaultDisk;
+
+    /**
+     * @var string
+     */
     public $defaultMemory;
 
     /**
@@ -60,6 +65,7 @@ class sandboxTemplates extends Model
     protected $_name = [
         'createdBy' => 'CreatedBy',
         'defaultCpu' => 'DefaultCpu',
+        'defaultDisk' => 'DefaultDisk',
         'defaultMemory' => 'DefaultMemory',
         'description' => 'Description',
         'enableVpcAccess' => 'EnableVpcAccess',
@@ -87,6 +93,10 @@ class sandboxTemplates extends Model
 
         if (null !== $this->defaultCpu) {
             $res['DefaultCpu'] = $this->defaultCpu;
+        }
+
+        if (null !== $this->defaultDisk) {
+            $res['DefaultDisk'] = $this->defaultDisk;
         }
 
         if (null !== $this->defaultMemory) {
@@ -143,6 +153,10 @@ class sandboxTemplates extends Model
 
         if (isset($map['DefaultCpu'])) {
             $model->defaultCpu = $map['DefaultCpu'];
+        }
+
+        if (isset($map['DefaultDisk'])) {
+            $model->defaultDisk = $map['DefaultDisk'];
         }
 
         if (isset($map['DefaultMemory'])) {

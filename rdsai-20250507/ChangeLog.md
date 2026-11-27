@@ -1,3 +1,10 @@
+2026-11-27 Version: 3.12.1
+- Update API CreateSandboxTemplate: add request parameters DefaultDisk.
+- Update API DescribeCommonSandboxTemplates: add response parameters Body.Templates.$.DefaultDisk.
+- Update API DescribeSandboxTemplates: add response parameters Body.SandboxTemplates.$.DefaultDisk.
+- Update API ModifySandboxTemplate: add request parameters DefaultDisk.
+
+
 2026-11-25 Version: 3.12.0
 - Support API ListLLMGatewayMetrics.
 
