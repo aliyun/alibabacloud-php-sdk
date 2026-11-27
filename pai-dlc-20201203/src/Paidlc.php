@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRLSampleRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRLSampleResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRLTrainingProgressRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRLTrainingProgressResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRLTrajectoryRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRLTrajectoryResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetSignalRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetSignalResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
@@ -1689,10 +1691,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 查询 DLC 作业 RL 轨迹流转分析.
+     * Retrieves the RL trajectory flow analysis of a DLC job.
      *
      * @remarks
-     * 获取DLC作业RL轨迹流转分析
+     * Retrieves the RL trajectory flow analysis of a DLC job.
      *
      * @param request - GetRLFlowAnalysisRequest
      * @param headers - map
@@ -1739,10 +1741,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 查询 DLC 作业 RL 轨迹流转分析.
+     * Retrieves the RL trajectory flow analysis of a DLC job.
      *
      * @remarks
-     * 获取DLC作业RL轨迹流转分析
+     * Retrieves the RL trajectory flow analysis of a DLC job.
      *
      * @param request - GetRLFlowAnalysisRequest
      *
@@ -1762,10 +1764,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 查询 DLC 作业 RL 日志上下文.
+     * Retrieves the context of a specific exception log for a DLC job.
      *
      * @remarks
-     * 获取DLC作业某条异常日志的上下文
+     * Retrieves the context of a specific exception log for a DLC job.
      *
      * @param request - GetRLLogContextRequest
      * @param headers - map
@@ -1816,10 +1818,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 查询 DLC 作业 RL 日志上下文.
+     * Retrieves the context of a specific exception log for a DLC job.
      *
      * @remarks
-     * 获取DLC作业某条异常日志的上下文
+     * Retrieves the context of a specific exception log for a DLC job.
      *
      * @param request - GetRLLogContextRequest
      *
@@ -1990,6 +1992,87 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->getRLTrainingProgressWithOptions($JobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+     *
+     * @remarks
+     * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+     *
+     * @param request - GetRLTrajectoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRLTrajectoryResponse
+     *
+     * @param string                 $JobId
+     * @param GetRLTrajectoryRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRLTrajectoryResponse
+     */
+    public function getRLTrajectoryWithOptions($JobId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->promptUid) {
+            @$query['PromptUid'] = $request->promptUid;
+        }
+
+        if (null !== $request->sampleIndex) {
+            @$query['SampleIndex'] = $request->sampleIndex;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRLTrajectory',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/rltrace/trajectory',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRLTrajectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+     *
+     * @remarks
+     * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+     *
+     * @param request - GetRLTrajectoryRequest
+     *
+     * @returns GetRLTrajectoryResponse
+     *
+     * @param string                 $JobId
+     * @param GetRLTrajectoryRequest $request
+     *
+     * @return GetRLTrajectoryResponse
+     */
+    public function getRLTrajectory($JobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRLTrajectoryWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
@@ -2934,10 +3017,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 分页查询 DLC 作业的 RL 样本轨迹.
+     * Retrieves a paginated list of RL trajectory samples for a DLC job.
      *
      * @remarks
-     * 分页获取DLC作业的RL轨迹样本列表
+     * Retrieves a paginated list of RL trajectory samples for a DLC job.
      *
      * @param request - ListRLSamplesRequest
      * @param headers - map
@@ -2992,10 +3075,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 分页查询 DLC 作业的 RL 样本轨迹.
+     * Retrieves a paginated list of RL trajectory samples for a DLC job.
      *
      * @remarks
-     * 分页获取DLC作业的RL轨迹样本列表
+     * Retrieves a paginated list of RL trajectory samples for a DLC job.
      *
      * @param request - ListRLSamplesRequest
      *
@@ -3015,10 +3098,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 分页查询 DLC 样本的 RL 轨迹.
+     * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
      *
      * @remarks
-     * 分页获取DLC作业某个uid下的RL轨迹列表
+     * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
      *
      * @param request - ListRLTrajectoriesRequest
      * @param headers - map
@@ -3077,10 +3160,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 分页查询 DLC 样本的 RL 轨迹.
+     * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
      *
      * @remarks
-     * 分页获取DLC作业某个uid下的RL轨迹列表
+     * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
      *
      * @param request - ListRLTrajectoriesRequest
      *
