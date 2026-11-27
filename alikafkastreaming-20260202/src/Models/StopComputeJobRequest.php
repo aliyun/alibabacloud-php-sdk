@@ -22,10 +22,16 @@ class StopComputeJobRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $stopStrategy;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'jobName' => 'JobName',
         'regionId' => 'RegionId',
+        'stopStrategy' => 'StopStrategy',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class StopComputeJobRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->stopStrategy) {
+            $res['StopStrategy'] = $this->stopStrategy;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class StopComputeJobRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['StopStrategy'])) {
+            $model->stopStrategy = $map['StopStrategy'];
         }
 
         return $model;

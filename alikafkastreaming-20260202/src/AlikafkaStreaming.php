@@ -1441,11 +1441,11 @@ class AlikafkaStreaming extends OpenApiClient
     }
 
     /**
-     * Stops a compute job in a specified region and instance.
+     * Stops a computing job in a specified region and instance.
      *
      * @remarks
      * ## Request description
-     * - This operation stops the production or debug runtime instance of a specified compute job.
+     * - This operation stops the production or debug running instance of a specified computing job.
      * - A successful response indicates that the stop request has been accepted, but it does not mean that the job stops immediately.
      *
      * @param request - StopComputeJobRequest
@@ -1474,6 +1474,10 @@ class AlikafkaStreaming extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->stopStrategy) {
+            @$query['StopStrategy'] = $request->stopStrategy;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1493,11 +1497,11 @@ class AlikafkaStreaming extends OpenApiClient
     }
 
     /**
-     * Stops a compute job in a specified region and instance.
+     * Stops a computing job in a specified region and instance.
      *
      * @remarks
      * ## Request description
-     * - This operation stops the production or debug runtime instance of a specified compute job.
+     * - This operation stops the production or debug running instance of a specified computing job.
      * - A successful response indicates that the stop request has been accepted, but it does not mean that the job stops immediately.
      *
      * @param request - StopComputeJobRequest
