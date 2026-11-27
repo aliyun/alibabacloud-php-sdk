@@ -87,6 +87,8 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyElasticRuleRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyElasticRuleResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyFEClusterRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyFEClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifySecurityIPListRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifySecurityIPListResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyVirtualClusterRequest;
@@ -110,6 +112,7 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceDeploySchemeResp
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceDeploySchemeShrinkRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceEngineVersionRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceEngineVersionResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -120,6 +123,9 @@ class Selectdb extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'selectdb';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-southeast-3' => 'selectdb.aliyuncs.com',
@@ -1594,7 +1600,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the cluster configuration.
+     * Queries the configurations of a cluster.
      *
      * @param request - DescribeDBClusterConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1645,7 +1651,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the cluster configuration.
+     * Queries the configurations of a cluster.
      *
      * @param request - DescribeDBClusterConfigRequest
      *
@@ -1808,7 +1814,7 @@ class Selectdb extends OpenApiClient
      * Queries the details of an instance.
      *
      * @remarks
-     * Subscription instances cannot be deleted.
+     * You cannot delete subscription instances.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1858,7 +1864,7 @@ class Selectdb extends OpenApiClient
      * Queries the details of an instance.
      *
      * @remarks
-     * Subscription instances cannot be deleted.
+     * You cannot delete subscription instances.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -1876,7 +1882,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the network information of a specified ApsaraDB for SelectDB instance.
+     * Queries the network information of a specified ApsaraDB for SelectDB database instance.
      *
      * @param request - DescribeDBInstanceNetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1923,7 +1929,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the network information of a specified ApsaraDB for SelectDB instance.
+     * Queries the network information of a specified ApsaraDB for SelectDB database instance.
      *
      * @param request - DescribeDBInstanceNetInfoRequest
      *
@@ -2036,7 +2042,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the time-based elastic rules.
+     * Queries time-based elastic rules.
      *
      * @param request - DescribeElasticRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2071,7 +2077,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the time-based elastic rules.
+     * Queries time-based elastic rules.
      *
      * @param request - DescribeElasticRulesRequest
      *
@@ -2777,7 +2783,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
+     * Queries the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetModifyBEClusterInquiryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2812,7 +2818,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
+     * Queries the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetModifyBEClusterInquiryRequest
      *
@@ -3247,6 +3253,83 @@ class Selectdb extends OpenApiClient
     }
 
     /**
+     * Scales the FE cluster of a specified ApsaraDB for SelectDB instance.
+     *
+     * @param request - ModifyFEClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyFEClusterResponse
+     *
+     * @param ModifyFEClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyFEClusterResponse
+     */
+    public function modifyFEClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->FEClassCode) {
+            @$query['FEClassCode'] = $request->FEClassCode;
+        }
+
+        if (null !== $request->FEClusterId) {
+            @$query['FEClusterId'] = $request->FEClusterId;
+        }
+
+        if (null !== $request->FENodeCount) {
+            @$query['FENodeCount'] = $request->FENodeCount;
+        }
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyFECluster',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyFEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Scales the FE cluster of a specified ApsaraDB for SelectDB instance.
+     *
+     * @param request - ModifyFEClusterRequest
+     *
+     * @returns ModifyFEClusterResponse
+     *
+     * @param ModifyFEClusterRequest $request
+     *
+     * @return ModifyFEClusterResponse
+     */
+    public function modifyFECluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFEClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifySecurityIPListRequest
@@ -3409,7 +3492,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of an ApsaraDB for SelectDB instance.
+     * Releases the public endpoint of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ReleaseInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3460,7 +3543,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of an ApsaraDB for SelectDB instance.
+     * Releases the public endpoint of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ReleaseInstancePublicConnectionRequest
      *
