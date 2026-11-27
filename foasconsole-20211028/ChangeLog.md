@@ -1,3 +1,6 @@
+2026-11-27 Version: 2.4.2
+- Generated php 2021-10-28 for foasconsole.
+
 2026-11-16 Version: 2.4.1
 - Update API QueryCreateInstancePrice: add response parameters Body.PriceInfo.ModulePrices.
 
