@@ -57,6 +57,11 @@ class HttpApiOperation extends Model
      * @var HttpApiResponseContract
      */
     public $response;
+
+    /**
+     * @var HttpApiSystemParameters
+     */
+    public $systemParameters;
     protected $_name = [
         'authConfig' => 'authConfig',
         'deployConfigs' => 'deployConfigs',
@@ -68,6 +73,7 @@ class HttpApiOperation extends Model
         'path' => 'path',
         'request' => 'request',
         'response' => 'response',
+        'systemParameters' => 'systemParameters',
     ];
 
     public function validate()
@@ -86,6 +92,9 @@ class HttpApiOperation extends Model
         }
         if (null !== $this->response) {
             $this->response->validate();
+        }
+        if (null !== $this->systemParameters) {
+            $this->systemParameters->validate();
         }
         parent::validate();
     }
@@ -138,6 +147,10 @@ class HttpApiOperation extends Model
 
         if (null !== $this->response) {
             $res['response'] = null !== $this->response ? $this->response->toArray($noStream) : $this->response;
+        }
+
+        if (null !== $this->systemParameters) {
+            $res['systemParameters'] = null !== $this->systemParameters ? $this->systemParameters->toArray($noStream) : $this->systemParameters;
         }
 
         return $res;
@@ -196,6 +209,10 @@ class HttpApiOperation extends Model
 
         if (isset($map['response'])) {
             $model->response = HttpApiResponseContract::fromMap($map['response']);
+        }
+
+        if (isset($map['systemParameters'])) {
+            $model->systemParameters = HttpApiSystemParameters::fromMap($map['systemParameters']);
         }
 
         return $model;

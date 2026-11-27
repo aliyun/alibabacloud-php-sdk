@@ -63,6 +63,11 @@ class data extends Model
     public $expireStatus;
 
     /**
+     * @var string
+     */
+    public $extInfo;
+
+    /**
      * @var JwtIdentityConfig
      */
     public $jwtIdentityConfig;
@@ -87,6 +92,7 @@ class data extends Model
         'enable' => 'enable',
         'expireAt' => 'expireAt',
         'expireStatus' => 'expireStatus',
+        'extInfo' => 'extInfo',
         'jwtIdentityConfig' => 'jwtIdentityConfig',
         'name' => 'name',
         'updateTimestamp' => 'updateTimestamp',
@@ -166,6 +172,10 @@ class data extends Model
             $res['expireStatus'] = $this->expireStatus;
         }
 
+        if (null !== $this->extInfo) {
+            $res['extInfo'] = $this->extInfo;
+        }
+
         if (null !== $this->jwtIdentityConfig) {
             $res['jwtIdentityConfig'] = null !== $this->jwtIdentityConfig ? $this->jwtIdentityConfig->toArray($noStream) : $this->jwtIdentityConfig;
         }
@@ -241,6 +251,10 @@ class data extends Model
 
         if (isset($map['expireStatus'])) {
             $model->expireStatus = $map['expireStatus'];
+        }
+
+        if (isset($map['extInfo'])) {
+            $model->extInfo = $map['extInfo'];
         }
 
         if (isset($map['jwtIdentityConfig'])) {

@@ -44,6 +44,11 @@ class UpdateConsumerRequest extends Model
     public $expireAt;
 
     /**
+     * @var string
+     */
+    public $extInfo;
+
+    /**
      * @var JwtIdentityConfig
      */
     public $jwtIdentityConfig;
@@ -60,6 +65,7 @@ class UpdateConsumerRequest extends Model
         'enable' => 'enable',
         'enableAfterRenewal' => 'enableAfterRenewal',
         'expireAt' => 'expireAt',
+        'extInfo' => 'extInfo',
         'jwtIdentityConfig' => 'jwtIdentityConfig',
         'renew' => 'renew',
     ];
@@ -116,6 +122,10 @@ class UpdateConsumerRequest extends Model
             $res['expireAt'] = $this->expireAt;
         }
 
+        if (null !== $this->extInfo) {
+            $res['extInfo'] = $this->extInfo;
+        }
+
         if (null !== $this->jwtIdentityConfig) {
             $res['jwtIdentityConfig'] = null !== $this->jwtIdentityConfig ? $this->jwtIdentityConfig->toArray($noStream) : $this->jwtIdentityConfig;
         }
@@ -168,6 +178,10 @@ class UpdateConsumerRequest extends Model
 
         if (isset($map['expireAt'])) {
             $model->expireAt = $map['expireAt'];
+        }
+
+        if (isset($map['extInfo'])) {
+            $model->extInfo = $map['extInfo'];
         }
 
         if (isset($map['jwtIdentityConfig'])) {

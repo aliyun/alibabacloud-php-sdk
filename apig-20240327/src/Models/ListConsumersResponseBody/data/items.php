@@ -46,6 +46,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $extInfo;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -60,6 +65,7 @@ class items extends Model
         'enable' => 'enable',
         'expireAt' => 'expireAt',
         'expireStatus' => 'expireStatus',
+        'extInfo' => 'extInfo',
         'name' => 'name',
         'updateTimestamp' => 'updateTimestamp',
     ];
@@ -98,6 +104,10 @@ class items extends Model
 
         if (null !== $this->expireStatus) {
             $res['expireStatus'] = $this->expireStatus;
+        }
+
+        if (null !== $this->extInfo) {
+            $res['extInfo'] = $this->extInfo;
         }
 
         if (null !== $this->name) {
@@ -145,6 +155,10 @@ class items extends Model
 
         if (isset($map['expireStatus'])) {
             $model->expireStatus = $map['expireStatus'];
+        }
+
+        if (isset($map['extInfo'])) {
+            $model->extInfo = $map['extInfo'];
         }
 
         if (isset($map['name'])) {

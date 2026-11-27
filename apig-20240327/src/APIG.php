@@ -1891,7 +1891,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an AI model in a model source.
+     * Creates an AI model in a source.
      *
      * @param request - CreateAiModelSourceModelRequest
      * @param headers - map
@@ -1959,7 +1959,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an AI model in a model source.
+     * Creates an AI model in a source.
      *
      * @param request - CreateAiModelSourceModelRequest
      *
@@ -2181,6 +2181,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->expireAt) {
             @$body['expireAt'] = $request->expireAt;
+        }
+
+        if (null !== $request->extInfo) {
+            @$body['extInfo'] = $request->extInfo;
         }
 
         if (null !== $request->gatewayType) {
@@ -3747,7 +3751,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a model group.
+     * Creates a model group for model creation.
      *
      * @param request - CreateModelGroupRequest
      * @param headers - map
@@ -3801,7 +3805,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a model group.
+     * Creates a model group for model creation.
      *
      * @param request - CreateModelGroupRequest
      *
@@ -7374,7 +7378,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries AI models in a source.
+     * Queries an AI model in a model source.
      *
      * @param request - GetAiModelSourceModelRequest
      * @param headers - map
@@ -7411,7 +7415,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries AI models in a source.
+     * Queries an AI model in a model source.
      *
      * @param request - GetAiModelSourceModelRequest
      *
@@ -7789,7 +7793,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves consumer authorization rules.
+     * Retrieves a consumer authorization rule.
      *
      * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
      *
@@ -7827,7 +7831,7 @@ class APIG extends OpenApiClient
 
     // Deprecated
     /**
-     * Retrieves consumer authorization rules.
+     * Retrieves a consumer authorization rule.
      *
      * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
      *
@@ -8948,7 +8952,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the HTTP API information.
+     * Retrieves HTTP API information.
      *
      * @param request - GetHttpApiRequest
      * @param headers - map
@@ -8991,7 +8995,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the HTTP API information.
+     * Retrieves HTTP API information.
      *
      * @param request - GetHttpApiRequest
      *
@@ -9011,7 +9015,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the API operation information.
+     * Retrieves API operation information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9046,7 +9050,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the API operation information.
+     * Retrieves API operation information.
      *
      * @returns GetHttpApiOperationResponse
      *
@@ -11154,7 +11158,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of standalone AI model sources.
+     * Queries a list of independent AI model sources.
      *
      * @param request - ListAiModelSourcesRequest
      * @param headers - map
@@ -11212,7 +11216,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of standalone AI model sources.
+     * Queries a list of independent AI model sources.
      *
      * @param request - ListAiModelSourcesRequest
      *
@@ -13658,7 +13662,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of HTTP APIs.
+     * Retrieves a list of HTTP APIs.
      *
      * @param request - ListHttpApisRequest
      * @param headers - map
@@ -13764,7 +13768,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of HTTP APIs.
+     * Retrieves a list of HTTP APIs.
      *
      * @param request - ListHttpApisRequest
      *
@@ -14203,7 +14207,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of model APIs.
+     * Queries model APIs.
      *
      * @param request - ListModelApisRequest
      * @param headers - map
@@ -14269,7 +14273,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of model APIs.
+     * Queries model APIs.
      *
      * @param request - ListModelApisRequest
      *
@@ -14479,7 +14483,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plugin mounts.
+     * Retrieves the plugin mount list.
      *
      * @param request - ListPluginAttachmentsRequest
      * @param headers - map
@@ -14553,7 +14557,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plugin mounts.
+     * Retrieves the plugin mount list.
      *
      * @param request - ListPluginAttachmentsRequest
      *
@@ -16613,7 +16617,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries consumer authorization rules.
+     * Queries the list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -16707,7 +16711,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries consumer authorization rules.
+     * Queries the list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      *
@@ -18035,7 +18039,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an AI model in a source.
+     * Updates an AI model in a model source.
      *
      * @param request - UpdateAiModelSourceModelRequest
      * @param headers - map
@@ -18098,7 +18102,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an AI model in a source.
+     * Updates an AI model in a model source.
      *
      * @param request - UpdateAiModelSourceModelRequest
      *
@@ -18380,6 +18384,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->expireAt) {
             @$body['expireAt'] = $request->expireAt;
+        }
+
+        if (null !== $request->extInfo) {
+            @$body['extInfo'] = $request->extInfo;
         }
 
         if (null !== $request->jwtIdentityConfig) {

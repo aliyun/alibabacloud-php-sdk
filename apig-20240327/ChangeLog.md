@@ -1,3 +1,10 @@
+2026-11-27 Version: 11.14.1
+- Update API CreateConsumer: add request parameters body.extInfo.
+- Update API GetConsumer: add response parameters Body.data.extInfo.
+- Update API ListConsumers: add response parameters Body.data.items.$.extInfo.
+- Update API UpdateConsumer: add request parameters body.extInfo.
+
+
 2026-11-25 Version: 11.14.0
 - Support API BatchDeleteHttpApiRoutes.
 - Support API BatchUndeployHttpApiRoutes.

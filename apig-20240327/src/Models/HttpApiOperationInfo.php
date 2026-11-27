@@ -72,6 +72,11 @@ class HttpApiOperationInfo extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var HttpApiSystemParameters
+     */
+    public $systemParameters;
     protected $_name = [
         'authConfig' => 'authConfig',
         'createTimestamp' => 'createTimestamp',
@@ -86,6 +91,7 @@ class HttpApiOperationInfo extends Model
         'request' => 'request',
         'response' => 'response',
         'status' => 'status',
+        'systemParameters' => 'systemParameters',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class HttpApiOperationInfo extends Model
         }
         if (null !== $this->response) {
             $this->response->validate();
+        }
+        if (null !== $this->systemParameters) {
+            $this->systemParameters->validate();
         }
         parent::validate();
     }
@@ -168,6 +177,10 @@ class HttpApiOperationInfo extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->systemParameters) {
+            $res['systemParameters'] = null !== $this->systemParameters ? $this->systemParameters->toArray($noStream) : $this->systemParameters;
         }
 
         return $res;
@@ -238,6 +251,10 @@ class HttpApiOperationInfo extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['systemParameters'])) {
+            $model->systemParameters = HttpApiSystemParameters::fromMap($map['systemParameters']);
         }
 
         return $model;

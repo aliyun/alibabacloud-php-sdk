@@ -36,6 +36,11 @@ class CreateConsumerRequest extends Model
     /**
      * @var string
      */
+    public $extInfo;
+
+    /**
+     * @var string
+     */
     public $gatewayType;
 
     /**
@@ -63,6 +68,7 @@ class CreateConsumerRequest extends Model
         'description' => 'description',
         'enable' => 'enable',
         'expireAt' => 'expireAt',
+        'extInfo' => 'extInfo',
         'gatewayType' => 'gatewayType',
         'jwtIdentityConfig' => 'jwtIdentityConfig',
         'name' => 'name',
@@ -112,6 +118,10 @@ class CreateConsumerRequest extends Model
 
         if (null !== $this->expireAt) {
             $res['expireAt'] = $this->expireAt;
+        }
+
+        if (null !== $this->extInfo) {
+            $res['extInfo'] = $this->extInfo;
         }
 
         if (null !== $this->gatewayType) {
@@ -170,6 +180,10 @@ class CreateConsumerRequest extends Model
 
         if (isset($map['expireAt'])) {
             $model->expireAt = $map['expireAt'];
+        }
+
+        if (isset($map['extInfo'])) {
+            $model->extInfo = $map['extInfo'];
         }
 
         if (isset($map['gatewayType'])) {

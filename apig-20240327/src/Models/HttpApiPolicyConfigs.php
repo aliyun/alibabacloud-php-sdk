@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\semanticRouterCo
 class HttpApiPolicyConfigs extends Model
 {
     /**
+     * @var AiBasicGuardrailConfig
+     */
+    public $aiBasicGuardrailConfig;
+
+    /**
      * @var AiCacheConfig
      */
     public $aiCacheConfig;
@@ -64,6 +69,7 @@ class HttpApiPolicyConfigs extends Model
      */
     public $type;
     protected $_name = [
+        'aiBasicGuardrailConfig' => 'aiBasicGuardrailConfig',
         'aiCacheConfig' => 'aiCacheConfig',
         'aiFallbackConfig' => 'aiFallbackConfig',
         'aiNetworkSearchConfig' => 'aiNetworkSearchConfig',
@@ -79,6 +85,9 @@ class HttpApiPolicyConfigs extends Model
 
     public function validate()
     {
+        if (null !== $this->aiBasicGuardrailConfig) {
+            $this->aiBasicGuardrailConfig->validate();
+        }
         if (null !== $this->aiCacheConfig) {
             $this->aiCacheConfig->validate();
         }
@@ -112,6 +121,10 @@ class HttpApiPolicyConfigs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiBasicGuardrailConfig) {
+            $res['aiBasicGuardrailConfig'] = null !== $this->aiBasicGuardrailConfig ? $this->aiBasicGuardrailConfig->toArray($noStream) : $this->aiBasicGuardrailConfig;
+        }
+
         if (null !== $this->aiCacheConfig) {
             $res['aiCacheConfig'] = null !== $this->aiCacheConfig ? $this->aiCacheConfig->toArray($noStream) : $this->aiCacheConfig;
         }
@@ -167,6 +180,10 @@ class HttpApiPolicyConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aiBasicGuardrailConfig'])) {
+            $model->aiBasicGuardrailConfig = AiBasicGuardrailConfig::fromMap($map['aiBasicGuardrailConfig']);
+        }
+
         if (isset($map['aiCacheConfig'])) {
             $model->aiCacheConfig = AiCacheConfig::fromMap($map['aiCacheConfig']);
         }
